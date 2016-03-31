@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  28 MAR 2016 07:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  30 MAR 2016 22:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_06/hw_1.tex
-(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_06/hw_1.tex
+**/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_05/hw_1.tex
+(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_05/hw_1.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
@@ -2030,52 +2030,52 @@ les
 \f@ncyO@erf=\skip100
 \f@ncyO@olf=\skip101
 \f@ncyO@orf=\skip102
-) (/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_06/hw_1.aux)
+) (/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_05/hw_1.aux)
 \openout1 = `hw_1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 103.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 103.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 102.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 102.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 103.
-LaTeX Font Info:    Try loading font information for FML+futm on input line 103
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 102.
+LaTeX Font Info:    Try loading font information for FML+futm on input line 102
 .
 (/usr/local/texlive/2015/texmf-dist/tex/latex/fourier/fmlfutm.fd
 File: fmlfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futm.
 )
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 103.
-LaTeX Font Info:    Try loading font information for FMS+futm on input line 103
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 102.
+LaTeX Font Info:    Try loading font information for FMS+futm on input line 102
 .
 (/usr/local/texlive/2015/texmf-dist/tex/latex/fourier/fmsfutm.fd
 File: fmsfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FMS/futm.
 )
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 103.
-LaTeX Font Info:    Try loading font information for FMX+futm on input line 103
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 102.
+LaTeX Font Info:    Try loading font information for FMX+futm on input line 102
 .
 (/usr/local/texlive/2015/texmf-dist/tex/latex/fourier/fmxfutm.fd
 File: fmxfutm.fd futm-extension
 )
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Try loading font information for T1+futs on input line 103.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Try loading font information for T1+futs on input line 102.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/fourier/t1futs.fd
 File: t1futs.fd 2004/03/02 Fontinst v1.926 font definitions for T1/futs.
@@ -2140,7 +2140,7 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring OFF on input line 103.
+Package hyperref Info: Link coloring OFF on input line 102.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -2148,11 +2148,11 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count188
 )
-LaTeX Info: Redefining \ref on input line 103.
-LaTeX Info: Redefining \pageref on input line 103.
-LaTeX Info: Redefining \nameref on input line 103.
-(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_06/hw_1.out) (/Users/s
-amuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_06/hw_1.out)
+LaTeX Info: Redefining \ref on input line 102.
+LaTeX Info: Redefining \pageref on input line 102.
+LaTeX Info: Redefining \nameref on input line 102.
+(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_05/hw_1.out) (/Users/s
+amuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_05/hw_1.out)
 \@outlinefile=\write4
 \openout4 = `hw_1.out'.
 
@@ -2161,31 +2161,31 @@ Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.12}).
 
 LaTeX Font Info:    Try loading font information for FML+futmi on input line 10
-6.
+5.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/fourier/fmlfutmi.fd
 File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
 )
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 106.
+(Font)              scaled to size 11.03998pt on input line 105.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 106.
+(Font)              scaled to size 8.27998pt on input line 105.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 106.
-LaTeX Font Info:    Try loading font information for U+msa on input line 106.
+(Font)              scaled to size 6.43999pt on input line 105.
+LaTeX Font Info:    Try loading font information for U+msa on input line 105.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 106.
+LaTeX Font Info:    Try loading font information for U+msb on input line 105.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 106.
+(Font)              scaled to size 11.03998pt on input line 105.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 106.
+(Font)              scaled to size 8.27998pt on input line 105.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 106.
-(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_06/hw_1.toc
+(Font)              scaled to size 6.43999pt on input line 105.
+(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_05/hw_1.toc
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
@@ -2210,77 +2210,129 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 114.
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--117
-
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 114--116
+[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--131
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--145
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--159
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--187
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 198--201
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 185--187
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--215
-
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 215--217
+[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--229
+Underfull \hbox (badness 10000) in paragraph at lines 215--217
 
  []
 
 [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 239.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 239.
-(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_06/hw_1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 239.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 239.
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 228--230
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--230
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 241--243
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--243
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 254--256
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--256
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 267--269
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 267--269
+
+ []
+
+[4]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 294--296
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--296
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 316--318
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--318
+
+ []
+
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 328.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 328.
+(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_05/hw_1.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 328.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 328.
 Package rerunfilecheck Info: File `hw_1.out' has not changed.
 (rerunfilecheck)             Checksum: D2237A91FE63EAF8C035E33D09E12BEA;405.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 239.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 328.
  ) 
 Here is how much of TeX's memory you used:
- 34400 strings out of 493089
- 779133 string characters out of 6134842
- 943659 words of memory out of 5000000
- 37305 multiletter control sequences out of 15000+600000
- 95814 words of font info for 89 fonts, out of 8000000 for 9000
+ 34427 strings out of 493089
+ 779398 string characters out of 6134842
+ 952660 words of memory out of 5000000
+ 37312 multiletter control sequences out of 15000+600000
+ 100352 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,83p,10461b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,18n,83p,10461b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on /Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_06/hw
-_1.pdf (3 pages, 44201 bytes).
+exlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-mcl.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on /Users/samuelfleischer/School/UCD/UCD_Math201C/hw_1-apr_05/hw
+_1.pdf (5 pages, 84280 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 104 compressed objects within 2 object streams
+ 15 named destinations out of 1000 (max. 500000)
  85 words of extra memory for PDF output out of 10000 (max. 10000000)
 

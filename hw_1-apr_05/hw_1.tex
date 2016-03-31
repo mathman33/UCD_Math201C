@@ -1,0 +1,328 @@
+\documentclass{article} % A4 paper and 11pt font size
+\setcounter{secnumdepth}{0}
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{color}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage[makeroom]{cancel}
+\usepackage{bbold}
+\usepackage{alltt}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{bigints}
+\allowdisplaybreaks
+\pgfplotsset{compat=1.12}
+
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{lemma}{Lemma}
+
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newcommand{\E}{\varepsilon}
+\def\Rl{\mathbb{R}}
+\def\Cx{\mathbb{C}}
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancy} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead[L]{\bf Sam Fleischer}
+\fancyhead[C]{\bf UC Davis \\ Analysis (MAT201C)} % No page header - if you want one, create it in the same way as the footers below
+\fancyhead[R]{\bf Spring 2016}
+
+\fancyfoot[L]{\bf } % Empty left footer
+\fancyfoot[C]{\bf \thepage} % Empty center footer
+\fancyfoot[R]{\bf } % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{25pt} % Customize the height of the header
+
+\newcommand{\VEC}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\ran}{\text{\rm ran }}
+\newcommand{\Hilb}{\mathcal{H}}
+
+\DeclareMathOperator*{\esssup}{\text{ess~sup}}
+
+\newcommand{\problem}[2]{
+\vspace{.375cm}
+\boxed{\begin{minipage}{\textwidth}
+    \section{\bf #1}
+    #2
+\end{minipage}}
+}
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.9}
+
+\title{ 
+\normalfont \normalsize 
+\textsc{UC Davis, Analysis (MAT201C), Spring 2016} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{2pt} \\[0.4cm] % Thin top horizontal rule
+\Huge Homework \#7 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{\huge Sam Fleischer} % Your name
+
+\date{April 5, 2016} % Today's date or a custom date
+
+\begin{document}\thispagestyle{empty}
+
+\maketitle % Print the title
+
+\makeatletter
+\@starttoc{toc}
+\makeatother
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 1}{
+If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \norm{f}_1\norm{g}_\infty$.  If $f \in L^1$ and $g \in L^\infty$, then $\norm{fg}_1 = \norm{f}_1\norm{g}_\infty$ if and only if $|g(x)| = \norm{g}_\infty$ a.e.~on the set where $f(x) \neq 0$.}
+\begin{proof}
+    Let $f$ and $g$ be measurable functions on $\Omega$.  Then
+    \begin{align*}
+        \norm{fg}_1 &= \int_\Omega \abs{(fg)(x)} \dd\mu \\
+        &= \int_\Omega \abs{f(x)}\ \abs{g(x)} \dd\mu \\
+        &\leq \int_\Omega \abs{f(x)}\esssup_{x\in\Omega}\abs{g(x)} \dd\mu \\
+        &= \esssup_{x \in \Omega}\abs{g(x)}\int_\Omega \abs{f(x)}\dd\mu \\
+        &= \norm{f}_1\norm{g}_\infty
+    \end{align*}
+    Now let $f \in L^1$ and $g \in L^\infty$.  First, suppose $\abs{g(x)} = \norm{g}_\infty$ a.e.~on the set where $f(x) \neq 0$.  In other words, define $A\subset \Omega$ by
+    \begin{align*}
+        A = \left\{x\in\Omega\ :\ f(x) \neq 0\right\}
+    \end{align*}
+    and assume $\abs{g(x)} = \norm{g}_\infty$ for almost all $x \in A$.  Again, in other words, define $B \subset A$ by
+    \begin{align*}
+        B = \left\{x \in A\ :\ \abs{g(x)} < \norm{g}_\infty\right\}
+    \end{align*}
+    and assume $\mu(B) = 0$.  Then
+    \begin{align*}
+        \norm{fg}_1 &= \int_\Omega \abs{(fg)(x)} \dd\mu \\
+        &= \int_A \abs{(fg)(x)} \dd\mu + \cancelto{0}{\int_{\Omega\setminus A} \abs{(fg)(x)} \dd\mu}
+    \end{align*}
+    since $f(x) = 0$ for $x \in \Omega\setminus A$ by definition of $A$.  Thus
+    \begin{align*}
+        \norm{fg}_1 &= \int_A \abs{(fg)(x)} \dd\mu \\
+        &= \cancelto{0}{\int_B \abs{(fg)(x)} \dd\mu} + \int_{A\setminus B} \abs{(fg)(x)} \dd\mu
+    \end{align*}
+    since $\mu(B) = 0$.  For $x \in A\setminus B$, $\abs{g(x)} = \norm{g}_\infty$.  Thus,
+    \begin{align*}
+        \norm{fg}_1 &= \int_{A\setminus B} \abs{(fg)(x)} \dd\mu \\
+        &= \int_{A\setminus B} \abs{f(x)}\abs{g(x)} \dd\mu \\
+        &= \int_{A\setminus B} \abs{f(x)} \norm{g}_\infty \dd\mu \\
+        &= \norm{g}_\infty \int_{A\setminus B} \abs{f(x)} \dd\mu \\
+        &= \norm{g}_\infty \qty[\int_{A\setminus B} \abs{f(x)} \dd\mu + \int_{B} \abs{f(x)} \dd\mu + \int_{\Omega\setminus A} \abs{f(x)} \dd\mu]
+    \end{align*}
+    since $\mu(B) = 0$ and $f(x) = 0$ for $x \in \Omega\setminus A$ implies
+    \begin{align*}
+        \int_{B} \abs{f(x)} \dd\mu = 0 \qquad \text{and} \qquad \int_{\Omega\setminus A} \abs{f(x)} \dd\mu = 0
+    \end{align*}
+    Thus,
+    \begin{align*}
+        \norm{fg}_1 &= \norm{g}_\infty \qty[\int_{A\setminus B} \abs{f(x)} \dd\mu + \int_{B} \abs{f(x)} \dd\mu + \int_{\Omega\setminus A} \abs{f(x)} \dd\mu] \\
+        &= \norm{g}_\infty \int_\Omega \abs{f(x)}\dd\mu \\
+        &= \norm{f}_1\norm{g}_\infty
+    \end{align*}
+
+    Second, suppose $B \subset A$ (as defined above) has positive measure.  Then
+    \begin{align*}
+        \int_B \abs{(fg)(x)} \dd\mu = \int_B \abs{f(x)}\abs{g(x)} \dd\mu <  \int_B \abs{f(x)}\norm{g}_\infty \dd\mu
+    \end{align*}
+    Thus,
+    \begin{align*}
+        \norm{fg}_1 &= \int_\Omega \abs{(fg)(x)}\dd\mu \\
+        &= \int_B \abs{(fg)(x)}\dd\mu + \int_{A\setminus B} \abs{(fg)(x)}\dd\mu + \cancelto{0}{\int_{\Omega\setminus A} \abs{(fg)(x)}\dd\mu} \\
+        &< \int_B \abs{f(x)}\norm{g}_\infty\dd\mu + \int_{A\setminus B} \abs{f(x)}\norm{g}_\infty\dd\mu \\
+        &= \norm{g}_\infty \int_A \abs{f(x)} \dd\mu \\
+        &= \norm{g}_\infty \int_\Omega \abs{f(x)} \dd\mu \\
+        &= \norm{f}_1\norm{g}_\infty
+    \end{align*}
+\end{proof}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 2}{$\norm{f_n - f}_\infty \rightarrow 0$ if and only if there exists a measurable set $E$ such that $\mu\qty(E^C) = 0$ and $f_n \rightarrow f$ uniformly on $E$.}
+\begin{proof}
+    Assume $\norm{f_n - f}_\infty \rightarrow 0$.  For each $n$, define $K_n$ by
+    \begin{align*}
+        K_n = \inf_K \left\{\abs{f_n(x) - f(x)} \leq K\ \text{for almost all }x \in \Omega\right\}
+    \end{align*}
+    Then define $E^C$ by
+    \begin{align*}
+        E^C = \left\{x \in \Omega\ :\ \abs{f_n(x) - f(x)} > K_n\right\}
+    \end{align*}
+    Then $\mu\qty(E^C) = 0$.  Also,
+    \begin{align*}
+        \norm{f_n - f}_\text{sup} = \sup_{x\in E}\abs{f_n(x) - f(x)} = K_n \rightarrow 0
+    \end{align*}
+
+    Now assume $f_n \rightarrow f$ uniformly on $E$ and $\mu\qty(E^C) = 0$.  Then
+    \begin{align*}
+        \norm{f_n - f}_\infty = \esssup_{x \in \Omega}\abs{f_n(x) - f(x)} = \sup_{x \in E}\abs{f_n(x) - f(x)} \rightarrow 0
+    \end{align*}
+\end{proof}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 3}{We say $\{f_n\}$ \emph{converges in measure} to $f$ if for every $\E > 0$, $$\mu\qty(\{x\ :\ |f_n(x) - f(x)| \geq \E\}) \rightarrow 0\ \text{ as } n \rightarrow \infty.$$  If $\norm{f_n - f}_p \rightarrow 0$ ($p < \infty$) then $f_n \rightarrow f$ in measure, and hence some subsequence converges to $f$ a.e.  On the other hand if $f_n \rightarrow f$ in measure and $|f_n| \leq g \in L^p$ for all $n$ ($p < \infty$) then $\norm{f_n - f}_p \rightarrow 0$.}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 4}{If $f_n, f \in L^p$ ($p < \infty$) and $f_n \rightarrow f$ point-wise a.e., then $\norm{f_n - f}_p \rightarrow 0$ if and only if $\norm{f}_p \rightarrow \norm{f}_p$.}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 5}{Suppose $0 < p < q \leq \infty$.  Then $L^p \not\subset L^q$ if and only if $\Omega$ contains sets of arbitrarily small positive measure, and $L^q \not\subset L^p$ if and only if $\Omega$ contains sets of arbitrarily large finite measure.  [Hint:  for the ``if'' implication: in the first case there is a disjoint sequence $\{E_n\}$ with $o < \mu(E_n) \leq 2^{-n}$, and in the second case there is a disjoint sequence $\{E_n\}$ with $1 \leq \mu(E_n) < \infty$.  Consider $f = \sum a_n \mathcal{X}_{E_n}$ for suitable constants $a_n$.]}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 6}{If $f \in L^\infty(\Omega) \cap L^q(\Omega)$ for some $q$ then $f \in L^p(\Omega)$ for all $p > q$ and $$\norm{f}_\infty = \lim_{p\rightarrow \infty} \norm{f}_p.$$}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 7}{Prove that when $\infty \geq r \geq q \geq 1$, $f \in L^r(\Omega) \cap L^q(\Omega) \implies f \in L^p(\Omega)$ for all $r \geq p \geq q$.}
+\begin{proof}
+    Let $f \in L^r(\Omega) \cap L^q(\Omega)$.  For $p \in [r, q]$, by convexity of $\mathbb{R}$, $\exists a \in [0,1]$ such that
+    \begin{align*}
+        \frac{1}{p} = \frac{a}{r} + \frac{1-a}{q}
+    \end{align*}
+    Then
+    \begin{align*}
+        \norm{f}_p^p &= \int_\Omega \abs{f}^p \dd\mu \\
+        &= \int_\Omega\abs{f}^{pa} \abs{f}^{p(1-a)} \dd\mu \\
+        &\leq \qty(\int_\Omega\abs{f}^{(pa)\qty(\frac{r}{pa})}\dd\mu)^{\frac{pa}{r}}\qty(\int_\Omega\abs{f}^{(p(1-a))\qty(\frac{q}{p(1-a)})}\dd\mu)^{\frac{p(1-a)}{q}} \qquad \text{by H\"{o}lder's Inequality} \\
+        &= \qty(\int_\Omega \abs{f}^r)^\frac{pa}{r}\qty(\int_\Omega \abs{f}^q)^\frac{p(1-a)}{q} \\
+        &= \norm{f}_r^{pa}\norm{f}_q^{p(1-a)} \\
+        \implies \norm{f}_p &\leq \norm{f}_r^a \norm{f}_q^{1-a} < \infty\\
+        \implies f &\in L^p(\Omega)
+    \end{align*}
+\end{proof}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 8}{Prove that a strongly convergent sequence in $L^p(\Rl^n)$ is also a Cauchy sequence.}
+\begin{proof}
+    Let $\{f_n\}_n$ be a strongly convergent sequence in $L^p(\Rl^n)$ and let $\epsilon > 0$.  Then there is some $N$ such that $\norm{f_N - f} < \frac{\E}{2}^{\frac{1}{p}}$.  Then for all $m, n \geq N$,
+    \begin{align*}
+        \norm{f_n - f_m}_p^p \leq \norm{f_n - f}_p^p + \norm{f_m - f}_p^p
+    \end{align*}
+    since $\abs{a + b}^p \leq \abs{a}^p + \abs{b}^p$ for all $a,b \in \Cx$ and $p \in (0, \infty]$.  Then
+    \begin{align*}
+        \norm{f_n - f_m}_p^p < \frac{\E}{2} + \frac{\E}{2} = \E
+    \end{align*}
+    Thus $\{f_n\}_n$ is Cauchy.
+\end{proof}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 9}{Give three different examples of ways for a sequence $f_k \in L^p(\Rl^n)$ to converge weakly to zero, but not strongly to anything.  Verify your claims for these exmples.}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+
+
+
+\end{document}
