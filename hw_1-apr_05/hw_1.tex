@@ -111,7 +111,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 1}{
-If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \norm{f}_1\norm{g}_\infty$.  If $f \in L^1$ and $g \in L^\infty$, then $\norm{fg}_1 = \norm{f}_1\norm{g}_\infty$ if and only if $|g(x)| = \norm{g}_\infty$ a.e.~on the set where $f(x) \neq 0$.}
+If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \norm{f}_1\norm{g}_\infty$.  If $f \in L^1$ and $g \in L^\infty$, then $\norm{fg}_1 = \norm{f}_1\norm{g}_\infty$ if and only if $\abs{g(x)} = \norm{g}_\infty$ a.e.~on the set where $f(x) \neq 0$.}
 \begin{proof}
     Let $f$ and $g$ be measurable functions on $\Omega$.  Then
     \begin{align*}
@@ -212,7 +212,7 @@ If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \nor
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 3}{We say $\{f_n\}$ \emph{converges in measure} to $f$ if for every $\E > 0$, $$\mu\qty(\{x\ :\ |f_n(x) - f(x)| \geq \E\}) \rightarrow 0\ \text{ as } n \rightarrow \infty.$$  If $\norm{f_n - f}_p \rightarrow 0$ ($p < \infty$) then $f_n \rightarrow f$ in measure, and hence some subsequence converges to $f$ a.e.  On the other hand if $f_n \rightarrow f$ in measure and $|f_n| \leq g \in L^p$ for all $n$ ($p < \infty$) then $\norm{f_n - f}_p \rightarrow 0$.}
+\problem{Problem 3}{We say $\{f_n\}$ \emph{converges in measure} to $f$ if for every $\E > 0$, $$\mu\qty(\{x\ :\ \abs{f_n(x) - f(x)} \geq \E\}) \rightarrow 0\ \text{ as } n \rightarrow \infty.$$  If $\norm{f_n - f}_p \rightarrow 0$ ($p < \infty$) then $f_n \rightarrow f$ in measure, and hence some subsequence converges to $f$ a.e.  On the other hand if $f_n \rightarrow f$ in measure and $\abs{f_n} \leq g \in L^p$ for all $n$ ($p < \infty$) then $\norm{f_n - f}_p \rightarrow 0$.}
 \begin{proof}
 \end{proof}
 
@@ -225,8 +225,9 @@ If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \nor
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 4}{If $f_n, f \in L^p$ ($p < \infty$) and $f_n \rightarrow f$ point-wise a.e., then $\norm{f_n - f}_p \rightarrow 0$ if and only if $\norm{f}_p \rightarrow \norm{f}_p$.}
+\problem{Problem 4}{If $f_n, f \in L^p$ ($p < \infty$) and $f_n \rightarrow f$ point-wise a.e., then $\norm{f_n - f}_p \rightarrow 0$ if and only if $\norm{f_n}_p \rightarrow \norm{f}_p$.}
 \begin{proof}
+    Theorem 1.28 is going left
 \end{proof}
 
 
@@ -253,6 +254,39 @@ If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \nor
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 6}{If $f \in L^\infty(\Omega) \cap L^q(\Omega)$ for some $q$ then $f \in L^p(\Omega)$ for all $p > q$ and $$\norm{f}_\infty = \lim_{p\rightarrow \infty} \norm{f}_p.$$}
 \begin{proof}
+    Let $p > q$.  Then
+    \begin{align*}
+        \norm{f}_p^p &= \int_\Omega \abs{f}^p \dd\mu \\
+        &= \int_\Omega \abs{f}^{p-q} \abs{f}^q \dd\mu \\
+        &\leq \int_\Omega \norm{f}_\infty^{p-q} \abs{f}^q \dd\mu \\
+        &= \norm{f}_\infty^{p-q} \int_\Omega \abs{f}^q \dd\mu \\
+        &= \norm{f}_\infty^{p-q} \norm{f}_q^q \\
+        &< \infty
+    \end{align*}
+    since $p-q > 0$, $\norm{f}_\infty < \infty$, and $\norm{f}_q < \infty$.  Thus $f \in L^p(\Omega)$.  Next we show $\norm{f}_\infty = \lim_{p\rightarrow\infty}\norm{f}_p$.  By the above calculation,
+    \begin{align*}
+        \lim_{p\rightarrow\infty}\norm{f}_p &\leq \lim_{p\rightarrow\infty} \qty[\norm{f}_\infty^{\frac{p-q}{p}}\norm{f}_q^{\frac{q}{p}}] \\
+        &= \lim_{p\rightarrow\infty} \norm{f}_\infty^{\frac{p-q}{p}}\cdot\lim_{p\rightarrow\infty} \norm{f}_q^{\frac{q}{p}} \\
+        &= \norm{f}_\infty
+    \end{align*}
+    since as $p \rightarrow \infty$, $\frac{p-q}{p} \rightarrow 1$ and $\frac{q}{p} \rightarrow 0$.  Also, the definition of $\norm{\cdot}_\infty$ implies that for any $\E$, $\mu\qty(E_\E) > 0$ where
+    \begin{align*}
+        E_\E = \left\{x\ :\ \abs{f(x)} \geq \norm{f}_\infty - \E \right\}.
+    \end{align*}
+    but $\mu\qty(E_\E) \rightarrow 0$ and $\E \rightarrow 0$.  Thus,
+    \begin{align*}
+        \norm{f}_p^p &= \int_{\Omega} \abs{f}^p \dd\mu \\
+        &= \int_{\Omega \setminus E_\E} \abs{f}^p \dd\mu + \int_{E_\E} \abs{f}^p \dd\mu \\
+        &\geq \int_{E_\E} \abs{f}^p \dd\mu \\
+        &\geq \int_{E_\E} \abs{\norm{f}_\infty - \E}^p \dd\mu \\
+        &= \mu\qty(E_\E)\abs{\norm{f}_\infty - \E}^p \\
+        \implies \lim_{p\rightarrow\infty}\norm{f}_p &= \lim_{p\rightarrow \infty}\qty[\mu\qty(E_\E)^{\frac{1}{p}}\abs{\norm{f}_\infty - \E}] \\
+        &= \abs{\norm{f}_\infty - \E}
+    \end{align*}
+    Since $\E$ is arbitrarily small, we find $\norm{f}_\infty \leq \lim_{p\rightarrow\infty}\norm{f}_p$.  Thus,
+    \begin{align*}
+        \norm{f}_\infty = \lim_{p\rightarrow\infty}\norm{f}_p
+    \end{align*}
 \end{proof}
 
 
