@@ -4,6 +4,7 @@
 \usepackage{amssymb, amsmath, amsfonts}
 \usepackage{moreverb}
 \usepackage{graphicx}
+\usepackage{extarrows}
 \usepackage{enumerate}
 \usepackage{graphics}
 \usepackage[margin=1.25in]{geometry}
@@ -91,7 +92,7 @@
 \normalfont \normalsize 
 \textsc{UC Davis, Analysis (MAT201C), Spring 2016} \\ [25pt] % Your university, school and/or department name(s)
 \horrule{2pt} \\[0.4cm] % Thin top horizontal rule
-\Huge Homework \#7 \\ % The assignment title
+\Huge Homework \#1 \\ % The assignment title
 \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 }
 
@@ -214,6 +215,29 @@ If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \nor
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 3}{We say $\{f_n\}$ \emph{converges in measure} to $f$ if for every $\E > 0$, $$\mu\qty(\{x\ :\ \abs{f_n(x) - f(x)} \geq \E\}) \rightarrow 0\ \text{ as } n \rightarrow \infty.$$  If $\norm{f_n - f}_p \rightarrow 0$ ($p < \infty$) then $f_n \rightarrow f$ in measure, and hence some subsequence converges to $f$ a.e.  On the other hand if $f_n \rightarrow f$ in measure and $\abs{f_n} \leq g \in L^p$ for all $n$ ($p < \infty$) then $\norm{f_n - f}_p \rightarrow 0$.}
 \begin{proof}
+    Suppose $\norm{f_n - f}_p \rightarrow 0$.  Then $\int_\Omega \abs{f_n - f}^p \dd\mu \rightarrow 0$.  Choose $\E > 0$ and define $A_{n,\E}$ as
+    \begin{align*}
+        A_{n,\E} = \left\{x\ :\ \abs{f_n(x) - f(x)} \geq \E\right\}.
+    \end{align*}
+    Then
+    \begin{align*}
+        0 \leftarrow \int_\Omega \abs{f_n - f} \dd\mu = \int_{A_{n,\E}} \abs{f_n - f} \dd\mu + \int_{\Omega \setminus A_{n,\E}} \abs{f_n - f} \dd\mu
+    \end{align*}
+    Since each integrand is positive, each integral is positive, and thus
+    \begin{align*}
+        \int_{A_{n,\E}}\abs{f_n - f} \dd\mu \rightarrow 0 \qquad \text{and} \qquad \int_{\Omega\setminus A_{n\E}} \abs{f_n - f} \dd\mu \rightarrow 0
+    \end{align*}
+    But since $\abs{f_n(x) - f(x)} \geq \E$ for all $x \in A_{n,\E}$, then the only way for $\int_{A_{n,\E}} \abs{f_n - f}\dd\mu$ to converge to $0$ is for $\mu(A_{n,\E}) \rightarrow 0$ as $n \rightarrow \infty$.  Thus $f_n$ converges to $f$ in measure.
+    
+    Next we show a subsequence of $\left\{f_n\right\}$ converges to $f$ pointwise a.e.  Consider $\E_k \rightarrow 0$.  Then $\exists n_k$ such that $\forall n \geq n_k$, $\mu(A_{n,\E_k}) < 2^{-k}$.  Define $A_k = A_{n_k, \E_k}$ and note $\mu(A_k) < 2^{-k}$.  Then define $B_m$ by
+    \begin{align*}
+        B_m = \bigcup_{k=m}^\infty A_k \qquad \text{and note} \qquad \mu(B_m) \leq \sum_{k=m}^\infty 2^{-k} = 2^{-m+1}.
+    \end{align*}
+    Finally, Define $B = \bigcap_{m=1}^\infty B_m$ and note $\mu(B) \leq \mu(B_m) \leq 2^{-m+1}$ for any integer $m$.  Since $2^{-m+1} \rightarrow 0$ as $m \rightarrow \infty$, this shows $\mu(B)$ is arbitrarily small, i.e.~$\mu(B) = 0$.  Finally, choose $x \not\in B$.  Then $x \not\in B_m$ for some $m \geq 1$, and thus $x \not\in A_k$ for all $k \geq m$.  This shows $\exists \left\{n_k\right\}$ subsequence of $\left\{f_n\right\}$ such that
+    \begin{align*}
+        \abs{f_{n_k}(x) - f(x)} < \E_k
+    \end{align*}
+    for all $k$.  Since $\E_k \rightarrow 0$, this shows there is a subsequence $\left\{f_{n_k}\right\}$ which converges pointwise for all $x \not\in B$, but since $\mu(B) = 0$, this is pointwise a.e.
 \end{proof}
 
 
@@ -227,7 +251,19 @@ If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \nor
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 4}{If $f_n, f \in L^p$ ($p < \infty$) and $f_n \rightarrow f$ point-wise a.e., then $\norm{f_n - f}_p \rightarrow 0$ if and only if $\norm{f_n}_p \rightarrow \norm{f}_p$.}
 \begin{proof}
-    Theorem 1.28 is going left
+    Suppose $f_n, f \in L^p(\Omega)$ and $p < \infty$.  Also suppose $f_n \rightarrow f$ point-wise a.e.  Let $\norm{f_n - f}_p \rightarrow 0$.  Then by the reverse triangle inequality,
+    \begin{align*}
+        0 \leq \abs{\norm{f_n}_p - \norm{f}_p} \leq \norm{f_n - f}_p \rightarrow 0
+    \end{align*}
+    Thus $\norm{f_n}_p \rightarrow \norm{f}_p$.  Now let $\norm{f_n}_p \rightarrow \norm{f}_p$.  Then by Theorem 1.9 from Lieb and Loss (``Missing term in Fatou's lemma''),
+    \begin{align*}
+        \lim_{n\rightarrow\infty} \int_\Omega \Big|\abs{f_n(x)}^p - \abs{f_n(x) - f(x)}^p - \abs{f(x)}^p\Big| \dd\mu = 0
+    \end{align*}
+    By the triangle inequality,
+    \begin{align*}
+        \int_\Omega \abs{f_n}^p \dd\mu &\leq \int_\Omega \abs{f}^p \dd\mu + \int_\Omega \abs{f - f_n}^p \dd\mu \\
+        \implies \norm{f_n}_p^p - \norm{f}_p^p &\leq \norm{f - f_n}_p^p
+    \end{align*}
 \end{proof}
 
 
@@ -239,8 +275,39 @@ If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \nor
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 5}{Suppose $0 < p < q \leq \infty$.  Then $L^p \not\subset L^q$ if and only if $\Omega$ contains sets of arbitrarily small positive measure, and $L^q \not\subset L^p$ if and only if $\Omega$ contains sets of arbitrarily large finite measure.  [Hint:  for the ``if'' implication: in the first case there is a disjoint sequence $\{E_n\}$ with $o < \mu(E_n) \leq 2^{-n}$, and in the second case there is a disjoint sequence $\{E_n\}$ with $1 \leq \mu(E_n) < \infty$.  Consider $f = \sum a_n \mathcal{X}_{E_n}$ for suitable constants $a_n$.]}
+\problem{Problem 5}{Suppose $0 < p < q \leq \infty$.  Then $L^p \not\subset L^q$ if and only if $\Omega$ contains sets of arbitrarily small positive measure, and $L^q \not\subset L^p$ if and only if $\Omega$ contains sets of arbitrarily large finite measure.  [Hint:  for the ``if'' implication: in the first case there is a disjoint sequence $\{E_n\}$ with $0 < \mu(E_n) \leq 2^{-n}$, and in the second case there is a disjoint sequence $\{E_n\}$ with $1 \leq \mu(E_n) < \infty$.  Consider $f = \sum a_n \mathcal{X}_{E_n}$ for suitable constants $a_n$.]}
 \begin{proof}
+    Suppose $0 < p < q \leq \infty$.
+    \begin{enumerate}[ (a)]
+        \item
+            Let $\Omega$ contain sets of arbitrarily small positive measure.  That is, $\exists$ disjoint sets $E_n$ and integers $k_n$ with $0 < k_1 < k_2 < \dots$ such that $2^{-k_{n+1}} < \mu(E_n) < 2^{-k_n}$.  Note $n \leq k_n$ for all integers $n$.  Define $f$ by
+            \begin{align*}
+                f = \sum_{n=1}^\infty 2^{\frac{2n}{p+q}}\mathcal{X}_{E_n}
+            \end{align*}
+            The following calculations show $\norm{f}_p < \infty$ but $\norm{f}_q = \infty$, and thus $L^p \not\subset L^q$.
+            \begin{align*}
+                \norm{f}_p^p = \int_\Omega \abs{f}^p\dd x = \sum_{n=1}^\infty \int_{E_n}2^{\frac{2np}{p+q}} \dd x = \sum_{n=1}^\infty 2^{\frac{2np}{p+q}} \mu(E_n) \leq \sum_{n=1}^\infty 2^{\frac{2np}{p+q}}2^{-k_n} \leq \sum_{n=1}^\infty 2^{\frac{2k_np}{p+q}}2^{-k_n} = \sum_{n=1}^\infty \qty(2^{\frac{p-q}{p+q}})^{k_n} < \infty
+            \end{align*}
+            since $p-q < 0$ and thus $2^{\frac{p-q}{p+q}} < 1$.
+            \begin{align*}
+                \norm{f}_q^q = \int_\Omega \abs{f}^q \dd x = \sum_{n=1}^\infty \int_{E_n}2^{\frac{2nq}{p+q}}\dd x = \sum_{n=1}^\infty 2^{\frac{2nq}{p+q}}\mu(E_n) \geq \sum_{n=1}^\infty 2^{\frac{2nq}{p+q}}2^{-{k_{n+1}}} \geq \sum_{n=1}^\infty 2^{\frac{2nq}{p+q}}2^{-(n+1)} = \frac{1}{2}\sum_{n=1}^\infty \qty(2^{\frac{q-p}{p+q}})^n = \infty
+            \end{align*}
+            since $q-p > 0$ and thus $2^{\frac{q-p}{p+q}} > 1$.
+        \item
+            Let $\Omega$ contain sets of arbitrarily large positive measure.  That is, $\exists$ disjoint sets $E_n$ and integers $k_n$ with $0 < k_1 < k_2 < \dots$ such that $2^{k_{n}} \leq \mu(E_n) \leq 2^{k_{n+1}}$.  Note $n \leq k_n$ for all integers $n$.  Define $f$ by
+            \begin{align*}
+                f = \sum_{n=1}^\infty 2^{-\frac{2n}{p+q}}\mathcal{X}_{E_n}
+            \end{align*}
+            The following calculations show $\norm{f} = \infty$ but $\norm{f}_q < \infty$, and thus $L^q \not\subset L^p$.
+            \begin{align*}
+                \norm{f}_p^p = \int_\Omega \abs{f}^p\dd x = \sum_{n=1}^\infty \int_{E_n}2^{\frac{-2np}{p+q}}\dd x = \sum_{n=1}^\infty 2^{\frac{-2np}{p+q}}\mu(E_n) \geq \sum_{n=1}^\infty 2^{\frac{-2np}{p+q}}2^{k_n} \geq \sum_{n=1}^\infty 2^{\frac{-2np}{p+q}}2^n = \sum_{n=1}^\infty \qty(2^{\frac{q-p}{p+q}})^n = \infty
+            \end{align*}
+            since $q > p$ and thus $2^{\frac{q-p}{p+q}} > 1$.
+            \begin{align*}
+                \norm{f}_q^q = \int_\Omega \abs{f}^q\dd x = \sum_{n=1}^\infty \int_{E_n}2^{\frac{-2nq}{p+q}}\dd x = \sum_{n=1}^\infty 2^{\frac{-2nq}{p+q}}\mu(E_n) \leq \sum_{n=1}^\infty 2^{\frac{-2nq}{p+q}}2^{k_{n+1}} \leq \sum_{n=1}^\infty 2^{\frac{-2k_{n+1}p}{p+q}}2^{k_{n+1}} = \sum_{n=1}^\infty \qty(2^{\frac{p-q}{p+q}})^{k_{n+1}} < \infty
+            \end{align*}
+            since $p-q < 0$ and thus $2^{\frac{p-q}{p+q}} < 1$.
+    \end{enumerate}
 \end{proof}
 
 
@@ -300,7 +367,7 @@ If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \nor
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 7}{Prove that when $\infty \geq r \geq q \geq 1$, $f \in L^r(\Omega) \cap L^q(\Omega) \implies f \in L^p(\Omega)$ for all $r \geq p \geq q$.}
 \begin{proof}
-    Let $f \in L^r(\Omega) \cap L^q(\Omega)$.  For $p \in [r, q]$, by convexity of $\mathbb{R}$, $\exists a \in [0,1]$ such that
+    Let $f \in L^q(\Omega) \cap L^r(\Omega)$.  For $p \in [q, r]$ where $r < \infty$, by convexity of $\mathbb{R}$, $\exists a \in [0,1]$ such that
     \begin{align*}
         \frac{1}{p} = \frac{a}{r} + \frac{1-a}{q}
     \end{align*}
@@ -314,6 +381,7 @@ If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \nor
         \implies \norm{f}_p &\leq \norm{f}_r^a \norm{f}_q^{1-a} < \infty\\
         \implies f &\in L^p(\Omega)
     \end{align*}
+    For $r = \infty$, problem 6 implies $f \in L^p(\Omega)$.
 \end{proof}
 
 
@@ -349,6 +417,58 @@ If $f$ and $g$ are measurable functions on $\Omega$, then $\norm{fg}_1 \leq \nor
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 9}{Give three different examples of ways for a sequence $f_k \in L^p(\Rl^n)$ to converge weakly to zero, but not strongly to anything.  Verify your claims for these exmples.}
 \begin{proof}
+    Three \emph{types} of examples are given in Lieb and Loss section 2.9:
+    \begin{enumerate}[ (a)]
+        \item ``Oscillates to Death''
+            Let $x \in \Rl^n$ be denoted $x = (x_1, x_2, \dots, x_n)$.  Define $f_k \in L^p$ as
+            \begin{align*}
+                f_k(x) = \qty[\sum_{i=1}^n \sin(k\pi x_i)]\mathcal{X}_{[0,1]^n}
+            \end{align*}
+        \item ``Goes Up the Spout''
+            Let $p \geq 1$ and define $f(x) = \mathcal{X}_{[-1,1]^n}$ where $\mathcal{X}$ is the characteristic function.  Define $f_k \in L^p(\Rl^n)$ as
+            \begin{align*}
+                f_k(x) = k^{\frac{k}{p}}f(kx) = k^{\frac{n}{p}}\mathcal{X}_{\qty[-\frac{1}{k}, \frac{1}{k}]^n}
+            \end{align*}
+            Then for all $k$, 
+            \begin{align*}
+                \norm{f_k}_p^p = \int_{\qty[-\frac{1}{k}, \frac{1}{k}]^n} \qty(k^{\frac{n}{p}})^p \dd x = k^n\qty(\frac{2^n}{k^n}) = 2^n
+            \end{align*}
+            So clearly $f_k \not\rightarrow 0$ in $\norm{\cdot}_p$.  However, for a fixed functional $L \in L^p(\Rl^n)^*$, there is a function $\ell \in L^q(\Rl^n)$ (where $\frac{1}{p} + \frac{1}{q} = 1$) such that
+            \begin{align*}
+                L(f) = \int_{\Rl^n} \ell(x)f(x) \dd x
+            \end{align*}
+            for all $f \in L^p(\Rl^n)$.  Note
+            \begin{align*}
+                L(f_k) &= \int_{\Rl^n} \ell(x)f_k(x) \dd x \\
+                &= \int_{\qty[-\frac{1}{k}, \frac{1}{k}]^n} \ell(x)k^{\frac{n}{p}}\dd x \\
+                &= k^{\frac{n}{p}}\int_{\qty[-\frac{1}{k}, \frac{1}{k}]^n} \ell(x) \dd x \\
+                &\leq k^{\frac{n}{p}}\qty(\int_{\qty[-\frac{1}{k}, \frac{1}{k}]^n} 1 \dd x)^{\frac{1}{p}} \qty(\int_{\qty[-\frac{1}{k}, \frac{1}{k}]^n} \abs{\ell(x)}^q \dd x)^{\frac{1}{q}}\ \ \text{by H\"{o}lder's Inequality} \\
+                &= 2^{\frac{n}{p}} \qty(\int_{\qty[-\frac{1}{k}, \frac{1}{k}]^n} \abs{\ell(x)}^q \dd x)^{\frac{1}{q}}\xlongrightarrow[k\rightarrow \infty]{} 0
+            \end{align*}
+            since $\qty[-\frac{1}{k}, \frac{1}{k}]^n \rightarrow \{0\}$.  Thus $f_k \rightharpoonup 0$ but $f_k \not\rightarrow 0$.  Since $f_k$ does not converge strongly to $0$, it does not strongly to anything, since if it did, it would also weakly converge there (a contradiction).  The only candidate function for $f_k$ to converge strongly to is a delta function, but $\delta(x) \not\in L^p(\Rl^n)$.
+        \item ``Wanders Off to Infinity''
+            Let $f(x) = \mathcal{X}_{\qty[0,1]^n}$.  Define $f_k \in L^p(\Rl^n)$ as
+            \begin{align*}
+                f_k(x) = f(x - (k, 0, \dots, 0))
+            \end{align*}
+            Then $\norm{f_k}_p = 1$ for all $k$, and thus $f_k \not\rightarrow 0$.  However, for any $\ell \in L^q(\Rl^n)$ where $\frac{1}{p} + \frac{1}{q} = 1$, 
+            \begin{align*}
+                \int_{[k, k+1] \times [0,1]^{n-1}} \abs{\ell(x)}^q \dd x \rightarrow 0
+            \end{align*}
+            since
+            \begin{align*}
+                \int_{\Rl^n} \abs{\ell(x)}^q < \infty
+            \end{align*}
+            Thus, for any $L \in L^p(\Rl^n)^*$, $\exists \ell \in L^q(\Rl^n)$ such that
+            \begin{align*}
+                L(f) = \int_{\Rl^n} \ell(x) f(x) \dd x
+            \end{align*}
+            for all $f \in L^p(\Rl^n)$, and thus
+            \begin{align*}
+                L(f_k) = \int_{\Rl^n} \ell(x) \mathcal{X}_{[k, k+1]\times[0,1]^{n-1}} \dd x = \int_{[k,k+1] \times [0,1]^{n-1}}\ell(x)\dd x \rightarrow 0
+            \end{align*}
+            which shows $f_k \rightharpoonup 0$.  Since $f_k \not\rightarrow 0$, then $f_k$ does not strongly converge at all.
+    \end{enumerate}
 \end{proof}
 
 

@@ -42,6 +42,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/extarrows/extarrows.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/extarrows/extarrows.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/enumerate.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/enumerate.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/geometry/geometry.sty
