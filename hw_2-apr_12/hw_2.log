@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 APR 2016 22:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  5 APR 2016 10:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2232,22 +2232,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--127
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 135--137
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 140--142
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--137
-
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 145--147
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--147
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
 
  []
 
@@ -2262,63 +2252,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 155--157
  []
 
 [2]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 180--182
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 165--167
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--182
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 190--192
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 191--193
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--192
+Underfull \hbox (badness 10000) in paragraph at lines 191--193
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 200--202
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 206--208
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--202
+Underfull \hbox (badness 10000) in paragraph at lines 206--208
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 210--212
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 216--218
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--212
+Underfull \hbox (badness 10000) in paragraph at lines 216--218
 
  []
 
 [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 222.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 222.
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 226--228
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--228
+
+ []
+
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 238.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 238.
 (/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 222.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 222.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 238.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 238.
 Package rerunfilecheck Info: File `hw_2.out' has not changed.
 (rerunfilecheck)             Checksum: D2237A91FE63EAF8C035E33D09E12BEA;405.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 222.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 238.
  ) 
 Here is how much of TeX's memory you used:
- 34454 strings out of 493089
- 780028 string characters out of 6134842
- 947968 words of memory out of 5000000
+ 34455 strings out of 493089
+ 780034 string characters out of 6134842
+ 950968 words of memory out of 5000000
  37339 multiletter control sequences out of 15000+600000
  99935 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,83p,10461b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,83p,10461b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-mcl.pfb></usr/local/te
@@ -2330,10 +2330,10 @@ live/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/20
 15/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/adobe/utopia/putri8a.pfb>
 Output written on /Users/samuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw
-_2.pdf (3 pages, 75753 bytes).
+_2.pdf (4 pages, 80408 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
+ 114 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
  85 words of extra memory for PDF output out of 10000 (max. 10000000)
 

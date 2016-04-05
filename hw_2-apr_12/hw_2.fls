@@ -439,6 +439,7 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.t
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/fourier/futmi.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/fourier/futr8t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/fourier/futmi.vf
