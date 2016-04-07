@@ -1,0 +1,87 @@
+\documentclass{article}
+
+\usepackage{mathtools,amsmath,amsfonts,physics}
+\usepackage[margin=0.75in]{geometry}
+\renewcommand*{\theenumi}{\thesection.\arabic{enumi}}
+\renewcommand*{\theenumii}{\theenumi.\arabic{enumii}}
+\renewcommand*{\theenumiii}{\theenumii.\arabic{enumiii}}
+
+
+\title{Functional Analysis Facts}
+\author{Sam Fleischer}
+\date{\today}
+
+\begin{document}
+    \maketitle
+    \section{Three Pillars of Analysis}
+    \begin{enumerate}
+        \item \textbf{Monotone Convergence Theorem} - If a sequence of non-negative functions is increasing, we can pull the limit through an integral. $$\lim_k \int f_k = \int \lim_k f_k.$$
+        \item \textbf{Fatou's Lemma} - For a sequence of non-negative functions, the integral of the lim~inf is less than or equal to the lim~inf of the integral. $$\int \liminf_k f_k \leq \liminf_k \int f_k.$$
+        \begin{enumerate}
+            \item $f_k = k\mathcal{X}_{\qty(0, \frac{1}{k})}$.
+            \begin{enumerate}
+                \item $\int_0^1 f_k = 1$ for all $k \implies \liminf_k \int_0^1 f_k = \liminf_k 1 = 1$.
+                \item But since $f_k \rightarrow 0$ pointwise a.e., $\liminf_k f_k(x) = 0 \implies \int_0^1 \liminf_k f(x) \dd x = 0$.
+            \end{enumerate}
+        \end{enumerate}
+        \item \textbf{Dominated Convergence Theorem} - If a sequence converges pointwise almost everywhere and is dominated, then it converges in norm to its pointwise limit.  $$\lim_k\int f_k = \int \lim_k f_k = \int f.$$  $$\lim_k\norm{f_k - f}_1 = 0.$$
+    \end{enumerate}
+
+    \section{Integrals over Product Spaces}
+    \begin{enumerate}
+        \item \textbf{Fubini's Theorem} - If a function is integrable on a product space, then the integral over the product space is equal to both iterated integrals.
+        \begin{enumerate}
+            \item Iterated integrals may exist \emph{without} the existence of the integral over the product space.
+        \end{enumerate}
+        \item \textbf{Semi-converse of Fubini's Theorem} - If an iterated integral exists of the \emph{absolute value} of a function on a prodct space, then the integral of the product space is equal to both iterated integrals.
+        \item \textbf{Tonelli's Theorem} - If a function is non-negative and measurable on a product space, then the integral over the product space is equal to both iterated integrals.
+    \end{enumerate}
+
+    \section{$L^p$ Spaces}
+    \begin{enumerate}
+        \item Convexity is a thing.  $$x^\lambda \leq (1 - \lambda) + \lambda x \qquad \forall \lambda \in (0,1).$$ $$a^\lambda b^{1-\lambda} \leq \lambda a + (1 - \lambda)b \qquad \forall \lambda \in (0,1), \qquad \forall a,b \geq 0.$$
+        \item \textbf{H\"{o}lder's Inequality} - For conjugate exponents $p$ and $q$, the $1$-norm of a product of $L^p$ and $L^q$ functions is finite, and the $1$-norm of the product is less than or equal to the product of the norms of the original functions.  $$\norm{fg}_1 \leq \norm{f}_p\norm{g}_q$$.
+        \item \textbf{Interpolation Inequality} - For $1 \leq r \leq s \leq t \leq \infty$, if $u$ is in $L^r$ and $L^t$, then $u$ is in $L^s$ and the $s$-norm is less than of equal to the product of the $r$- and $t$-norms raised to the appropriate power. $$\norm{u}_s \leq \norm{u}_r^a \norm{u}_t^{1-a}\qquad \text{where } \frac{1}{s} = \frac{a}{r} + \frac{1-a}{t}.$$ $$L^r \cap L^t \subset L^s.$$
+        \item \textbf{Minkowski's Inequality} - For functions in $L^p$, the norm of their sum is less than or equal to the sum of their norms. $$\norm{f + g}_p \leq \norm{f}_p + \norm{g}_p.$$
+        \item $L^p$ is a normed linear space.
+        \item $L^p$ is a Banach Space (a complete (Cauchy sequences converge) normed linear space).  Steps of the proof:
+        \begin{enumerate}
+            \item Construct the Cauchy sequence.
+            \item Construct a monotone sequence from the Cauchy sequence.
+            \item Use Mikowski's Inequality and Triangle Inequality to  show the sequence is uniformly bounded.
+            \item Show pointwise convergence of Cauchy sequence using Triangle Inequality.
+            \item Use dominated Convergence Theorem to show norm convergence of Cauchy sequence.
+        \end{enumerate}
+        \item \textbf{Pointwise convergence implies a double implication} - If a sequence of functions converge pointwise, then their norms converge if and only if they converge in norm. $$f_k \rightarrow f \text{ pointwise}\ \ \implies\ \ \Bigg[\norm{f_k - f}_p \rightarrow 0\ \ \iff\ \ \norm{f_k}_p \rightarrow \norm{f}_p\Bigg].$$
+        \item \textbf{$L^p$ Comparisons} - For $1 \leq r \leq s \leq t \leq \infty$, if a function in $L^s$ can be written as the sum of functions in $L^r$ and $L^t$.  $$L^s \subset L^r + L^t.$$
+        \item \textbf{$L^p$ Comparison for Finite Spaces} - For finite measure spaces, a function in $L^q$ is also in $L^p$ for all $q > p$.  $$L^q \subset L^p.$$
+        \item \textbf{Approximation of $L^p$ ($p<\infty$) by Simple Functions} - The set of Simple Functions are dense in $L^p$.
+        \item \textbf{Approximation of $L^p$ ($p<\infty$) by Continuous Functions} - For bounded measure spaces, the set of continuous functions is dense in $L^p$.
+        \item \textbf{Approximation of $L^p_{\text{loc}}$ by Smooth Functions} - For a function $f$ in $L^p_{\text{loc}}$, its mollified functions:
+        \begin{enumerate}
+            \item are infinitely differentiable,
+            \item converge pointwise to $f$,
+            \item converge uniformly to $f$ on compact subsets of the space (given $f$ is continuous), and
+            \item converge to $f$ in $L^p_{\text{loc}}$.
+        \end{enumerate}
+    \end{enumerate}
+
+    \section{Convolutions and (in general) Integral Operators}
+    \begin{enumerate}
+        \item \textbf{Boundedness of Integral Operators} - An integral operator has bounded norm (and is hence continuous) if both of the absolute iterated integrals of its kernel are bounded (say by $C_1$ and $C_2$). $$\norm{K}_{\mathcal{B}(L^p(\mathbb{R}^n))} \leq C_1^\frac{1}{p}C_2^\frac{1}{q}.$$
+        \item \textbf{Cauchy-Young Inequality} - If $p$ and $q$ are conjugate exponents, then for all nonnegative $a$ and $b$, $$ab \leq \frac{a^p}{p} + \frac{b^q}{q}.$$
+        \begin{enumerate}
+            \item \textbf{Cauchy-Young Inequality with $\delta$} - If $p$ and $q$ are conjugate exponents, the for all nonnegative $a$ and $b$, $$ab \leq \delta a^p + C_\delta b^q, \qquad \delta > 0, \qquad C_\delta = \qty(\delta p)^{-\frac{q}{p}}q^{-1}.$$
+        \end{enumerate}
+        \item \textbf{Simple Version of Young's Inequality} - For $L^1$ function $k$ and $L^p$ function $f$, the $p$-norm of their convolution is less than or equal to the product of their respective norms.  $$\norm{k * f}_p \leq \norm{k}_1 \norm{f}_p.$$
+        \item \textbf{(More general) Young's Inequality for Convolution} - For $L^p$ function $k$ and $L^q$ function $f$, the $r$-norm of their convolution is bounded by the product of their respective norms, given $1 + \frac{1}{r} = \frac{1}{p} + \frac{1}{q}$.  $$\norm{k * f}_r \leq \norm{k}_p\norm{f}_q, \qquad 1 + \frac{1}{r} = \frac{1}{p} + \frac{1}{q}.$$
+    \end{enumerate}
+
+    \section{The Dual Space and Weak Topology}
+    \begin{enumerate}
+        \item \textbf{Norm of an Integral Operator is the Norm of its Kernel} - For conjugate exponents $p$ and $q$, integration of an $L^p$ function against an $L^q$ function is a continuous linear functional on $L^p$ and the operator norm is equal to the norm of the $L^q$ function.  $$F_g(f) = \int fg \qquad \text{and} \qquad \norm{F_g}_\text{op} = \norm{g}_q.$$
+        \item \textbf{Riesz Representation Theorem ($1 < p < \infty$)} - For conjugate exponents $p$ and $q$, every bounded (continuous) linear functional on $L^p$ can be represented as an integral operator whose kernel is in $L^q$.  $$\phi \in (L^p)^*\ \ \implies\ \ \exists g \in L^q\ \text{ such that }\ \phi(f) = \int f g\ \ \forall f \in L^p.$$
+        \item \textbf{Reflexivity of $L^p$ ($1 < p < \infty$)} - The dual space of the dual space of $L^p$ is isomorphic to $L^p$.
+        \item \textbf{Radon-Nikodym Theorem} - If $\mu$ and $\nu$ are two finite measures on a measure space where $\nu$ is absolutely continuous with respect to $\mu$, then there exists an $L^1$ function $h$ to change the measure of integration as follows: $$\int F \dd\nu = \int F h \dd\mu \qquad \text{for every positive measurable function } F.$$
+    \end{enumerate}
+\end{document}
