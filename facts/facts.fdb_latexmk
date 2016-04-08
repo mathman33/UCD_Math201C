@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1460054872 "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.tex" "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.pdf" "facts" 1460054921
+["pdflatex"] 1460054872 "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.tex" "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.pdf" "facts" 1460137170
   "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.aux" 1460054873 464 8e32469c3804b3211c9f9648dca7e486 ""
   "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.tex" 1460054871 8452 5afcc3674d616588df875d4e7356f4cf ""
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -92,11 +92,11 @@
   "facts/facts.aux" 1460054873 464 8e32469c3804b3211c9f9648dca7e486 ""
   "facts/facts.tex" 1460054871 8452 5afcc3674d616588df875d4e7356f4cf ""
   (generated)
-  "facts.aux"
+  "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.pdf"
+  "facts.log"
+  "facts/facts.aux"
+  "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.log"
   "facts.pdf"
   "facts/facts.log"
   "facts/facts.pdf"
-  "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.pdf"
-  "facts/facts.aux"
-  "/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.log"
-  "facts.log"
+  "facts.aux"

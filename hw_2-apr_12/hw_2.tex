@@ -154,6 +154,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 4}{Assume that $f,g \in L^1(\Rl^n)$.  Prove that the convolution $$(f*g)(x) = \int_{\Rl^n} f(x-y)g(y)\dd y$$ is measurable and in $L^1(\Rl^n)$.}
 \begin{proof}
+    First note that $\norm{f}_1\norm{g}_1 < \infty$ since they are in $L^1\qty(\Rl^n)$.  Then
+    \begin{align*}
+        \norm{f}_1\norm{g}_1 &= \norm{f}_1 \int_{\Rl^n}\abs{g(y)} \dd y \\
+        &= \int_{\Rl^n} \norm{f}_1 \abs{g(y)} \dd y \\
+        &= \int_{\Rl^n} \int_{\Rl^n} \abs{f(x-y)} \dd x \abs{g(y)} \dd y \\
+        &= \int_{\Rl^n} \int_{\Rl^n} \abs{f(x-y)} \abs{g(y)}\dd x \dd y \\
+        \implies \int_{\Rl^{2n}} \abs{f(x-y)g(y)} \dd x \dd y &< \infty
+    \end{align*}
+    Thus, by Fubini's Theorem,
+    \begin{align*}
+        \int_{\Rl^n}\int_{\Rl^n} \abs{f(x-y)g(y)} \dd y \dd x &< \infty \\
+        \implies \norm{f * g}_1 = \int_{\Rl^n} \abs{\qty(f * g)(x)} \dd x = \int_{\Rl^n} \abs{\int_{\Rl^n} f(x-y)g(y) \dd y} \dd x \leq \int_{\Rl^n} \int_{\Rl^n} \abs{f(x-y)g(y)} \dd y \dd x &< \infty
+        % \implies \int_{\Rl^n} \abs{f(x-y)g(y)} \dd y &< \infty \\
+        % \implies \int_{\Rl^n} f(x-y)g(y) \dd y &< \infty \\
+        % \implies \qty(f * g)(x) &< \infty
+    \end{align*}
+    which shows $(f * g) \in L^1(\Rl^n)$.  Since all $L^1$ functions are measurable, $(f * g)$ is measurable.
 \end{proof}
 
 
@@ -205,6 +222,24 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 7}{Let $f_n$ and $g_n$ denote two sequences in $L^p(\Omega)$ with $1 \leq p \leq \infty$ such that $f_n \rightarrow f$ in $L^p(\Omega)$, and $g_n \rightarrow g$ in $L^p(\Omega)$.  Set $h_n = \max\left\{f_n, g_n\right\}$ and prove that $h_n \rightarrow h$ in $L^p(\Omega)$.}
 \begin{proof}
+    First note that
+    \begin{align*}
+        h_n(x) &= \frac{1}{2}\qty(f_n(x) + g_n(x)) + \frac{1}{2}\abs{f_n(x) - g_n(x)}, \qquad \text{and} \\
+        h(x) &= \frac{1}{2}\qty(f(x) + g(x)) + \frac{1}{2}\abs{f(x) - g(x)}.
+    \end{align*}
+    Then
+    \begin{align*}
+        \norm{h_n - h}_p &= \norm{\frac{1}{2}\qty(f_n + g_n) + \frac{1}{2}\abs{f_n - g_n} - \qty[\frac{1}{2}\qty(f + g) + \frac{1}{2}\abs{f - g}]} \\
+        &\leq \frac{1}{2}\qty[\norm{f_n - f}_p + \norm{g_n - g}_p + \norm{\abs{f_n - g_n} - \abs{f - g}}_p] \\
+        &\leq \frac{1}{2}\qty[\norm{f_n - f}_p + \norm{g_n - g}_p + \norm{(f_n - g_n) - (f - g)}_p] \\
+        &\leq \frac{1}{2}\qty[\norm{f_n - f}_p + \norm{g_n - g}_p + \norm{f_n - f}_p + \norm{g_n - g}_p] \\
+        &= \norm{f_n - f}_p + \norm{g_n + g}_p
+    \end{align*}
+    But since $f_n \rightarrow f$ and $g_n \rightarrow g$ in $L^p$, then there is an $N$ such that $\norm{f_n - f}_p < \frac{\E}{2}$ and $\norm{g_n - g}_p < \frac{\E}{2}$ for all $n \geq N$.  Thus if $n \geq N$,
+    \begin{align*}
+        \norm{h_n - h}_p \leq \norm{f_n - f}_p + \norm{g_n + g}_p < \frac{\E}{2} + \frac{\E}{2} = \E
+    \end{align*}
+    Since $\E$ is arbitrary, $h_n \rightarrow h$ in $L^p$.
 \end{proof}
 
 
@@ -215,6 +250,40 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 8}{Let $f_n$ be a sequence in $L^p(\Omega)$ with $1 \leq p < \infty$, and let $g_n$ be a bounded sequence in $L^\infty(\Omega)$.  Suppose that $f_n \rightarrow f$ in $L^p(\Omega)$ and that $g_n \rightarrow g$ pointwise a.e.  Prove that $f_ng_n \rightarrow fg$ in $L^p(\Omega)$.}
 \begin{proof}
+    \begin{align*}
+        \norm{f_ng_n - fg}_p &\leq \norm{f_ng_n - fg_n}_p + \norm{fg_n - fg}_p \\
+        &= \qty[\int_\Omega \abs{g_n}^p\abs{f_n - f}^p]^{\frac{1}{p}} + \qty[\int_\Omega \abs{fg_n - fg}^p]^{\frac{1}{p}}
+    \end{align*}
+    Since $g_n$ is a bounded sequence in $L^\infty$, $\exists M$ such that $\abs{g_n(x)} \leq \norm{g_n} \leq M$ almost everywhere.  Thus
+    \begin{align*}
+        \qty[\int_\Omega \abs{g_n}^p\abs{f_n - f}^p]^{\frac{1}{p}} &\leq \qty[\int_\Omega M^p \abs{f_n - f}^p]^{\frac{1}{p}} = M\norm{f_n - f}_p \rightarrow 0
+    \end{align*}
+    since $f_n \rightarrow f$ in $L^p$.  Next note $g \in L^\infty$ since
+    \begin{align*}
+        \norm{g}_\infty = \esssup\{g(x)\} = \esssup\left\{\lim_n g_n(x)\right\} \leq M
+    \end{align*}
+    Since $g_n \rightarrow g$ pointwise, then $fg_n \rightarrow fg$ pointwise and thus $\abs{fg_n - fg}^p \rightarrow 0$ pointwise.  Define $h_n$ as
+    \begin{align*}
+        h_n = \abs{fg_n - fg}^p.
+    \end{align*}
+    Then $h_n \in L^1(\Omega)$ since
+    \begin{align*}
+        \norm{h_n}_1^p = \norm{fg_n - fg}_p \leq \norm{fg_n}_p + \norm{fg}_p \leq \norm{f}_p\norm{g_n}_\infty + \norm{f}_p\norm{g}_\infty \leq 2\norm{f}_pM
+    \end{align*}
+    Also, $\abs{h_n(x)}^{\frac{1}{p}} = \abs{(fg_n - fg)(x)} \leq \abs{f(x)g_n(x) - f(x)g(x)} \leq \abs{f(x)}\abs{g_n(x)} + \abs{f(x)}\abs{g(x)} \leq 2M\abs{f(x)}$, which implies $h$ is dominated:
+    \begin{align*}
+        \abs{h(x)} \leq 2^pM^p\abs{f(x)}^p
+    \end{align*}
+    Thus, by the dominated convergence theorem,
+    \begin{align*}
+        \lim_n \int_\Omega h_n = \int_\Omega \lim_n h_n = \int_\Omega 0 = 0 \\
+        \implies \lim_n \int_\Omega \abs{fg_n - fg}^p = 0
+    \end{align*}
+    Thus,
+    \begin{align*}
+        \lim_n\norm{f_ng_n - fg}_p = \lim_n \qty[\int_\Omega \abs{g_n}^p\abs{f_n - f}^p]^{\frac{1}{p}} + \lim_n \qty[\int_\Omega \abs{fg_n - fg}^p]^{\frac{1}{p}} = 0
+    \end{align*}
+    which shows $f_ng_n \rightarrow fg$ in $L^p(\Omega)$.
 \end{proof}
 
 
