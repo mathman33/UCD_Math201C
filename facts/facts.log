@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  7 APR 2016 11:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 APR 2016 13:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1129,18 +1129,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ) (/Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.aux)
 \openout1 = `facts.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
@@ -1245,11 +1245,11 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+LaTeX Font Info:    Try loading font information for U+msa on input line 17.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+LaTeX Font Info:    Try loading font information for U+msb on input line 17.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -1259,7 +1259,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Here is how much of TeX's memory you used:
  9553 strings out of 493089
  173624 string characters out of 6134842
- 229933 words of memory out of 5000000
+ 229936 words of memory out of 5000000
  12968 multiletter control sequences out of 15000+600000
  13408 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1283,7 +1283,7 @@ onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm7.pfb>
 Output written on /Users/samuelfleischer/School/UCD/UCD_Math201C/facts/facts.pd
-f (3 pages, 179472 bytes).
+f (3 pages, 184936 bytes).
 PDF statistics:
  82 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream

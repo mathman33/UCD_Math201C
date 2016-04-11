@@ -113,7 +113,43 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 1}{A function $f \in L^p(\Rl^n)$ is said to be \emph{$L_p$-continuous} if $\tau_h f \rightarrow f$ in $L^p(\Rl^n)$ as $h \rightarrow 0$ in $\Rl^n$, where $\tau_h f (x) = f(x-h)$ is the translation of $f$ by $h$.  Prove that, if $1 \leq p < \infty$, every $f \in L^p(\Rl^n)$ is $L^p$-continuous.  Give a counter-example to show that this result is not true when $p = \infty$.  [Hint:  Approximate an $L^p$ function by a $C_c$ function.]}
 \begin{proof}
-    Define $f \in L^\infty(\Rl)$ as $f(x) = \mathcal{X}_{[0,1]^n}$ where $\mathcal{X}$ is the characteristic function.  Note that $f(1 - \E) = 1$ for all $\E > 0$.  Let $h$ be a small perturbation, i.e.~$0 < \abs{h} \ll 1$, and choose $\E = \frac{h}{2}$.  Then $\forall x \in (0, \E)$, $\tau_hf(x) = 0$ but $f(x) = 1$, and thus $\abs{\tau_hf(x) - f(x)} = 1$.  This shows that $\forall h > 0$, $\exists$ an interval $I_h$ (of positive measure, $\mu(I_n) > 0$) such that $\abs{\tau_hf(x) - f(x)} = 1$ for all $x \in I_h$.  Thus $\tau_hf \not\rightarrow f$ in $L^\infty(\Rl^n)$.
+    We begin with the counter-example for $L^\infty$.  Define $f \in L^\infty(\Rl)$ as $f(x) = \mathcal{X}_{[0,1]^n}$ where $\mathcal{X}$ is the characteristic function.  Note that $f(1 - \E) = 1$ for all $\E > 0$.  Let $h$ be a small perturbation, i.e.~$0 < \abs{h} \ll 1$, and choose $\E = \frac{h}{2}$.  Then $\forall x \in (0, \E)$, $\tau_hf(x) = 0$ but $f(x) = 1$, and thus $\abs{\tau_hf(x) - f(x)} = 1$.  This shows that $\forall h > 0$, $\exists$ an interval $I_h$ (of positive measure, $\mu(I_n) > 0$) such that $\abs{\tau_hf(x) - f(x)} = 1$ for all $x \in I_h$.  Thus $\tau_hf \not\rightarrow f$ in $L^\infty(\Rl^n)$.
+
+    Now let $p \in [1,\infty)$ and let $f \in L^p(\Rl^n)$.  Then by the density of simple functions in $L^p$, there exist simple functions $f_\ell \in L^p$ such that $\norm{f_\ell - f}_p \rightarrow 0$.  By the definition of simple functions, there are disjoint, finite-measure sets $E_{\ell,k}$, where $k = 1, \dots, N_\ell$ and constants $a_{\ell,k}$ such that
+    \begin{align*}
+        f_\ell = \sum_{k=1}^{N_\ell} a_{\ell,k} \mathcal{X}_{E_{\ell,k}}
+    \end{align*}
+    Next we show that for each $h > 0$, $\tau_h f_\ell \rightarrow \tau_h f$ in $L^p$.
+    \begin{align*}
+        \norm{\tau_h f_\ell - \tau_h f}_p^p = \int_{\Rl^n} \abs{f_\ell(x + h) - f(x + h)}^p \dd x = \int_{\Rl^n} \abs{f_\ell(x) - f(x)}^p \dd x = \norm{f_\ell - f}_p^p \rightarrow 0
+    \end{align*}
+    by a change of variables.  Next we show that for each $n$, $\tau_h f_\ell \rightarrow f_\ell$ as $h \rightarrow 0$.  For each $E_{\ell,k}$, define the set $E_{\ell,k,h}$ as the shifted set $E_{\ell,k}$ by $h$:
+    \begin{align*}
+        E_{\ell,k,h} = \left\{x + h\ :\ x \in E_{\ell,k}\right\}.
+    \end{align*}
+    Then
+    \begin{align*}
+        \norm{\tau_h f_\ell - f_\ell}_p^p &= \int_{\Rl^n} \abs{\sum_{k=1}^{N_\ell}a_{\ell,k}\mathcal{X}_{E_{\ell,k,h}} - \sum_{k=1}^{N_\ell} a_{\ell,k}\mathcal{X}_{E_{\ell,k}}}^p \dd x \\
+        &= \int_{\Rl^n} \abs{\sum_{k=1}^{N_\ell} a_{\ell,k}\qty(\mathcal{X}_{E_{\ell,k,h}\setminus E_{\ell,k}} - \mathcal{X}_{E_{\ell,k}\setminus E_{\ell,k,h}})}^p \dd x \\
+        &= \int_{\Rl^n} G_{\ell,h} \dd x
+    \end{align*}
+    where
+    \begin{align*}
+        G_{\ell,h} = \abs{\sum_{k=1}^{N_\ell} a_{\ell,k}\qty(\mathcal{X}_{E_{\ell,k,h}\setminus E_{\ell,k}} - \mathcal{X}_{E_{\ell,k}\setminus E_{\ell,k,h}})}^p.
+    \end{align*}
+    Then since $\mu\qty(E_{\ell,k,h}\setminus E_{\ell,k}) \rightarrow 0$ and $\mu\qty(E_{\ell,k}\setminus E_{\ell,k,h}) \rightarrow 0$ as $h \rightarrow 0$, then $G_{\ell,h} \rightarrow 0$ pointwise as $h \rightarrow 0$.  Also,
+    \begin{align*}
+        \abs{G_{\ell,h}(x)} \leq \abs{\sum_{k=1}^{N_\ell} a_{\ell,k} 2\mathcal{X}_{E_{\ell,k}}(x)}^p = 2^p\abs{\sum_{k=1}^{N_\ell}a_{\ell,k}\mathcal{X}_{E_{\ell,k}}(x)} = 2^p\abs{f_\ell(x)}^p
+    \end{align*}\tabularnewline
+    That is, for a given $n$, $G_{\ell,k}$ is uniformly bounded by $2^p\abs{f_\ell(x)}^p$.  Then by the Dominated Convergence Theorem, the integral of $G_{\ell,k}$ converges to the integral of its pointwise limit, which is $0$.  Thus, as $h \rightarrow 0$,
+    \begin{align*}
+        \norm{\tau_h f_\ell - f_\ell}_p^p \rightarrow \int_{\Rl^n} 0 \dd x = 0.
+    \end{align*}
+    Thus,
+    \begin{align*}
+        \norm{\tau_h f - f}_p \leq \norm{\tau_h f - \tau_h f_\ell}_p + \norm{\tau_h f_\ell - f_\ell}_p + \norm{f_\ell - f}_p \rightarrow 0
+    \end{align*}
+    since each of the three norms on the right hand side converge to $0$.
 \end{proof}
 
 
@@ -294,6 +330,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 9}{Prove that the space of continuous functions with compat support $\mathcal{C}_c^0(\Rl^n)$ is dense in $L^p(\Rl^n)$ for $1 \leq p < \infty$.}
 \begin{proof}
+    
 \end{proof}
 
 

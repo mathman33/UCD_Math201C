@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 APR 2016 16:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 APR 2016 10:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw_2.tex
-(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw_2.tex
+**/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_3-apr_19/hw_3.tex
+(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_3-apr_19/hw_3.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
@@ -2032,8 +2032,8 @@ les
 \f@ncyO@erf=\skip100
 \f@ncyO@olf=\skip101
 \f@ncyO@orf=\skip102
-) (/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw_2.aux)
-\openout1 = `hw_2.aux'.
+) (/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_3-apr_19/hw_3.aux)
+\openout1 = `hw_3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 103.
 LaTeX Font Info:    ... okay on input line 103.
@@ -2153,10 +2153,10 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 103.
 LaTeX Info: Redefining \pageref on input line 103.
 LaTeX Info: Redefining \nameref on input line 103.
-(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw_2.out) (/Users/s
-amuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw_2.out)
+(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_3-apr_19/hw_3.out) (/Users/s
+amuelfleischer/School/UCD/UCD_Math201C/hw_3-apr_19/hw_3.out)
 \@outlinefile=\write4
-\openout4 = `hw_2.out'.
+\openout4 = `hw_3.out'.
 
 ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document ha
@@ -2187,7 +2187,7 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 8.27998pt on input line 106.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 6.43999pt on input line 106.
-(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw_2.toc
+(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_3-apr_19/hw_3.toc
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
@@ -2204,7 +2204,7 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 5.51999pt on input line 2.
 )
 \tf@toc=\write5
-\openout5 = `hw_2.toc'.
+\openout5 = `hw_3.toc'.
 
 [1
 
@@ -2222,118 +2222,105 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--116
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 161--163
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 125--127
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
+Underfull \hbox (badness 10000) in paragraph at lines 125--127
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 135--137
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--137
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 145--147
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--147
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 155--157
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--157
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 165--167
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 175--177
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--177
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 185--187
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
 [2]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 176--178
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
-
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 191--193
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
-
- []
-
-[3]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 218--220
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 218--220
-
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 244--246
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--246
-
- []
-
-[4]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 259--261
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 259--261
-
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 287--289
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--289
-
- []
-
-[5]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 331--333
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 331--333
-
- []
-
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 343.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 343.
-(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 343.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 343.
-Package rerunfilecheck Info: File `hw_2.out' has not changed.
-(rerunfilecheck)             Checksum: D2237A91FE63EAF8C035E33D09E12BEA;405.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 343.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
+(/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_3-apr_19/hw_3.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
+Package rerunfilecheck Info: File `hw_3.out' has not changed.
+(rerunfilecheck)             Checksum: 8FDE76E86A4810A14ACEEC534DDCF7FC;360.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 195.
  ) 
 Here is how much of TeX's memory you used:
- 34457 strings out of 493089
- 780046 string characters out of 6134842
- 954968 words of memory out of 5000000
- 37339 multiletter control sequences out of 15000+600000
- 99935 words of font info for 105 fonts, out of 8000000 for 9000
+ 34439 strings out of 493089
+ 779876 string characters out of 6134842
+ 943968 words of memory out of 5000000
+ 37334 multiletter control sequences out of 15000+600000
+ 98094 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,15n,83p,10461b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,11n,83p,10461b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-mcl.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on /Users/samuelfleischer/School/UCD/UCD_Math201C/hw_2-apr_12/hw
-_2.pdf (6 pages, 92393 bytes).
+xlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on /Users/samuelfleischer/School/UCD/UCD_Math201C/hw_3-apr_19/hw
+_3.pdf (2 pages, 53937 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
- 16 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 88 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
