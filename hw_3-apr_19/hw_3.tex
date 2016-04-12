@@ -65,6 +65,7 @@
 
 \newcommand{\VEC}[2]{\left\langle #1, #2 \right\rangle}
 \newcommand{\ran}{\text{\rm ran }}
+\newcommand{\spt}{\text{\rm spt }}
 \newcommand{\Hilb}{\mathcal{H}}
 
 \DeclareMathOperator*{\esssup}{\text{ess~sup}}
@@ -122,7 +123,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 2}{}
+\problem{Problem 2}{Let $\Omega$ denote an open and smooth subset of $\Rl^n$.  Prove that $\mathcal{C}_c^\infty(\Omega)$ is dense in $L^p(\Omega)$ for $1 \leq p < \infty$.}
 \begin{proof}
 \end{proof}
 
@@ -132,7 +133,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 3}{}
+\problem{Problem 3}{Prove that if $u \in L^1_\text{loc}(\Omega)$ satisfies $\int_\Omega u(x) v(x) \dd x = 0$ for all $v \in \mathcal{C}_c^\infty(\Omega)$, then $u = 0$ a.e.~ in $\Omega$.}
 \begin{proof}
 \end{proof}
 
@@ -142,7 +143,65 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 4}{}
+\problem{Problem 4}{Let $u \in L^\infty(\Rl^n)$ and let $\eta_\E$ be a standard mollifier.  For $\E > 0$ consider the sequence $\psi_\E \in L^\infty(\Rl^n)$ such that $$\norm{\psi_\E}_\infty \leq 1\ \forall\E > 0\ \text{ and }\ \psi_\E \rightarrow \psi\ \text{a.e. in }\ \Rl^n,$$ define $$v^\E = \eta_\E * (\psi_\E u)\ \text{ and }\ v = \psi u.$$
+\begin{enumerate}[(a)]
+    \item Prove that $v^\E \overset{*}{\rightharpoonup} v$ in $L^\infty(\Rl^n)$.
+    \item Prove that $v^\E \rightarrow v$ in $L^1(B)$ for every ball $B \subset \Rl^n$.
+\end{enumerate}}
+\begin{proof}
+    \begin{enumerate}[(a)]
+        \item We want to show $\phi_{v^\E}(f) \rightarrow \phi_v(f)$ for all $f \in L^1(\Rl)$, where $\phi_v$ and $\phi_{v^\E}$ are the continuous linear functionals associated with $v$ and $v^\E$, respectively.
+    \end{enumerate}
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 5}{For $u \in \mathcal{C}^0(\Rl^n; \Rl)$, $\spt(u)$ is the closure of the set $\left\{x \in \Rl^n\ :\ u(x) \neq 0\right\}$, but this definition may not make sense for functions $u \in L^p(\Omega)$.  For example what is the support of $\mathcal{X}_\mathbb{Q}$, the indicator over the rationals? \\
+
+Let $u\ :\ \Rl^n \rightarrow \Rl$, and let $\{\Omega_\alpha\}_{\alpha \in A}$ denote the collection of all open sets on $\Rl^n$ such that for each $\alpha \in A$, $u = 0$ a.e.~on $\Omega_\alpha$.  Define $\Omega=\displaystyle\bigcup_{\alpha\in A} \Omega_\alpha$.  Prove that $u = 0$ a.e.~on $\Omega$. \\
+
+The support of $u$, $\spt(u)$, is $\Omega^C$, the complement of $\Omega$.  Notice that if $v = w$ a.e.~on $\Rl^n$, then $\spt(v) = \spt(w)$; furthermore, if $u \in \mathcal{C}^0(\Rl^n)$, then $\Omega^C = \overline{\left\{x \in \Rl^n\ :\ u(x) \neq 0\right\}}$.  (Hint: Since $A$ is not necessarily countable, it is not clear that $f = 0$ a.e.~on $\Omega$, so find a countable family $U_n$ of open sets in $\Rl^n$ such that every open set on $\Rl^n$ is the union of some of the sets from $\{U_n\}$.)}
+\begin{proof}
+    Since $\mathcal{X}_\mathbb{Q}$ is nonzero on $\Rl\setminus\mathbb{Q}$, which is a dense subset of $\Rl$, then $\spt\qty(\mathcal{X}_\mathbb{Q}) = \Rl$.  This is nonsence, however, since $\mathcal{X}_\mathbb{Q}$ is equivalent to $0$ in $L^p(\Rl)$.
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 6}{Prove that if $u \in L^1(\Rl^n)$ and $v \in L^p(\Rl^n)$ for $1 \leq p \leq \infty$, then $$\spt(u * v) \subset \overline{\spt(u) + \spt(v)}.$$}
+\begin{proof}
+    Suppose $x \not\in \overline{\spt(u) + \spt(v)}$ and define the set $\qty[x - \spt(u)]$ as the shift of the support of $u$ by the vector $x$:
+    \begin{align*}
+        \qty[x - \spt(u)] = \left\{y\ :\ x - y \in \spt(u)\right\}
+    \end{align*}
+    Then
+    \begin{align*}
+        (u*v)(x) = \int_{\Rl^n} u(x - y)v(y) \dd y = \int_{\qty[x - \spt(u)] \cap \spt(v)} u(x - y)v(y)\dd y
+    \end{align*}
+    If $x \in \spt(v) \cap \qty[x - \spt(u)]$, then $x \in \spt(v)$ and $x - x = 0 \in \spt(u)$.  Then since $x = 0 + x$, then $x \in \spt(u) + \spt(v)$, which is a contradiction since $x \not\in \overline{\spt(u) + \spt(v)}$.  Thus $\qty[x - \spt(u)] \cap \spt(v) = \emptyset$, and therefore
+    \begin{align*}
+        (u*v)(x) = \int_{\qty[x - \spt(u)] \cap \spt(v)} u(x - y)v(y)\dd y = \int_\emptyset u(x-y) v(y) \dd y = 0
+    \end{align*}
+    and thus $x \not\in \spt(u*v)$.  This shows
+    \begin{align*}
+        \spt(u*v) \subset \overline{\spt(u) + \spt(v)}.
+    \end{align*}
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 7}{Suppose that $1 < p < \infty$.  If $\tau_y f(x) = f(x - y)$, show that $f$ belongs to $W^{1,p}(\Rl^n)$ if and only if $\tau_y f$ is a Lipschitz function of $y$ with values in $L^p(\Rl^n)$; that is, $$\norm{\tau_y f - \tau_z f}_p \leq C\abs{y - z}.$$ What happens in the case $p = 1$?}
 \begin{proof}
 \end{proof}
 
@@ -152,37 +211,9 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 5}{}
-\begin{proof}
-\end{proof}
+\problem{Problem 8}{If $u \in W^{1,p}(\Rl^n)$ for some $p \in [1, \infty)$ and $\frac{\partial u}{\partial x_j} = 0$, $j = 1, \dots, n$, on a connected open set $\Omega \subset \Rl^n$, show that $u$ is equal a.e.~to a constant on $\Omega$.  (Hint: approximate $u$ using that $\eta_\E * u \rightarrow u$ in $W^{1,p}(\Rl^n)$, where $\eta_\E$ is a sequence of standard mollifiers.  Show that $\frac{\partial}{\partial x_j}(\eta_\E * u) = 0$ on $\Omega_\E \subset\subset \Omega$ where $\Omega_\E \nearrow \Omega$ as $\E \rightarrow 0$.)\\
 
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 6}{}
-\begin{proof}
-\end{proof}
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 7}{}
-\begin{proof}
-\end{proof}
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 8}{}
+More generally, if $\frac{\partial u}{\partial x_j} - f_j \in C(\Omega)$, $1 \leq j \leq n$, show that $u$ is equal a.e.~to a funtion in $\mathcal{C}^1(\Omega)$.}
 \begin{proof}
 \end{proof}
 
