@@ -330,7 +330,41 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 9}{Prove that the space of continuous functions with compat support $\mathcal{C}_c^0(\Rl^n)$ is dense in $L^p(\Rl^n)$ for $1 \leq p < \infty$.}
 \begin{proof}
-    
+    First we will show that $\mathcal{C}_c^0(\Rl^n)$ is dense in the space of characteristic functions.  Then since simple functions are dense in $L^p(\Rl^n)$ and simple functions are finite linear combinations of simple functions, this will show $\mathcal{C}_c^0(\Rl^n)$ is dense in $L^p(\Rl^n)$.
+
+    Let $\mathcal{X}_A$ be the characteristic function on a bounded, measurable subset $A \subset \Rl^n$.  By the alternate definition of the Lebesgue measure, for any $\E > 0$, there is an open set $G \supset A$ and compact set $K \subset A$ such that $\mu(G\setminus K) < \E$.  By Urysohn's Lemma, there is some continuous function $g$ such that
+    \begin{align*}
+        g(x) \in \begin{cases}
+            \{1\} & \text{if } x \in K \\
+            \{0\} & \text{if } x \in G^C \\
+            [0,1] & \text{if } x \in G \setminus K
+        \end{cases}
+    \end{align*}
+    Then
+    \begin{align*}
+        \norm{g - \mathcal{X}_A}_p^p = \int_{G\setminus K} \abs{g(x) - \mathcal{X}_A(x)}^p \dd x \leq \int_{G\setminus K} 1^p \dd x = \mu(G\setminus K) < \E
+    \end{align*}
+    Thus there are continuous functions that are arbitrarily close in $L^p$-norm to any characteristic function on bounded measurable sets.  Now let $f \in L^p(\Rl^n)$.  Then define $f_n$ as
+    \begin{align*}
+        f_n(x) = \begin{cases}
+            f(x) &\ \text{if } \abs{x} \leq n \\
+            0 &\ \text{if } \abs{x} > n
+        \end{cases}.
+    \end{align*}
+    Then by definition, each $f_n$ is compactly supported and converges to $f$ in $L^p$.  Since simple functions are dense in the space of compactly supported functions, so define $g_{n}$ as
+    \begin{align*}
+        h_n = \sum_{k=1}^{N_n}a_{n,k}\mathcal{X}_{n,k}
+    \end{align*}
+    where $a_{n,k}$ are constants and $\mathcal{X}_{n,k}$ are bounded measurable sets, and $\norm{f_n - h_n}_p < \E$.  This is possible since for each $\mathcal{X}_{n,k}$, we can define $g_{n,k}$ such that
+    \begin{align*}
+        \norm{g_{n,k} - a_{n,k}\mathcal{X}_{n,k}} < \frac{\E}{\displaystyle\max_{k=1,\dots,N_n}\{a_{n,k}\}N_n}.
+    \end{align*}
+    Then define the continuous function $\tilde{g} = \sum_{k=1}^{N_n} g_{n,k}$.  Then
+    \begin{align*}
+        \norm{f - g}_p &\leq \norm{f - f_n}_p + \norm{f_n - h_n}_p + \norm{h_n - g}_p \\
+        &\leq \norm{f - f_n}_p + \norm{f_n - h_n}_p + \sum_{k=1}^{N_n}\norm{a_{n,k}\mathcal{X}_{n,k} - g_{n,k}}_p \rightarrow 0
+    \end{align*}
+    Thus there is a continuous function $g$ that arbitrarily approximates any $L^p$ function $f$.
 \end{proof}
 
 
