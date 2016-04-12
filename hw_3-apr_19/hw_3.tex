@@ -66,6 +66,7 @@
 \newcommand{\VEC}[2]{\left\langle #1, #2 \right\rangle}
 \newcommand{\ran}{\text{\rm ran }}
 \newcommand{\spt}{\text{\rm spt }}
+\newcommand{\sgn}{\text{\rm sgn }}
 \newcommand{\Hilb}{\mathcal{H}}
 
 \DeclareMathOperator*{\esssup}{\text{ess~sup}}
@@ -114,6 +115,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 1}{If $u \in L^p(\Rl^n)$ for $1 \leq p < \infty$, and $u^\E = \eta_\E * u$, for $\eta_\E$ the standard mollifier.  Show that $$u^\E \rightarrow u$$ in $L^p(\Rl^n)$ as $\E \rightarrow 0$.}
 \begin{proof}
+    \begin{align*}
+        \norm{\eta_\E * u - u}_p^p &= \int_{\Rl^n} \abs{\eta_\E * u - u}^p \dd x\\
+        &= \int_{\Rl^n} \abs{\int_{\Rl^n} \eta_E(y)u(x-y)\dd y - u(x)}^p \dd x \\
+        &= \int_{\Rl^n} \abs{\int_{\Rl^n} \eta_\E(y) (u(x-y) - u(x))\dd y}^p \dd x \\
+        &= \int_{\Rl^n}\abs{\int \eta_\E(x-y)(u(y) - u(x))}^p \dd x \\
+        &\leq {\color{red}\int_{\Rl^n} \frac{C}{\E^n}\abs{\int \abs{u(y) - u(x)}\dd y}^p \dd x}
+    \end{align*}
+    $\tilde{u} \in C_C(\Rl^n)$ $\implies \tilde{u}$ is uniformly continuous.
+    \begin{align*}
+        \norm{u - \tilde{u}}_p \leq \frac{\tilde{\E}}{\E} \\
+        \implies \norm{\eta_\E * u - u}_p \leq \norm{\eta_\E * u - \eta_\E * \tilde{u}}_p + \norm{\eta_\E * \tilde{u} - \tilde{u}}_p + \norm{\tilde{u}  - u}_p
+    \end{align*}
 \end{proof}
 
 
@@ -125,6 +138,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 2}{Let $\Omega$ denote an open and smooth subset of $\Rl^n$.  Prove that $\mathcal{C}_c^\infty(\Omega)$ is dense in $L^p(\Omega)$ for $1 \leq p < \infty$.}
 \begin{proof}
+    $\Omega$ open $\implies$ smooth Urysohn's Lemma:
+    {
+    \color{red}
+        $\Omega$ open $\subset \Rl^n$, and $C_0$, $C_1$ $\subset \Omega$ disjoint nonempty, then $\exists f\ :\ \Omega \rightarrow [0,1]$, smooth, $f(C_0) = \{0\}$, $f(C_1) = \{1\}$.
+    }
+    Let $\E > 0$.  Pick $A \subset \Omega$.  By inner and outer regularity of Lebesgue measure, there is a compact subset $K$ of $\Omega$ and $\omega \subset \Omega$ such that $K \subset A \subset \omega$ with $\mu(\omega \setminus A) < \E$, $\mu(A \setminus K) < \E$.
+
+    $\Omega \subset \Rl^n$ implies $\Omega$ is locally compact and Hausdorff, which implies $\exists$ precompact $O,U \subset \Omega$ such that $K \subset O \subset \overline{O} \subset U \subset \overline{U} \subset W$.  Apply smooth Urysohn's Lemma to $K = C_1$ and $\overline{U}\setminus O = C_0$.  $f_k\ :\ \Omega \rightarrow [0,1]$, $f(K) = \{1\}$, $f(\Omega\setminus W) = \{0\}$.
+    $$
+        \int_\Omega \abs{\mathcal{X}_A - f_k}^p \dd\mu = \int_{A \setminus K} \abs{\mathcal{X}_A - f_k}^p\dd\mu + \int_{W\setminus A}\abs{\mathcal{X}_A - f_k}^p \dd\mu \leq M2\E
+    $$
+    which implies $C_C^\infty(\Omega)$ dense in ISF (Integral Simple Functions) dense in $L^p(\Omega)$. \\
+
+    The integral is split by $\Omega = (\Omega \setminus W) \cup (W\setminus A) \cup (A\setminus K) \cup K$.  But integral over $\Omega \setminus W$ and over $K$ are $0$ for various reasons.. 
 \end{proof}
 
 
@@ -135,6 +162,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 3}{Prove that if $u \in L^1_\text{loc}(\Omega)$ satisfies $\int_\Omega u(x) v(x) \dd x = 0$ for all $v \in \mathcal{C}_c^\infty(\Omega)$, then $u = 0$ a.e.~ in $\Omega$.}
 \begin{proof}
+    {\color{red}Suppose $u \not\equiv 0$.  Then $\exists E \subset \Omega$ with $\mu(E) > 0$ and $u(x) \neq 0$ for all $x \in E$.  Let $K \subset E$ be compact and set $v = \mathcal{X}_K\sgn(u)$.  Then
+        \begin{align*}
+            \int_\Omega u(x)v(x)\dd x = \int_K \abs{u(x)}\dd x > 0
+        \end{align*}
+        This is a contradiction.}
+
+        If $f \in L^p_{\text{loc}}$ and $\eta_\E$ is the standard mollifier, then $\eta_\E * f \rightarrow f$ pointwise a.e.
+        $$
+            \int \eta_\E(x - y)\mu(y)\dd y = 0 \forall \E > 0
+        $$
+        $\Omega_\E = \left\{x \in \Omega\ :\ d\qty(x, \Omega^C) \geq \E\right\}$.
 \end{proof}
 
 
@@ -185,7 +223,7 @@ The support of $u$, $\spt(u)$, is $\Omega^C$, the complement of $\Omega$.  Notic
     \begin{align*}
         (u*v)(x) = \int_{\Rl^n} u(x - y)v(y) \dd y = \int_{\qty[x - \spt(u)] \cap \spt(v)} u(x - y)v(y)\dd y
     \end{align*}
-    If $x \in \spt(v) \cap \qty[x - \spt(u)]$, then $x \in \spt(v)$ and $x - x = 0 \in \spt(u)$.  Then since $x = 0 + x$, then $x \in \spt(u) + \spt(v)$, which is a contradiction since $x \not\in \overline{\spt(u) + \spt(v)}$.  Thus $\qty[x - \spt(u)] \cap \spt(v) = \emptyset$, and therefore
+    If $x_0 \in \spt(v) \cap \qty[x - \spt(u)]$, then $x_0 \in \spt(v)$ and $x - x_0 = 0 \in \spt(u)$.  Then since $x = \qty(x - x_0) + \qty(x_0)$, then $x \in \spt(u) + \spt(v)$, which is a contradiction since $x \not\in \overline{\spt(u) + \spt(v)}$.  Thus $\qty[x - \spt(u)] \cap \spt(v) = \emptyset$, and therefore
     \begin{align*}
         (u*v)(x) = \int_{\qty[x - \spt(u)] \cap \spt(v)} u(x - y)v(y)\dd y = \int_\emptyset u(x-y) v(y) \dd y = 0
     \end{align*}
