@@ -115,17 +115,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 1}{If $u \in L^p(\Rl^n)$ for $1 \leq p < \infty$, and $u^\E = \eta_\E * u$, for $\eta_\E$ the standard mollifier.  Show that $$u^\E \rightarrow u$$ in $L^p(\Rl^n)$ as $\E \rightarrow 0$.}
 \begin{proof}
+    First we show the following containment:
     \begin{align*}
-        \norm{\eta_\E * u - u}_p^p &= \int_{\Rl^n} \abs{\eta_\E * u - u}^p \dd x\\
-        &= \int_{\Rl^n} \abs{\int_{\Rl^n} \eta_E(y)u(x-y)\dd y - u(x)}^p \dd x \\
-        &= \int_{\Rl^n} \abs{\int_{\Rl^n} \eta_\E(y) (u(x-y) - u(x))\dd y}^p \dd x \\
-        &= \int_{\Rl^n}\abs{\int \eta_\E(x-y)(u(y) - u(x))}^p \dd x \\
-        &\leq {\color{red}\int_{\Rl^n} \frac{C}{\E^n}\abs{\int \abs{u(y) - u(x)}\dd y}^p \dd x}
+        \spt(f+g) \subset \spt(f) \cup \spt(g)
     \end{align*}
-    $\tilde{u} \in C_C(\Rl^n)$ $\implies \tilde{u}$ is uniformly continuous.
+    Let $x \in \{x \in \Omega\ :\ (f+g)(x) \neq 0\}$.  Then $(f+g)(x) = f(x) + g(x) \neq 0$.  Then either $f(x) = 0$ or $g(x) = 0$, i.e.~$x\in\spt(f)\cup\spt(g)$.  But $\spt(f)\cup\spt(g)$ is closed, which implies
     \begin{align*}
-        \norm{u - \tilde{u}}_p \leq \frac{\tilde{\E}}{\E} \\
-        \implies \norm{\eta_\E * u - u}_p \leq \norm{\eta_\E * u - \eta_\E * \tilde{u}}_p + \norm{\eta_\E * \tilde{u} - \tilde{u}}_p + \norm{\tilde{u}  - u}_p
+        \spt(f+g) = \overline{\{x \in \Omega\ :\ (f+g)(x) \neq 0\}} \subset \spt(f) \cup \spt(g).
+    \end{align*}
+
+    Now let $\E > 0$ and approximate $u$ by $\tilde{u} \in C_C^0(\Rl^n)$ such that $\norm{u - \tilde{u}}_p < \dfrac{\E}{3}$.  Since $\tilde{u}$ is continuous on a compact set, it is uniformly continuous, and thus $\exists \delta_\E > 0$ such that $\abs{x-y} < \delta_\E \implies \abs{\tilde{u}(x) - \tilde{u}(y)} < \mu(K)^{-\frac{1}{p}}\frac{\E}{3}$ where $K$ is defined below.  Define $\delta = \min\left\{\delta_\E, \frac{1}{2}\right\}$.  Define the set $K = \qty(\overline{\spt(\eta_1) + \spt(\tilde{u})})\cup \spt(\tilde{u})$.  Then since $\mu(\spt(\tilde{u})) < \infty$ and $\mu(\spt(\eta_1)) < \infty$, then $\mu(K) < \infty$.  Then
+    \begin{align*}
+        \norm{\eta_\delta * u - \eta_\delta * \tilde{u}}_p = \norm{\eta_\delta * (u - \tilde{u}}_p \leq \norm{\eta_\delta}_1\norm{u - \tilde{u}}_p = 1 \cdot \frac{\E}{3} = \frac{\E}{3}.
+    \end{align*}
+    Let $J = \spt(\eta_\delta * \tilde{u} - \tilde{u})$.  Then $J \subset K$ by the first containment shown.  Finally,
+    \begin{align*}
+        \norm{\eta_\delta * \tilde{u} - \tilde{u}}_p &\leq \qty[\int_J \abs{\int_{B_\delta(x)}\eta_\delta(x-y)\tilde{u}(y)\dd y}^p \dd x - \tilde{u}(x)]^{\frac{1}{p}} \\
+        &\leq \qty[\int_J\qty(\int_{B_\delta(x)}\eta_\delta(x - y)\abs{\tilde{u}(u) - \tilde{u}(x)}\dd y)^p \dd x]^{\frac{1}{p}} \\
+        &< \mu(K)^{-\frac{1}{p}}\frac{\E}{3}\qty[\int_J \dd x]^{\frac{1}{p}} \\
+        &= \mu(K)^{-\frac{1}{p}}\frac{\E}{3}\mu(J)^{\frac{1}{p}} \\
+        &\leq \mu(K)^{-\frac{1}{p}}\frac{\E}{3}\mu(K)^{\frac{1}{p}} \\
+        &= \frac{\E}{3}
+    \end{align*}
+    Thus,
+    \begin{align*}
+        \norm{\eta_\delta * u - u}_p \leq \norm{\eta_\delta * u - \eta_\delta * \tilde{u}}_p + \norm{\eta_\delta * \tilde{u} - \tilde{u}}_p + \norm{\tilde{u} - u}_p < 3\qty(\frac{\E}{3}) = \E,
+    \end{align*}
+    which shows, since $\E$ is arbitrarily small, that
+    \begin{align*}
+        \eta_\delta * u \rightarrow u.
     \end{align*}
 \end{proof}
 
@@ -138,20 +156,44 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 2}{Let $\Omega$ denote an open and smooth subset of $\Rl^n$.  Prove that $\mathcal{C}_c^\infty(\Omega)$ is dense in $L^p(\Omega)$ for $1 \leq p < \infty$.}
 \begin{proof}
-    $\Omega$ open $\implies$ smooth Urysohn's Lemma:
-    {
-    \color{red}
-        $\Omega$ open $\subset \Rl^n$, and $C_0$, $C_1$ $\subset \Omega$ disjoint nonempty, then $\exists f\ :\ \Omega \rightarrow [0,1]$, smooth, $f(C_0) = \{0\}$, $f(C_1) = \{1\}$.
-    }
-    Let $\E > 0$.  Pick $A \subset \Omega$.  By inner and outer regularity of Lebesgue measure, there is a compact subset $K$ of $\Omega$ and $\omega \subset \Omega$ such that $K \subset A \subset \omega$ with $\mu(\omega \setminus A) < \E$, $\mu(A \setminus K) < \E$.
-
-    $\Omega \subset \Rl^n$ implies $\Omega$ is locally compact and Hausdorff, which implies $\exists$ precompact $O,U \subset \Omega$ such that $K \subset O \subset \overline{O} \subset U \subset \overline{U} \subset W$.  Apply smooth Urysohn's Lemma to $K = C_1$ and $\overline{U}\setminus O = C_0$.  $f_k\ :\ \Omega \rightarrow [0,1]$, $f(K) = \{1\}$, $f(\Omega\setminus W) = \{0\}$.
-    $$
-        \int_\Omega \abs{\mathcal{X}_A - f_k}^p \dd\mu = \int_{A \setminus K} \abs{\mathcal{X}_A - f_k}^p\dd\mu + \int_{W\setminus A}\abs{\mathcal{X}_A - f_k}^p \dd\mu \leq M2\E
-    $$
-    which implies $C_C^\infty(\Omega)$ dense in ISF (Integral Simple Functions) dense in $L^p(\Omega)$. \\
-
-    The integral is split by $\Omega = (\Omega \setminus W) \cup (W\setminus A) \cup (A\setminus K) \cup K$.  But integral over $\Omega \setminus W$ and over $K$ are $0$ for various reasons.. 
+    It suffices to show that any convolved function is in $\mathcal{C}_C^\infty$.  Let $u \in L^p$ and choose $\E > 0$.  Then since
+    \begin{align*}
+        \frac{\partial}{\partial x}\eta_\E(x-y)u(y) = u(y)\frac{\partial}{\partial x}\eta_\E(x - y) \leq u(y) M(y)
+    \end{align*}
+    since $\eta_\E(x-y)$ is an arbitrarily smooth compactly supported function, and thus its derivatives are arbitrarily smooth compactly supported functions.  Specifically,
+    \begin{align*}
+        M(y) = \max_{x \in B_\E(y)}\left\{\eta_\E(x - y)\right\}
+    \end{align*}
+    Next we show $M$ is continuous.  Choose $\tilde{\E} > 0$.  Then choose $\delta$ such that $\abs{x_1 - x_2} < \delta \implies \abs{\eta_\E(x_1) - \eta_\E(x_2)} < \tilde{\E}$.  Then
+    \begin{align*}
+        M(y + \delta) = \max_{x \in B_\E(y + \delta)}\left\{\eta_\E(x - y - \delta)\right\} \leq \max_{x \in B_\E(y + \delta)} \left\{\eta_\E(x - y) + \tilde{\E}\right\} = M(y) + \tilde{\E}
+    \end{align*}
+    since
+    \begin{align*}
+        \abs{\eta_\E(x - y - \delta) - \eta_\E(x - y)} < \tilde{\E}
+    \end{align*}
+    Similarly, $-\tilde{\E} < M(y + \delta) - M(y)$.  Thus,
+    \begin{align*}
+        \abs{M(y + \delta) - M(y)} < \tilde{\E}
+    \end{align*}
+    and thus $M$ is continuous in $M$.  Since $u \in L^p$ and $M$ is continuous, $u(y)M(y)$ is integrable (and it is also a bounding function of $\frac{\partial}{\partial x} \eta_\E(x-y)u(y)$).  Thus Shkoller Lemma 1.39 applies, and
+    \begin{align*}
+        \frac{\dd}{\dd x}u^\E = \frac{\dd}{\dd x}\int_\Omega \eta_\E(x-y) u(y) \dd y = \int_\Omega \frac{\dd}{\dd x} \eta_\E(x-y)u(y)\dd y = \int_\Omega u(y)\frac{\dd}{\dd x} \eta_\E(x-y)\dd y = u * \frac{\dd}{\dd x}\eta_\E \in \mathcal{C}_C^0(\Omega)
+    \end{align*}
+    since the convolution of an $L^p$ function with a continuous function is continuous.  This shows $u^\E \in \mathcal{C}_C^1(\Omega)$.  Now suppose $u^\E \in \mathcal{C}_C^k(\Omega)$.  Then
+    \begin{align*}
+        \frac{\dd^k}{\dd x^k}\int_\Omega \eta_\E(x-y)u(y)\dd y \in \mathcal{C}_C^0(\Omega) \\
+        \implies \int_\Omega \frac{\dd^k}{\dd x^k} \eta_\E(x-y) u(y)\dd y = \int_\Omega u(y) \frac{\dd^k}{\dd x^k} \eta_\E(x-y) \dd y
+    \end{align*}
+    Thus,
+    \begin{align*}
+        \frac{\dd^{k+1}}{\dd x^{k+1}} \int_\Omega \eta_\E(x-y)u(y)\dd y = \frac{\dd}{\dd x}\int_\Omega u(y)\frac{\dd^k}{\dd x^k} \eta_\E(x-y)\dd y
+    \end{align*}
+    By similar arguments as above (which apply since all derivatives of $\eta_\E$ are arbitrarily smooth),
+    \begin{align*}
+        \frac{\dd^{k+1}}{\dd x^{k+1}} \int_\Omega \eta_\E(x-y)u(y)\dd y = \int_\Omega \frac{\dd}{\dd x} u(y) \frac{\dd^k}{\dd x^k} \eta_\E(x-y)\dd y = \int_\Omega u(y)\frac{\dd^{k+1}}{\dd x^{k+1}} \eta_\E(x-y)\dd y = u * \frac{\dd^{k+1}}{\dd x^{k+1}}\eta_\E \in \mathcal{C}_C^0(\Omega)
+    \end{align*}
+    since $u$ is $L^p$ and all derivatives of $\eta_\E$ are continuous.  Thus, by induction, $u^\E \in \mathcal{C}_C^k(\Omega)$ for all $k = 1, 2, \dots$, i.e.~$u^\E \in \mathcal{C}_C^\infty(\Omega)$.  By problem one, convolutions are dense in $L^p(\Omega)$, and thus $\mathcal{C}_C^\infty$ is dense in $L^p(\Omega)$.
 \end{proof}
 
 
@@ -160,19 +202,19 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 3}{Prove that if $u \in L^1_\text{loc}(\Omega)$ satisfies $\int_\Omega u(x) v(x) \dd x = 0$ for all $v \in \mathcal{C}_c^\infty(\Omega)$, then $u = 0$ a.e.~ in $\Omega$.}
+\problem{Problem 3}{Prove that if $u \in L^1_\text{loc}(\Omega)$ satisfies $\int_\Omega u(x) v(x) \dd x = 0$ for all $v \in \mathcal{C}_c^\infty(\Omega)$, then $u = 0$ a.e.~in $\Omega$.}
 \begin{proof}
-    {\color{red}Suppose $u \not\equiv 0$.  Then $\exists E \subset \Omega$ with $\mu(E) > 0$ and $u(x) \neq 0$ for all $x \in E$.  Let $K \subset E$ be compact and set $v = \mathcal{X}_K\sgn(u)$.  Then
-        \begin{align*}
-            \int_\Omega u(x)v(x)\dd x = \int_K \abs{u(x)}\dd x > 0
-        \end{align*}
-        This is a contradiction.}
+    Suppose $u$ satisfies the hypothetical conditions, and also that $u \not\equiv 0$.  Then $\exists E \subset \Omega$ with $\mu(E) > 0$ and $u(x) \neq 0$ for all $x \in E$.  Without loss of generality, suppose $u(x) > 0$ for all $x \in E$.  Next let $K \subset L \subset E$, with $K$ compact and $L$ open.  By Urysohn's Lemma for smooth functions, construct the test function $v$ such that $v(x) = 1$ for all $x \in K$ and $v(x) = 0$ for all $x \in \overline{E^C}$ and $v(x) \in [0,1]$ for all $x \in \overline{E_C}\setminus K$.  Then
+    \begin{align*}
+        \int_\Omega u(x)v(x)\dd x \geq \int_K \abs{u(x)}\dd x > 0
+    \end{align*}
+    This is a contradiction.  Thus if $u \in L^1_{\text{loc}}(\Omega)$ satisfies $\int_\Omega u(x)v(x) \dd x = 0$ for all test functions $v$, then $u = 0$ a.e.~in $\Omega$.
 
-        If $f \in L^p_{\text{loc}}$ and $\eta_\E$ is the standard mollifier, then $\eta_\E * f \rightarrow f$ pointwise a.e.
-        $$
-            \int \eta_\E(x - y)\mu(y)\dd y = 0 \forall \E > 0
-        $$
-        $\Omega_\E = \left\{x \in \Omega\ :\ d\qty(x, \Omega^C) \geq \E\right\}$.
+        % If $f \in L^p_{\text{loc}}$ and $\eta_\E$ is the standard mollifier, then $\eta_\E * f \rightarrow f$ pointwise a.e.
+        % $$
+        %     \int \eta_\E(x - y)\mu(y)\dd y = 0 \forall \E > 0
+        % $$
+        % $\Omega_\E = \left\{x \in \Omega\ :\ d\qty(x, \Omega^C) \geq \E\right\}$.
 \end{proof}
 
 
@@ -204,7 +246,23 @@ Let $u\ :\ \Rl^n \rightarrow \Rl$, and let $\{\Omega_\alpha\}_{\alpha \in A}$ de
 
 The support of $u$, $\spt(u)$, is $\Omega^C$, the complement of $\Omega$.  Notice that if $v = w$ a.e.~on $\Rl^n$, then $\spt(v) = \spt(w)$; furthermore, if $u \in \mathcal{C}^0(\Rl^n)$, then $\Omega^C = \overline{\left\{x \in \Rl^n\ :\ u(x) \neq 0\right\}}$.  (Hint: Since $A$ is not necessarily countable, it is not clear that $f = 0$ a.e.~on $\Omega$, so find a countable family $U_n$ of open sets in $\Rl^n$ such that every open set on $\Rl^n$ is the union of some of the sets from $\{U_n\}$.)}
 \begin{proof}
-    Since $\mathcal{X}_\mathbb{Q}$ is nonzero on $\Rl\setminus\mathbb{Q}$, which is a dense subset of $\Rl$, then $\spt\qty(\mathcal{X}_\mathbb{Q}) = \Rl$.  This is nonsence, however, since $\mathcal{X}_\mathbb{Q}$ is equivalent to $0$ in $L^p(\Rl)$.
+    Define the basis $B$ of the standard topology on $\Rl^n$ by
+    \begin{align*}
+        B = \{(a_1,b_1) \times \dots \times (a_n,b_n)\ :\ a_i,b_i \in \mathbb{Q}\ \forall 1 \leq i \leq n\}.
+    \end{align*}
+    $B$ is clearly countable, and is a basis of the standard topology on $\Rl^n$ because $\mathbb{Q}^n$ is dense in $\Rl^n$.  Since $\Omega_\alpha$ is open for each $\alpha \in A$, then $\Omega_\alpha$ can be written as a union of open sets in $B$:
+    \begin{align*}
+        \Omega_\alpha = \bigcup_{i=1}^\infty B_{\alpha,i}
+    \end{align*}
+    where $B_{\alpha,i} \in B$.  The union above is countable since $B$ is countable.  Also, $\bigcup_{\alpha\in A} \Omega_\alpha$ can be re-indexed as
+    \begin{align*}
+        \Omega = \bigcup_{\alpha\in A}\Omega_\alpha = \bigcup_{\alpha\in A}\bigcup_{i=1}^\infty B_{\alpha,i} = \bigcup_{k=1}^\infty B_k
+    \end{align*}
+    where $B_k \in B$.  This union is countable since each $\bigcup_{i=1}^\infty B_{\alpha,i}$ is countable and all $B_{\alpha,i} \in B$, which is countable.  Thus,
+    \begin{align*}
+        \mu\qty(\left\{x\in\Omega\ :\ u(x) \neq 0\right\}) = \mu\qty(\left\{x\in\bigcup_{k=1}^\infty B_k\ :\ u(x) \neq 0\right\}) \underbrace{\leq}_\text{countable additivity} \sum_{k=1}^\infty \mu\Big(\big\{x \in \Omega\ :\ u(x) \neq 0\big\}\Big) = 0
+    \end{align*}
+    In other words, $x = 0$ a.e.~on $\Omega$.
 \end{proof}
 
 
@@ -225,9 +283,17 @@ The support of $u$, $\spt(u)$, is $\Omega^C$, the complement of $\Omega$.  Notic
     \end{align*}
     If $x_0 \in \spt(v) \cap \qty[x - \spt(u)]$, then $x_0 \in \spt(v)$ and $x - x_0 = 0 \in \spt(u)$.  Then since $x = \qty(x - x_0) + \qty(x_0)$, then $x \in \spt(u) + \spt(v)$, which is a contradiction since $x \not\in \overline{\spt(u) + \spt(v)}$.  Thus $\qty[x - \spt(u)] \cap \spt(v) = \emptyset$, and therefore
     \begin{align*}
-        (u*v)(x) = \int_{\qty[x - \spt(u)] \cap \spt(v)} u(x - y)v(y)\dd y = \int_\emptyset u(x-y) v(y) \dd y = 0
+        (u*v)(x) = \int_{\qty[x - \spt(u)] \cap \spt(v)} u(x - y)v(y)\dd y = \int_\emptyset u(x-y) v(y) \dd y = 0.
     \end{align*}
-    and thus $x \not\in \spt(u*v)$.  This shows
+    Since $\overline{\spt(u) + \spt(v)}$ is closed, its complement is open.  So $\exists \E$ such that $B_\E(x) \subset \overline{\spt(u) + \spt(v)}^C$.  Thus $(u*v)(x) = 0$ for all $x \in B_\E(x)$.  Then
+    \begin{align*}
+        B_\E(x)\cap\left\{x\in\Omega\ :\ (u*v)(x) \neq 0\right\} = \emptyset.
+    \end{align*}
+    So there is a neighborhood around $x$ which does not intersect $\left\{x \in \Omega\ :\ (u*v)(x) \neq 0\right\}$.  Thus,
+    \begin{align*}
+        x \not\in \overline{\left\{x\in\Omega\ :\ (u*v)(x) \neq 0\right\}} = \spt(u*v).
+    \end{align*}
+    This shows
     \begin{align*}
         \spt(u*v) \subset \overline{\spt(u) + \spt(v)}.
     \end{align*}
@@ -253,6 +319,28 @@ The support of $u$, $\spt(u)$, is $\Omega^C$, the complement of $\Omega$.  Notic
 
 More generally, if $\frac{\partial u}{\partial x_j} - f_j \in C(\Omega)$, $1 \leq j \leq n$, show that $u$ is equal a.e.~to a funtion in $\mathcal{C}^1(\Omega)$.}
 \begin{proof}
+    We want to show that $\frac{\partial}{\partial x_i}u^\E = 0$ for any $i = 1, 2, \dots, n$.  This would imply $u^\E = C_\E$, for $C_\E$ some constant.  By Theorem 1.40 in Shkoller's Notes, $u^\E \rightarrow u$ pointwise almost everywhere, and thus would imply $C_\E \rightarrow C \equiv u$.
+    \begin{align*}
+        \frac{\partial}{\partial x_i} (u^\E) &= \frac{\partial}{\partial x_i} \int_{\Omega_\E} \eta_\E(x) u(x-y) \dd x \\
+        &= \int_{\Omega_\E} \frac{\partial}{\partial x_i} \qty[\eta_\E(x) u(x-y)]\dd x.
+    \end{align*}
+    We can interchange the integral and the derivative since the hypotheses of Theorem 1.39 in Shkoller's Notes holds.  In particular,
+    \begin{align*}
+        \frac{\partial}{\partial x_i} \qty[\eta_\E(x) u(x-y)] &= \qty[\frac{\partial}{\partial x_i}\eta_\E(x)]u(x-y) + \cancelto{0}{\eta_\E(x)\qty[\frac{\partial}{\partial x_i}u(x-y)]}
+    \end{align*}
+    since all first partial derivatives of $u$ are assumed to be $0$ on $\Omega$.  Thus,
+    \begin{align*}
+        \frac{\partial}{\partial x_i} \qty[\eta_\E(x) u(x-y)] = \qty[\frac{\partial}{\partial x_i}\eta_\E(x)]u(x-y) \leq M u(x-y)
+    \end{align*}
+    where $M$ is the maximum of the $i$\textsuperscript{th} derivative of $\eta_\E$, which is attained since $\eta_\E$ is continuous on a compact set.  Since $u \in W^{1,p}(\Rl^n)$, $Mu(x-y)$ is integrable, and thus Theorem 1.39 holds.  Then
+    \begin{align*}
+        \frac{\partial}{\partial x_i} (u^\E) &= \int_{\Omega_\E}\qty[\frac{\partial}{\partial x_i}\eta_\E(x)]u(x-y)\dd x \\
+        &= \int_{\Omega_\E} \qty[\frac{\partial}{\partial x_i} \eta_\E(x-y)]u(y)\dd y \\
+        &= -\int_{\Omega_\E} \qty[\frac{\partial}{\partial y_i}\eta_\E(x-y)]u(y)\dd y \qquad \text{by a suitable change of variables} \\
+        &= -\int_{\Omega_\E} \eta_\E(x-y)\frac{\partial}{\partial y_i}u(y)\dd y \qquad \text{by the definition of weak derivative of $u \in W^{1,p}$} \\
+        &= 0 \qquad \text{by assumption of all first partial derivatives}
+    \end{align*}
+    Thus, $u^\E = C_\E$ is constant, which shows $u$ is constant. since $u^\E \rightarrow u$ pointwise a.e.
 \end{proof}
 
 

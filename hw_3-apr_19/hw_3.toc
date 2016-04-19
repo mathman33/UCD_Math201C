@@ -1,9 +1,9 @@
 \select@language {english}
 \contentsline {section}{\bf Problem 1}{2}{section*.1}
 \contentsline {section}{\bf Problem 2}{2}{section*.2}
-\contentsline {section}{\bf Problem 3}{2}{section*.3}
-\contentsline {section}{\bf Problem 4}{3}{section*.4}
-\contentsline {section}{\bf Problem 5}{3}{section*.5}
-\contentsline {section}{\bf Problem 6}{3}{section*.6}
-\contentsline {section}{\bf Problem 7}{4}{section*.7}
-\contentsline {section}{\bf Problem 8}{4}{section*.8}
+\contentsline {section}{\bf Problem 3}{3}{section*.3}
+\contentsline {section}{\bf Problem 4}{4}{section*.4}
+\contentsline {section}{\bf Problem 5}{4}{section*.5}
+\contentsline {section}{\bf Problem 6}{5}{section*.6}
+\contentsline {section}{\bf Problem 7}{6}{section*.7}
+\contentsline {section}{\bf Problem 8}{6}{section*.8}
