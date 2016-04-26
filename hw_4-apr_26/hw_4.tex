@@ -159,7 +159,7 @@ Then write this integral as
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 2}{Show that $W^{n,1}(\Rl^n) \subset C(\Rl^n) \cap L^\infty(\Rl^n)$.
+\problem{Problem 2}{Show that $W^{n,1}\qty(\Rl^n) \subset C\qty(\Rl^n) \cap L^\infty\qty(\Rl^n)$.
 
 Hint:  $u(x) = \displaystyle\int_{-\infty}^0 \dots \int_{-\infty}^0 \frac{\partial^n}{\partial x_1 \dots \partial x_n}u(x+y) \dd y_1 \dots \dd y_n$.}
 \begin{proof}
@@ -177,11 +177,11 @@ Hint:  $u(x) = \displaystyle\int_{-\infty}^0 \dots \int_{-\infty}^0 \frac{\parti
         &= \norm{D^{\alpha_n}u(t)}_\infty \\
         &< \infty
     \end{align*}
-    since $\abs{\alpha} = n$ and hence $D^{\alpha_n}u(t) \in L^1(\Omega)$.  Thus $u$ is bounded, i.e. $u \in L^\infty(\Rl^n)$.  Next we show $u$ is continuous.  For ease, denote $g_i = D^{\alpha_i}u \in L^1$.  Then
+    since $\abs{\alpha} = n$ and hence $D^{\alpha_n}u(t) \in L^1(\Omega)$.  Thus $u$ is bounded, i.e. $u \in L^\infty\qty(\Rl^n)$.  Next we show $u$ is continuous.  For ease, denote $g_i = D^{\alpha_i}u \in L^1$.  Then
     \begin{align*}
         g_{i-1} = \int_{\infty}^{x_i} g_i(t) \dd x_i
     \end{align*}
-    for $i = 2, \dots, n$ and $u = \int_{\infty}^{x_1} g_1(t) \dd t_1$.  Then by problem $1$, $g_{n-1}$ is continuous.  But since $g_{n-1} \in L^1$, then $g_{n-2}$ is continuous.  Since $n$ is finite, we can do this $n-2$ times to show $g_1$ is continuous.  Again, since $g_1 \in L^1$, then $u$ is continuous.  Thus $u \in C(\Rl^n) \cap L^\infty(\Rl^n)$.
+    for $i = 2, \dots, n$ and $u = \int_{\infty}^{x_1} g_1(t) \dd t_1$.  Then by problem $1$, $g_{n-1}$ is continuous.  But since $g_{n-1} \in L^1$, then $g_{n-2}$ is continuous.  Since $n$ is finite, we can do this $n-2$ times to show $g_1$ is continuous.  Again, since $g_1 \in L^1$, then $u$ is continuous.  Thus $u \in C\qty(\Rl^n) \cap L^\infty\qty(\Rl^n)$.
 \end{proof}
 
 
@@ -248,8 +248,9 @@ for some constant $C$.}
         which diverges to $\infty$ as $\abs{x} \rightarrow 0$.  Thus $u \not\in C^2(\bar{\Omega})$.
         \item Although $\dfrac{\partial^2 u}{\partial x_j \partial x_i}$ is not continuous, it is integrable, and thus there is a $v$ such that for all test functions $\phi$,
         \begin{align*}
-            \int_{\Omega} u \frac{\partial^2 \phi}{\partial x_1 \partial x_2} \dd x = (-1)^2 \int_\Omega v \phi \dd x + \int_{\partial B_{\frac{1}{2}}(x)}\qty[{\color{red} something} ]\cdot n \dd s
+            \int_{\Omega} u \frac{\partial^2 \phi}{\partial x_1 \partial x_2} \dd x = (-1)^2 \int_\Omega v \phi \dd x + \cancelto{0}{\int_{\partial B_{\frac{1}{2}}(x)}\qty[\frac{\partial u}{\partial x_1} \frac{\partial \phi}{\partial x_1} + \frac{\partial u}{\partial x_2}\frac{\partial \phi}{\partial x_2}] \dd s},
         \end{align*}
+        which shows the second weak derivatives of $u$ exist for any $\alpha$, which shows $u \in H^2(\Omega)$.
     \end{enumerate}
 \end{proof}
 
@@ -259,12 +260,38 @@ for some constant $C$.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 5}{Prove that $C_C^\infty(\Rl^n)$ is dense in $W^{k,p}(\Rl^n)$ for integers $k \geq 0$ and $1 \leq p < \infty$.}
+\problem{Problem 5}{Prove that $C_C^\infty\qty(\Rl^n)$ is dense in $W^{k,p}\qty(\Rl^n)$ for integers $k \geq 0$ and $1 \leq p < \infty$.}
 \begin{proof}
+    First note that $C_C^\infty\qty(\Rl^n) \cap W^{k,p}\qty(\Rl^n)$ is dense in $W^{k,p}\qty(\Rl^n)$.  Let $u \in W^{k,p}\qty(\Rl^n)$.  Then in particular, $\eta_\E * u \in C_C^\infty\qty(\Rl^n) \cap W^{k,p}\qty(\Rl^n)$ and
     \begin{align*}
         \norm{\eta_\E * u - u}_{W^{k,p}} = \qty(\sum_{\abs{\alpha} \leq k} \norm{D^\alpha(\eta_\E * u) - D^\alpha u}_{L^p})^{\frac{1}{p}} = \qty(\sum_{\abs{\alpha} \leq k}\norm{\eta_\E * D^\alpha u - D^\alpha u}_{L^p})^{\frac{1}{p}} \rightarrow 0
     \end{align*}
-    since each $D^\alpha u \in L^p$ and convolutions approximate functions.  Thus $C^\infty(\Rl^n) \cap W^{k,p}(\Rl^n)$ is dense in $W^{k,p}(\Rl^n)$.  Also, let $u \in C^\infty(\Rl^n) \cap W^{k,p}(\Rl^n)$.  Then for $\Omega \subset\subset \Rl^n$, $\eta_\E * \mathcal{X}_\Omega u \in C_C^\infty(\Rl^n)$.  Thus $C_C^\infty$ is dense in $C_C^\infty \cap W^{k,p}(\Rl^n)$.  This shows $C_C^\infty$ is dense in $W^{k,p}(\Rl^n)$.
+    since each $D^\alpha u \in L^p$ and convolutions approximate functions.  Thus $C^\infty\qty(\Rl^n) \cap W^{k,p}\qty(\Rl^n)$ is dense in $W^{k,p}\qty(\Rl^n)$.
+
+    Next we show $C_C^\infty\qty(\Rl^n)$ is dense in $C_C^\infty\qty(\Rl^n) \cap W^{k,p}\qty(\Rl^n)$.  Suppose $f \in C_C^\infty\qty(\Rl^n) \cap W^{k,p}\qty(\Rl^n)$.  Define $\phi \in C_C^\infty\qty(\Rl^n)$ as follows:
+    \begin{align*}
+        \phi(x) = \begin{cases}
+            1 &\ \text{if } \abs{x} \leq 1 \\
+            0 &\ \text{if } \abs{x} \geq 2.
+        \end{cases}
+    \end{align*}
+    Then for $R = 1, 2, \dots$, define $\phi_R$ as the dilation of $\phi$.
+    \begin{align*}
+        \phi_R(x) = \phi\qty(\frac{x}{R}).
+    \end{align*}
+    Also define $f_R = \phi_R f$.  Note $f_R \in C_C^\infty\qty(\Rl^n)$ since $\phi_R \in C_C^\infty\qty(\Rl^n)$ and $f \in C^\infty\qty(\Rl^n)$.  Then by the Liebnitz rule,
+    \begin{align*}
+        \partial^\alpha f_R = \partial^\alpha \big[\phi_R f\big] = \sum_{\abs{\beta} \leq \abs{\alpha}} \binom{\alpha}{\beta}\partial^\beta \phi_R \partial^{\alpha - \beta} f = \phi_R \partial^\alpha f + \sum_{\substack{\abs{\beta} \leq \abs{\alpha} \\ \beta \neq 0}} \binom{\alpha}{\beta}\partial^\beta \phi_R \partial^{\alpha - \beta} f
+    \end{align*}
+    Note that any partial derivative of $\phi_R$ contains a factor of $\frac{1}{R}$ by the chain rule.  Thus,
+    \begin{align*}
+        \partial^\alpha f_R = \phi_R \partial^\alpha f + \frac{1}{R}h_R
+    \end{align*}
+    where $h_R$ is a bounded function in $L^p$.  It is also uniformly bounded in $R$, which implies
+    \begin{align*}
+        \norm{\frac{1}{R}h_R}_p \leq \frac{1}{R}\norm{h_R} \leq \frac{M}{R} \rightarrow 0 \text{ as } R \rightarrow \infty.
+    \end{align*}
+    Thus, $\partial^\alpha f_R \rightarrow \partial^\alpha f$ in $L^p$ for each $\abs{\alpha} \leq k$, which implies $f_R \rightarrow f$ in $W^{k,p}\qty(\Rl^n)$.  Since each $f_R \in C_C^\infty\qty(\Rl^n)$, then $C_C^\infty\qty(\Rl^n)$ is dense in $W^{k,p}\qty(\Rl^n)$.
 \end{proof}
 
 
@@ -273,15 +300,27 @@ for some constant $C$.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 6}{Let $\eta_\E$ denote the standard mollifier, and for $u \in H^3(\Rl^3)$, set $u^\E = \eta_\E * u$.  Prove that
+\problem{Problem 6}{Let $\eta_\E$ denote the standard mollifier, and for $u \in H^3\qty(\Rl^3)$, set $u^\E = \eta_\E * u$.  Prove that
 \begin{align*}
-    \norm{u^\E - e}_{L^\infty(\Rl^3)} \leq C\sqrt{\E}\norm{u}_{H^2(\Rl^3)},
+    \norm{u^\E - u}_{L^\infty\qty(\Rl^3)} \leq C\sqrt{\E}\norm{u}_{H^2\qty(\Rl^3)},
 \end{align*}
 and that
 \begin{align*}
-    \norm{u^\E - e}_{L^\infty(\Rl^3)} \leq C\E\norm{u}_{H^3(\Rl^3)}.
+    \norm{u^\E - u}_{L^\infty\qty(\Rl^3)} \leq C\E\norm{u}_{H^3\qty(\Rl^3)}.
 \end{align*}}
 \begin{proof}
+    Let $u \in H^3\qty(\Rl^3) = W^{3,2}\qty(\Rl^3)$.  Then since $3 < 2\cdot 3 = 6$, then by Morrey's Inequality for $W^{k,p}\qty(\Rl^n)$, where $(k,p,n) = (3,2,3)$,
+    \begin{align*}
+        \norm{u}_{C^{3-1-\qty[\frac{3}{2}], 1 + \qty[\frac{3}{2}] - \frac{3}{2}}\qty(\Rl^3)} = \norm{u}_{C^{1,\frac{1}{2}}\qty(\Rl^n)} \leq C\norm{u}_{W^{3,2}}\qty(\Rl^3) = C\norm{u}_{H^3\qty(\Rl^3)}
+    \end{align*}
+    Similary, since $H^3\qty(\Rl^3) \subset H^2\qty(\Rl^3)$, then since $3 < 2\cdot 2 = 4$, then
+    \begin{align*}
+        \norm{u}_{C^{2-1-\qty[\frac{3}{2}], 1 + \qty[\frac{3}{2}] - \frac{3}{2}}\qty(\Rl^3)} = \norm{u}_{C^{0,\frac{1}{2}}\qty(\Rl^n)} \leq C\norm{u}_{W^{2,2}}\qty(\Rl^3) = C\norm{u}_{H^2\qty(\Rl^3)}
+    \end{align*}
+    Since $\norm{u}_{C^{1, \frac{1}{2}}(\Rl^n)} < \infty$ and $\norm{u}_{C^{0, \frac{1}{2}}(\Rl^n)} < \infty$, then $u$ is continuous, and thus $\norm{u}_{L^\infty} \leq \norm{u}_{C^{i,\frac{1}{2}}(\Rl^3)}$ for $i=0,1$.  Thus $\norm{u^\E - u}_{L^\infty} \leq C \norm{u^\E - u}_{H^j(\Rl^3)}$ for $j = 2,3$.  Thus
+    \begin{align*}
+        \norm{u^\E - u}_{L^\infty\qty(\Rl^3)} \leq C\sqrt{\E}\norm{u}_{H^2\qty(\Rl^3)} \qquad \text{and} \qquad \norm{u^\E - u}_{L^\infty\qty(\Rl^3)} \leq C\E\norm{u}_{H^3\qty(\Rl^3)}.
+    \end{align*}
 \end{proof}
 
 
@@ -296,6 +335,7 @@ and that
 \end{align*}
 Prove that the \emph{weak derivative} of $u$ exists for all $\alpha \geq 0$.}
 \begin{proof}
+    For any $0 < \delta < 1$, set $D_\delta = B(0,1) \setminus B(0,\delta)$.  Then for $u(x) = \qty[-\log\abs{x}]^\alpha$, the strong derivative $u'$ exists on $D_\delta$, and thus the weak derivative of $u$ exists on $D_\delta$ for all $\alpha \geq 0$.  It remains to be shown that the boundary terms of the integral over the remaining $\delta$-ball limit to $0$ as $\delta \rightarrow 0$.
 \end{proof}
 
 
