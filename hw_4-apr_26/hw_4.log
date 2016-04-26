@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  25 APR 2016 19:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  25 APR 2016 19:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2251,7 +2251,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 231--233
 
  []
 
-
+[4]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 262--264
 [][]
  []
@@ -2261,7 +2261,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--264
 
  []
 
-[4]
+
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 283--285
 [][]
  []
@@ -2294,7 +2294,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
 Here is how much of TeX's memory you used:
  34458 strings out of 493089
  780013 string characters out of 6134842
- 961968 words of memory out of 5000000
+ 962968 words of memory out of 5000000
  37335 multiletter control sequences out of 15000+600000
  100352 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2311,7 +2311,7 @@ l/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texli
 ve/2015/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
 Output written on /Users/samuelfleischer/School/UCD/UCD_Math201C/hw_4-apr_26/hw
-_4.pdf (5 pages, 86224 bytes).
+_4.pdf (5 pages, 86722 bytes).
 PDF statistics:
  120 PDF objects out of 1000 (max. 8388607)
  101 compressed objects within 2 object streams

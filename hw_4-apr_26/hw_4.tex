@@ -177,11 +177,11 @@ Hint:  $u(x) = \displaystyle\int_{-\infty}^0 \dots \int_{-\infty}^0 \frac{\parti
         &= \norm{D^{\alpha_n}u(t)}_\infty \\
         &< \infty
     \end{align*}
-    since $\abs{\alpha} = n$ and hence $D^{\alpha_n}u(t) \in L^1(\Omega)$.  Thus $u$ is bounded, i.e. $u \in L^\infty(\Rl^n)$.  Next we show $u$ is continuous.  For ease, denote $g_i = D^{\alpha_i}f \in L^1$.  Then
+    since $\abs{\alpha} = n$ and hence $D^{\alpha_n}u(t) \in L^1(\Omega)$.  Thus $u$ is bounded, i.e. $u \in L^\infty(\Rl^n)$.  Next we show $u$ is continuous.  For ease, denote $g_i = D^{\alpha_i}u \in L^1$.  Then
     \begin{align*}
         g_{i-1} = \int_{\infty}^{x_i} g_i(t) \dd x_i
     \end{align*}
-    is continuous.  However, this is also the integrand of
+    for $i = 2, \dots, n$ and $u = \int_{\infty}^{x_1} g_1(t) \dd t_1$.  Then by problem $1$, $g_{n-1}$ is continuous.  But since $g_{n-1} \in L^1$, then $g_{n-2}$ is continuous.  Since $n$ is finite, we can do this $n-2$ times to show $g_1$ is continuous.  Again, since $g_1 \in L^1$, then $u$ is continuous.  Thus $u \in C(\Rl^n) \cap L^\infty(\Rl^n)$.
 \end{proof}
 
 
