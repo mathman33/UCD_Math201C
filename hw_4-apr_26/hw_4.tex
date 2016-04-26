@@ -1,0 +1,307 @@
+\documentclass{article} % A4 paper and 11pt font size
+\setcounter{secnumdepth}{0}
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{extarrows}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{color}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage[makeroom]{cancel}
+\usepackage{bbold}
+\usepackage{alltt}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{bigints}
+\allowdisplaybreaks
+\pgfplotsset{compat=1.12}
+
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{lemma}{Lemma}
+
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newcommand{\E}{\varepsilon}
+\def\Rl{\mathbb{R}}
+\def\Cx{\mathbb{C}}
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancy} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead[L]{\bf Sam Fleischer}
+\fancyhead[C]{\bf UC Davis \\ Analysis (MAT201C)} % No page header - if you want one, create it in the same way as the footers below
+\fancyhead[R]{\bf Spring 2016}
+
+\fancyfoot[L]{\bf } % Empty left footer
+\fancyfoot[C]{\bf \thepage} % Empty center footer
+\fancyfoot[R]{\bf } % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{25pt} % Customize the height of the header
+
+\newcommand{\VEC}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\ran}{\text{\rm ran }}
+\newcommand{\spt}{\text{\rm spt }}
+\newcommand{\sgn}{\text{\rm sgn }}
+\newcommand{\Hilb}{\mathcal{H}}
+
+\DeclareMathOperator*{\esssup}{\text{ess~sup}}
+
+\newcommand{\problem}[2]{
+\vspace{.375cm}
+\boxed{\begin{minipage}{\textwidth}
+    \section{\bf #1}
+    #2
+\end{minipage}}
+}
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.9}
+
+\title{ 
+\normalfont \normalsize 
+\textsc{UC Davis, Analysis (MAT201C), Spring 2016} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{2pt} \\[0.4cm] % Thin top horizontal rule
+\Huge Homework \#3 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{\huge Sam Fleischer} % Your name
+
+\date{April 19, 2016} % Today's date or a custom date
+
+\begin{document}\thispagestyle{empty}
+
+\maketitle % Print the title
+
+\makeatletter
+\@starttoc{toc}
+\makeatother
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 1}{Let $f \in L^1(\Rl)$, and set
+\begin{align*}
+    g(x) = \int_{-\infty}^x f(y) \dd y.
+\end{align*}
+Prove that $g$ is continuous, and show that $\dfrac{\dd g}{\dd x} = f$, where $\dfrac{\dd g}{\dd x}$ denotes the weak derivative.
+
+Hint: given $\phi \in C_C^\infty(\Rl)$, use the definition of $g$ to obtain
+\begin{align*}
+    \int_\Rl \phi'(x) g(x) \dd x = \int_\Rl \int_{-\infty}^x \phi'(x) f(y) \dd y \dd x.
+\end{align*}
+Then write this integral as
+\begin{align*}
+    \lim_{h\rightarrow 0} \frac{1}{h}\int_\Rl \qty[\phi(x + h) - \phi(x)]g(x) \dd x = -\lim_{h\rightarrow 0}\int_\Rl \int_x^{x+h}f(y)\phi(x)\dd y \dd x.
+\end{align*}}
+\begin{proof}
+    First we show $g$ is continuous.  Let $x_n \rightarrow x$.  Then
+    \begin{align*}
+        \lim_{x_n \rightarrow x}\abs{g(x_n) - g(x)} &= \lim_{x_n \rightarrow x} \abs{\int_{-\infty}^{x_n}f(y) \dd y - \int_{-\infty}^x f(y) \dd y}\\
+        &= \lim_{x_n\rightarrow x} \abs{\int_x^{x_n} f(y) \dd y} \\
+        &\leq \lim_{x_n \rightarrow x}\int_x^{x_n}\abs{f(y)} \dd y \\
+        &= \begin{cases}
+            \lim_{x_n \rightarrow x}\norm{f\mathcal{X}_{[x,x_n]}}_1 &,\ \text{if } x_n > x \\
+            \lim_{x_n \rightarrow x}\norm{f\mathcal{X}_{[x_n,x]}}_1 &,\ \text{else}
+        \end{cases} \\
+        &\leq \lim_{x_n \rightarrow x}\norm{f}_1\norm{\mathcal{X}_{[x,x_n]}}_\infty \qquad \text{without loss of generality} \\
+        &= \norm{f}_1 \lim_{x_n \rightarrow x} \norm{\mathcal{X}_{x_n,x}}_\infty \\
+        &= 0
+    \end{align*}
+    Thus $g$ is continuous.  Next we show the weak derivative of $g$ is $f$.  Let $\phi$ be any test function.  Then
+    \begin{align*}
+        \int_\Rl \phi'(x) g(x) \dd x &= \int_\Rl \phi'(x) \int_{-\infty}^x f(y) \dd y \dd y \\
+        &= \int_\Rl \int_{-\infty}^x \phi'(x)f(y) \dd y \dd x \\
+        &= \int_\Rl \int_y^\infty \phi'(x) f(y) \dd x \dd y \qquad \text{by Fubini's Theorem} \\
+        &= \int_\Rl \qty[\int_y^\infty \phi'(x) \dd x] f(y) \dd y \\
+        &= \int_\Rl \phi(y) f(y) \dd y \\
+        &= \int_\Rl \phi(x) f(x) \dd x
+    \end{align*}
+    Thus $f$ is the weak derivative of $g$.
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 2}{Show that $W^{n,1}(\Rl^n) \subset C(\Rl^n) \cap L^\infty(\Rl^n)$.
+
+Hint:  $u(x) = \displaystyle\int_{-\infty}^0 \dots \int_{-\infty}^0 \frac{\partial^n}{\partial x_1 \dots \partial x_n}u(x+y) \dd y_1 \dots \dd y_n$.}
+\begin{proof}
+    For ease, let $\alpha_1 = (1, 0, 0, \dots, 0)$, $\alpha_2 = (1, 1, 0, 0, \dots, 0)$, $\dots$, $\alpha_n = (1, 1, 1, \dots, 1)$.  By the hint.
+    \begin{align*}
+        u(x) &= \int_{-\infty}^0 \dots \int_{-\infty}^0 \frac{\partial^n}{\partial x_1 \dots \partial x_n}u(x+y) \dd y_1 \dots \dd y_n \\
+        &= \int_{-\infty}^0 \int_{-\infty}^0 D^{\alpha_n}u(x+y) \dd y_1 \dots \dd y_n \\
+        &= \int_{-\infty}^{x_n}\dots\int_{-\infty}^{x_1} D^{\alpha_n}u(t) \dd t_1 \dots \dd t_n
+    \end{align*}
+    by some change of variables.  Thus,
+    \begin{align*}
+        \sup\abs{u(x)} &= \sup\abs{\int_{-\infty}^{x_n}\dots\int_{-\infty}^{x_1} D^{\alpha_n}u(t) \dd t_1 \dots \dd t_n} \\
+        &= \sup \int_{-\infty}^{x_n}\dots\int_{-\infty}^{x_1} \abs{D^{\alpha_n}u(t)} \dd t_1 \dots \dd t_n \\
+        &\leq \sup \int_{\Rl^n} \abs{D^{\alpha_n}u(t)} \dd t_1 \dots \dd t_n \\
+        &= \norm{D^{\alpha_n}u(t)}_\infty \\
+        &< \infty
+    \end{align*}
+    since $\abs{\alpha} = n$ and hence $D^{\alpha_n}u(t) \in L^1(\Omega)$.  Thus $u$ is bounded, i.e. $u \in L^\infty(\Rl^n)$.  Next we show $u$ is continuous.  For ease, denote $g_i = D^{\alpha_i}f \in L^1$.  Then
+    \begin{align*}
+        g_{i-1} = \int_{\infty}^{x_i} g_i(t) \dd x_i
+    \end{align*}
+    is continuous.  However, this is also the integrand of
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 3}{If $u \in L_\text{loc}^1(\Rl)$ and if $\dfrac{\dd u}{\dd x} = f \in L^1(\Rl)$, then
+\begin{align*}
+    u(x) = C + \int_{-\infty}^x f(y) \dd y, \qquad a.e.\ x \in \Rl
+\end{align*}
+for some constant $C$.}
+\begin{proof}
+    First let $v(x) \coloneqq C + \int_\infty^x f(y) \dd y$.  Then by problem 1, $\frac{\dd v}{\dd x} = f$.  Then for all test functions $\phi$,
+    \begin{align*}
+        \int_\Rl u(x) \phi'(x) \dd x = -\int_\Rl f(x)\phi(x) \dd x = \int_\Rl v(x) \phi'(x) \dd x
+    \end{align*}
+    Every test function is the derivative of some other test function, and so we can say that for all test functions $\psi$,
+    \begin{align*}
+        \int_\Rl u(x) \psi(x) \dd x = \int_\Rl v(x) \phi(x) \dd x
+    \end{align*}
+    Since this holds for all test functions, it holds in particular for $\psi = \eta_\E$ for any $\E > 0$.  Then
+    \begin{align*}
+        \int_\Rl u(x) \eta_\E(x-y) \dd x = \int_\Rl v(x) \eta_\E(x-y) \dd x \qquad \iff \qquad u^\E = v^\E
+    \end{align*}
+    Since $u^\E \rightarrow u$ and $v^\E \rightarrow v$, and $\lim u^\E = \lim v^\E$, then $u = v$, i.e.
+    \begin{align*}
+        u(x) = C + \int_{-\infty}^x f(y) \dd y, \qquad a.e.\ x \in \Rl
+    \end{align*}
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 4}{Let $\Omega \coloneqq B\qty(0, \frac{1}{2}) \subset \Rl^2$ denote the open ball of radius $\frac{1}{2}$.  For $x = (x_1,x_2) \in \Omega$, let
+\begin{align*}
+    u(x_1,x_2) = x_1x_2\log(\abs{\log(\abs{x})})\ \ \text{where}\ \ \abs{x} = \sqrt{x_1^2 + x_2^2}.
+\end{align*}
+\begin{enumerate}[(a)]
+    \item Show that $u \in C^1(\bar{\Omega})$.
+    \item Show that $\dfrac{\partial^2 u}{\partial x_j^2} \in C(\bar{\Omega})$ for $j = 1, 2$ but $u \not\in C^2(\bar{\Omega})$.
+    \item Show that $u \in H^2(\Omega)$.
+\end{enumerate}}
+\begin{proof}
+    \begin{enumerate}[(a)]
+        \item First, we calculate the first partial derivatives:
+        \begin{align*}
+            \frac{\partial u}{\partial x_i} = \frac{x_i^2 x_j}{\abs{x}^2\abs{\log(\abs{x})}} + x_j \log(\abs{\log(\abs{x})})
+        \end{align*}
+        Note that as $\abs{x} \rightarrow 0$, then by L'Hospital, each of the above terms $\rightarrow 0$.  Thus $u \in C1(\bar{\Omega})$.
+        \item Next, we calculate each non-mixed second partial derivative:
+        \begin{align*}
+            \frac{\partial^2 u}{\partial x_i^2} &= \frac{2x_ix_j\abs{x}^2\abs{\log(\abs{x})}}{\abs{x}^2\abs{\log(\abs{x})}^2} - \frac{x_i^2}{\abs{x}^2\abs{\log(\abs{x})}^2} + \frac{2x_i^3x_j\abs{\log(\abs{x})}}{\abs{x}^2\abs{\log(\abs{x})}^2} + x_ix_j \\
+            &= \frac{2x_ix_j}{\abs{\log(\abs{x})}} - \frac{x_i^2}{\abs{x}^2\abs{\log(\abs{x})}^2} + \frac{2x_i^3x_j}{\abs{x}\abs{\log(\abs{x})}} + x_ix_j
+        \end{align*}
+        Similar to the first partials, each term $\rightarrow 0$ as $\abs{x} \rightarrow 0$.  Thus $\dfrac{\partial^2 u}{\partial x_i^2} \in C(\bar{\Omega})$ for $i = 1, 2$.  However,
+        \begin{align*}
+            \frac{\partial^2 u}{\partial x_j \partial x_i} &= \cancelto{0}{\frac{x_i^2}{\abs{x}\abs{\log(\abs{x})}}} + \cancelto{0}{\frac{x_i^2x_j^2}{\abs{x}^4\abs{\log(\abs{x})}^2}} + \cancelto{0}{\frac{2x_i^2x_j^2}{\abs{x}^4\abs{\log(\abs{x})}}} + \cancelto{0}{\frac{x_j^2}{\abs{x}\abs{\log(\abs{x})}}} + \cancelto{\infty}{\abs{\log(\abs{\log(\abs{x})})}}
+        \end{align*}
+        which diverges to $\infty$ as $\abs{x} \rightarrow 0$.  Thus $u \not\in C^2(\bar{\Omega})$.
+        \item Although $\dfrac{\partial^2 u}{\partial x_j \partial x_i}$ is not continuous, it is integrable, and thus there is a $v$ such that for all test functions $\phi$,
+        \begin{align*}
+            \int_{\Omega} u \frac{\partial^2 \phi}{\partial x_1 \partial x_2} \dd x = (-1)^2 \int_\Omega v \phi \dd x + \int_{\partial B_{\frac{1}{2}}(x)}\qty[{\color{red} something} ]\cdot n \dd s
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 5}{Prove that $C_C^\infty(\Rl^n)$ is dense in $W^{k,p}(\Rl^n)$ for integers $k \geq 0$ and $1 \leq p < \infty$.}
+\begin{proof}
+    \begin{align*}
+        \norm{\eta_\E * u - u}_{W^{k,p}} = \qty(\sum_{\abs{\alpha} \leq k} \norm{D^\alpha(\eta_\E * u) - D^\alpha u}_{L^p})^{\frac{1}{p}} = \qty(\sum_{\abs{\alpha} \leq k}\norm{\eta_\E * D^\alpha u - D^\alpha u}_{L^p})^{\frac{1}{p}} \rightarrow 0
+    \end{align*}
+    since each $D^\alpha u \in L^p$ and convolutions approximate functions.  Thus $C^\infty(\Rl^n) \cap W^{k,p}(\Rl^n)$ is dense in $W^{k,p}(\Rl^n)$.  Also, let $u \in C^\infty(\Rl^n) \cap W^{k,p}(\Rl^n)$.  Then for $\Omega \subset\subset \Rl^n$, $\eta_\E * \mathcal{X}_\Omega u \in C_C^\infty(\Rl^n)$.  Thus $C_C^\infty$ is dense in $C_C^\infty \cap W^{k,p}(\Rl^n)$.  This shows $C_C^\infty$ is dense in $W^{k,p}(\Rl^n)$.
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 6}{Let $\eta_\E$ denote the standard mollifier, and for $u \in H^3(\Rl^3)$, set $u^\E = \eta_\E * u$.  Prove that
+\begin{align*}
+    \norm{u^\E - e}_{L^\infty(\Rl^3)} \leq C\sqrt{\E}\norm{u}_{H^2(\Rl^3)},
+\end{align*}
+and that
+\begin{align*}
+    \norm{u^\E - e}_{L^\infty(\Rl^3)} \leq C\E\norm{u}_{H^3(\Rl^3)}.
+\end{align*}}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 7}{Let $D \coloneqq B(0,1) \subset \Rl^2$ denote the unit disc, and let
+\begin{align*}
+    u(x) = \qty[-\log\abs{x}]^\alpha.
+\end{align*}
+Prove that the \emph{weak derivative} of $u$ exists for all $\alpha \geq 0$.}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+
+\end{document}

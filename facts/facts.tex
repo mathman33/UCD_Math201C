@@ -2,7 +2,7 @@
 
 \usepackage{mathtools,amsmath,amsfonts,physics}
 \usepackage[margin=0.75in]{geometry}
-\renewcommand*{\theenumi}{\thesection.\arabic{enumi}}
+\renewcommand*{\theenumi}{\thesubsection.\arabic{enumi}}
 \renewcommand*{\theenumii}{\theenumi.\arabic{enumii}}
 \renewcommand*{\theenumiii}{\theenumii.\arabic{enumiii}}
 
@@ -15,21 +15,18 @@
 
 \begin{document}
     \maketitle
-    \section{Three Pillars of Analysis}
+    \section{A Short Introduction to $L^p$ Spaces}
+    \subsection{Three Pillars of Analysis}
     \begin{enumerate}
         \item \textbf{Monotone Convergence Theorem} - If a sequence of non-negative functions is increasing, we can pull the limit through an integral. $$\lim_k \int f_k = \int \lim_k f_k.$$
         \item \textbf{Fatou's Lemma} - For a sequence of non-negative functions, the integral of the lim~inf is less than or equal to the lim~inf of the integral. $$\int \liminf_k f_k \leq \liminf_k \int f_k.$$
         \begin{enumerate}
-            \item $f_k = k\mathcal{X}_{\qty(0, \frac{1}{k})}$.
-            \begin{enumerate}
-                \item $\int_0^1 f_k = 1$ for all $k \implies \liminf_k \int_0^1 f_k = \liminf_k 1 = 1$.
-                \item But since $f_k \rightarrow 0$ pointwise a.e., $\liminf_k f_k(x) = 0 \implies \int_0^1 \liminf_k f(x) \dd x = 0$.
-            \end{enumerate}
+            \item Example: $f_k = k\mathcal{X}_{\qty(0, \frac{1}{k})}$.  $\int_0^1 f_k = 1$ for all $k \implies \liminf_k \int_0^1 f_k = \liminf_k 1 = 1$.  But since $f_k \rightarrow 0$ pointwise a.e., $\liminf_k f_k(x) = 0 \implies \int_0^1 \liminf_k f(x) \dd x = 0$.
         \end{enumerate}
         \item \textbf{Dominated Convergence Theorem} - If a sequence converges pointwise almost everywhere and is dominated, then it converges in norm to its pointwise limit.  $$\lim_k\int f_k = \int \lim_k f_k = \int f.$$  $$\lim_k\norm{f_k - f}_1 = 0.$$
     \end{enumerate}
 
-    \section{Integrals over Product Spaces}
+    \subsection{Integrals over Product Spaces}
     \begin{enumerate}
         \item \textbf{Fubini's Theorem} - If a function is integrable on a product space, then the integral over the product space is equal to both iterated integrals.
         \begin{enumerate}
@@ -39,7 +36,7 @@
         \item \textbf{Tonelli's Theorem} - If a function is non-negative and measurable on a product space, then the integral over the product space is equal to both iterated integrals.
     \end{enumerate}
 
-    \section{$L^p$ Spaces}
+    \subsection{$L^p$ Spaces}
     \begin{enumerate}
         \item Convexity is a thing.  $$x^\lambda \leq (1 - \lambda) + \lambda x \qquad \forall \lambda \in (0,1).$$ $$a^\lambda b^{1-\lambda} \leq \lambda a + (1 - \lambda)b \qquad \forall \lambda \in (0,1), \qquad \forall a,b \geq 0.$$
         \item \textbf{H\"{o}lder's Inequality} - For conjugate exponents $p$ and $q$, the $1$-norm of a product of $L^p$ and $L^q$ functions is finite, and the $1$-norm of the product is less than or equal to the product of the norms of the original functions.  $$\norm{fg}_1 \leq \norm{f}_p\norm{g}_q$$.
@@ -68,7 +65,7 @@
         \end{enumerate}
     \end{enumerate}
 
-    \section{Convolutions and (in general) Integral Operators}
+    \subsection{Convolutions and (in general) Integral Operators}
     \begin{enumerate}
         \item \textbf{Boundedness of Integral Operators} - An integral operator has bounded norm (and is hence continuous) if both of the absolute iterated integrals of its kernel are bounded (say by $C_1$ and $C_2$). $$\norm{K}_{\mathcal{B}(L^p(\mathbb{R}^n))} \leq C_1^\frac{1}{p}C_2^\frac{1}{q}.$$
         \item \textbf{Cauchy-Young Inequality} - If $p$ and $q$ are conjugate exponents, then for all nonnegative $a$ and $b$, $$ab \leq \frac{a^p}{p} + \frac{b^q}{q}.$$
@@ -79,7 +76,7 @@
         \item \textbf{(More general) Young's Inequality for Convolution} - For $L^p$ function $k$ and $L^q$ function $f$, the $r$-norm of their convolution is bounded by the product of their respective norms, given $1 + \frac{1}{r} = \frac{1}{p} + \frac{1}{q}$.  $$\norm{k * f}_r \leq \norm{k}_p\norm{f}_q, \qquad 1 + \frac{1}{r} = \frac{1}{p} + \frac{1}{q}.$$
     \end{enumerate}
 
-    \section{The Dual Space and Weak Topology}
+    \subsection{The Dual Space and Weak Topology}
     \begin{enumerate}
         \item \textbf{Norm of an Integral Operator is the Norm of its Kernel} - For conjugate exponents $p$ and $q$, integration of an $L^p$ function against an $L^q$ function is a continuous linear functional on $L^p$ and the operator norm is equal to the norm of the $L^q$ function.  $$F_g(f) = \int fg \qquad \text{and} \qquad \norm{F_g}_\text{op} = \norm{g}_q.$$
         \item \textbf{Riesz Representation Theorem ($1 < p < \infty$)} - For conjugate exponents $p$ and $q$, every bounded (continuous) linear functional on $L^p$ can be represented as an integral operator whose kernel is in $L^q$.  $$\phi \in (L^p)^*\ \ \implies\ \ \exists g \in L^q\ \text{ such that }\ \phi(f) = \int f g\ \ \forall f \in L^p.$$
@@ -94,5 +91,29 @@
         \item \textbf{Weakly convergent Sequences are bounded} - Weakly convergent $L^p$ sequences have bounded $L^p$ norms.
         \item \textbf{Egoroff's Theorem} - For pointwise convergent sequences on finite domains, there exist arbitrarily small (positive measure) subsets such that the sequence converges uniformly on its complement. $$\forall \E < 0,\ \exists E \subset \Omega\ \text{with}\ \abs{E} < \E\ \text{such that}\ f_k \rightarrow f\ \text{uniformly on}\ \Omega\setminus E.$$
         \item \textbf{Theorem 1.67} - Almost everywhere convergence of a bounded (in $L^p$) sequence in a bounded domain implies weak convergence for $1 < p < \infty$. $$\Omega \subset \mathbb{R}^n\ \text{bounded},\ \ \ \ \sup_{k}\norm{f_k}_p \leq M < \infty,\ \ \ \text{and}\ \ \ f_k \rightarrow f\ \text{ a.e.}\ \ \implies\ \ f_k \rightharpoonup f.$$
+        \item \textbf{Weak and Strong Convergence Imply Strong Integral Convergence} - If $u_k \rightharpoonup u$ and $v_k \rightarrow v$ in $L^p(\Omega)$, then
+        \begin{align*}
+            \int_\Omega u_kv_k \dd x \rightarrow \int_\Omega uv \dd x
+        \end{align*}
+        \item \textbf{Weak Convergence Sometimes Implies Strong Convergence} - Suppose $u_k \rightharpoonup u$ in $L^p(\Omega)$.  If $\norm{u}_p = \lim\norm{u_k}_p$, the $u_k \rightarrow u$ in $L^p(\Omega)$.
+    \end{enumerate}
+
+    \section{Sobolev Spaces and the Fourier Transform}
+    \subsection{Sobolev Spaces $W^{k,p}$ for Integers $k \geq 0$}
+    \begin{enumerate}
+        \item \textbf{Divergence Theorem} - Let $w\ :\ \overline{\Omega} \subset \mathbb{R}^n \rightarrow \mathbb{R}^n$.  If $\partial\Omega$ is the graph of a Lipschitz function, then
+        \begin{align*}
+            \int_\Omega \div w \dd x = \int_{\partial \Omega} w \cdot N \dd S
+        \end{align*}
+        where $N$ is the outward-facing normal vector.
+        \item \textbf{Multi-Dimensional Version of Integration by Parts} - Suppose $g,h\ :\ \Omega \rightarrow \mathbb{R}$.  Then
+        \begin{align*}
+            \int_\Omega g h_{x_i} \dd x = \int_\partial gh N^i \dd S - \int_\Omega g_{x_i}h \dd x
+        \end{align*}
+        where $g_{x_i}$ and $h_{x_i}$ are the $i$\textsuperscript{th} partial derivatives of $g$ and $h$, respectively, and $N^i$ is the $i$\textsuperscript{th} component of the outward-facing normal vector.
+        \item \textbf{Green's First Identity} -  Suppose $u \in \mathcal{C}^2(\overline{\Omega})$ and $v \in \mathcal{C}^1(\overline{\Omega})$.  Then
+        \begin{align*}
+            \int_\Omega \grad v \cdot \grad u \dd x = \int_\Omega v \laplacian u \dd x = \int_\Omega \div\qty(v\grad u) \dd x = \int_{\partial\Omega} v \frac{\partial u}{\partial N}\dd X
+        \end{align*}
     \end{enumerate}
 \end{document}
