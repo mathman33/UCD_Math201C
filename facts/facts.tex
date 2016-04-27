@@ -165,7 +165,7 @@
         \item
             \textbf{Green's First Identity} - Suppose $u \in \mathcal{C}^2(\overline{\Omega})$ and $v \in \mathcal{C}^1(\overline{\Omega})$.  Then
             \begin{align*}
-                \int_\Omega \grad v \cdot \grad u \dd x = \int_\Omega v \laplacian u \dd x = \int_\Omega \div\qty(v\grad u) \dd x = \int_{\partial\Omega} v \frac{\partial u}{\partial N}\dd X.
+                \int_\Omega \grad v \cdot \grad u \dd x + \int_\Omega v \laplacian u \dd x = \int_\Omega \div\qty(v\grad u) \dd x = \int_{\partial\Omega} v \frac{\partial u}{\partial N}\dd X.
             \end{align*}
             where $\laplacian = \dfrac{\partial^2}{\partial x_i^2} + \dots + \dfrac{\partial^2}{\partial x_n^2}$.
         \item
@@ -179,7 +179,7 @@
                 D^\alpha(\phi u) = \sum_{\abs{\beta} \leq \abs{\alpha}} \binom{\alpha}{\beta}D^\alpha \phi D^{\alpha - \beta} u
             \end{align*}
         \item
-                \textbf{Sobolev Spaces are Banach Spaces} - $W^{k,p}$ is a Banach Space.
+            \textbf{Sobolev Spaces are Banach Spaces} - $W^{k,p}$ is a Banach Space.
         \item
             \textbf{Sobolev Embedding in 2D} - Suppose $\phi$ is a test function.  Then it is absolutely bounded by a constant multiple of its norm in $W^{k,p}(\Rl^2)$.
             \begin{align*}

@@ -1,0 +1,43 @@
+\begin{longtable}{|*{3}{>{\centering\arraybackslash}p{0.475\textwidth}|}}
+    \toprule
+        \textbf{$L^p$ Spaces} & \textbf{Examples} \\[6pt]
+        \midrule
+        \endhead
+            \textbf{Divergence Theorem} - Let $w\ :\ \overline{\Omega} \subset \Rl^n \rightarrow \Rl^n$.  If $\partial\Omega$ is the graph of a Lipschitz function, then \newline {$\!\begin{gathered} \int_\Omega \div w \dd x = \int_{\partial \Omega} w \cdot N \dd S \end{gathered}$} \newline where $N$ is the outward-facing normal vector. & This is an example. \\[6pt] \hline
+            
+            \textbf{Multi-Dimensional Version of Integration by Parts} - Suppose $g,h\ :\ \Omega \rightarrow \Rl$.  Then \newline {$\!\begin{gathered} \int_\Omega g h_{x_i} \dd x = \int_{\partial\Omega} gh N^i \dd S - \int_\Omega g_{x_i}h \dd x \end{gathered}$} \newline where $g_{x_i}$ and $h_{x_i}$ are the $i$\textsuperscript{th} partial derivatives of $g$ and $h$, respectively, and $N^i$ is the $i$\textsuperscript{th} component of the outward-facing normal vector. & This is an example. \\[6pt] \hline
+            
+            \textbf{Green's First Identity} - Suppose $u \in \mathcal{C}^2(\overline{\Omega})$ and $v \in \mathcal{C}^1(\overline{\Omega})$.  Then \newline {$\!\begin{gathered} \int_\Omega \grad v \cdot \grad u \dd x + \int_\Omega v \laplacian u \dd x = \int_\Omega \div\qty(v\grad u) \dd x \\ \ \ \ \qquad\qquad\qquad\qquad\qquad = \int_{\partial\Omega} v \frac{\partial u}{\partial N}\dd X. \end{gathered}$} \newline where $\laplacian = \dfrac{\partial^2}{\partial x_i^2} + \dots + \dfrac{\partial^2}{\partial x_n^2}$. & This is an example. \\[6pt] \hline
+            
+            \textbf{Green's Second Identity} - Suppose both $u$ and $v$ are in $\mathcal{C}^2(\overline{\Omega})$.  Then \newline {$\!\begin{gathered} \int_\Omega (v \laplacian u - u \laplacian v) \dd x = \int_{\partial \Omega} \qty[v \frac{\partial u}{\partial N} - u \frac{\partial v}{\partial N}]\dd S. \end{gathered}$} & This is an example. \\[6pt] \hline
+            
+            \textbf{Liebnitz Rule (Product Rule)} - Suppose $u \in W^{k,p}$ and $\phi$ is a test function.  Then $\phi u \in W^{k,p}$ and \newline {$\!\begin{gathered} D^\alpha(\phi u) = \sum_{\abs{\beta} \leq \abs{\alpha}} \binom{\alpha}{\beta}D^\alpha \phi D^{\alpha - \beta} u \end{gathered}$} & This is an example. \\[6pt] \hline
+            
+            \textbf{Sobolev Spaces are Banach Spaces} - $W^{k,p}$ is a Banach Space. & This is an example. \\[6pt] \hline
+            
+            \textbf{Sobolev Embedding in 2D} - Suppose $\phi$ is a test function.  Then it is absolutely bounded by a constant multiple of its norm in $W^{k,p}(\Rl^2)$. \newline {$\!\begin{gathered} \max_{x\in\Rl^2}\abs{u(x)} \leq C \norm{u}_{W^{k,p}(\Rl^2)} \end{gathered}$} & This is an example. \\[6pt] \hline
+            
+            \textbf{Local Approximation of Sobolev Functions by Smooth Functions} - For nonnegative $k$ and finite $p$, and for $u \in W^{k,p}$, \begin{enumerate}
+                \item
+                    $u^\E = \eta_\E * u$ is infinitely continuous (not necessarily compactly supported) on $\Omega_\E$, and
+                \item
+                    $u^\E \rightarrow u$ in $W_\text{loc}^{k,p}$
+            \end{enumerate} & This is an example. \\[6pt] \hline
+            
+            \textbf{Global Approximaton of Sobolev Functions by Smooth Functions} - For open and bounded $\Omega$ and for finite $p$, infinitely smooth Sobolev functions are dense in Sobolev Space. \newline {$\!\begin{gathered} \mathcal{C}^\infty(\Omega) \cap W^{k,p}(\Omega) \qquad \text{is dense in} \qquad W^{k,p}(\Omega) \end{gathered}$} \newline with respect to the $W^{k,p}$ norm. & This is an example. \\[6pt] \hline
+            
+            \textbf{Global Approximation of Sobolev Functions on the Closure of the Domain} - For smooth, bounded, open subsets of $\Rl^n$, Sobolev functions can be approximated by infinitely smooth functions on the closure of the domain. \newline {$\!\begin{gathered} \mathcal{C}^\infty(\overline{\Omega}) \qquad \text{is dense in} \qquad W^{k,p}(\Omega) \end{gathered}$} \newline with respect to the $W^{k,p}$ norm. & This is an example. \\[6pt] \hline
+            
+            \textbf{Morrey's Inequality} - Sobolev functions on a ball have bounded differences.  Denote $B_r \subset \Rl^n$ as a ball of radius $r$ and let $n < p \leq \infty$. \newline {$\!\begin{gathered} \abs{u(x) - u(y)} \leq C \abs{x - y}^{1 - \frac{n}{p}}\norm{D u}_{L^p(B_r)} \end{gathered}$} & This is an example. \\[6pt] \hline
+            
+            \textbf{Sobolev Embedding for $k = 1$} - The $\mathcal{C}^{0,1 - \frac{n}{p}}(\Rl^n)$ norm (H\"{o}lder Space norm) of a Sobolev function is bounded by a constant multiple (dependent on $p$ and $n$) of the $W^{1,p}(\Rl^n)$ norm. \newline {$\!\begin{gathered} \norm{u}_{\mathcal{C}^{0, 1 - \frac{n}{p}}(\Rl^n)} \leq C\norm{u}_{W^{1,p}(\Rl^n)} \end{gathered}$} & This is an example. \\[6pt] \hline
+                        
+            \textbf{Sobolev Embedding for $kp > n$} - The H\"{o}lder Space norm of a Sobolev function is bounded by a constant multiple (dependent on $k$, $p$, and $n$) of the Sobolev norm. \newline {$\!\begin{gathered} \norm{u}_{\mathcal{C}^{k - \qty[\frac{n}{p}] - 1, \gamma}(\Rl^n)} \leq C \norm{u}_{W^{k,p}(\Rl^n)} \end{gathered}$} \newline where \newline {$\!\begin{gathered} \gamma = \begin{cases}\qty[\dfrac{n}{p}] + 1 - \dfrac{n}{p} & \text{ if } \dfrac{n}{p} \not\in \mathbb{N},\\[0.4cm] \text{any } \alpha \in \Rl \cap (0,1) & \text{ if } \dfrac{n}{p} \in \mathbb{N}.\end{cases} \end{gathered}$} & This is an example. \\[6pt] \hline
+
+            \textbf{Almost-Everywhere Differentiability} - For $n < p \leq \infty$, local Sobolev functions are almost-everywhere differentiable and its gradient and weak gradient agree almost everywhere. & This is an example. \\[6pt] \hline
+            
+            \textbf{Gagliardo-Nirenberg-Sobolev Inequality} - For $1 \leq p < n$, set $p^* = \dfrac{np}{n - p}$.  Then the $L^{p^*}$ norm of a Sobolev function is bounded by a constant multiple (dependent on $n$ and $p$) of the $L^p$ norm of its derivative. \newline {$\!\begin{gathered} \norm{u}_{L^{p^*}(\Rl^n)} \leq C\norm{Du}_{L^p(\Rl^n)} \end{gathered}$} & This is an example. \\[6pt] \hline
+            
+
+    \bottomrule
+\end{longtable}
