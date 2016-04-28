@@ -1,19 +1,75 @@
 \begin{longtable}{|*{3}{>{\centering\arraybackslash}p{0.475\textwidth}|}}
     \toprule
-        \textbf{$L^p$ Spaces} & \textbf{Examples} \\[6pt]
+        \textbf{$L^p$ Spaces} & \textbf{Notes} \\[6pt]
         \midrule
         \endhead
-            Convexity is a thing. \newline {$\!\begin{gathered} x^\lambda \leq (1 - \lambda) + \lambda x \qquad \forall \lambda \in (0,1) \\ a^\lambda b^{1-\lambda} \leq \lambda a + (1 - \lambda)b \ \ \forall \lambda \in (0,1), \ \ \forall a,b \geq 0\end{gathered}$} & This is an example. \\[6pt] \hline
-            \textbf{H\"{o}lder's Inequality} - For conjugate exponents $p$ and $q$, the $1$-norm of a product of $L^p$ and $L^q$ functions is finite, and the $1$-norm of the product is less than or equal to the product of the norms of the original functions. \newline {$\!\begin{gathered}\norm{fg}_1 \leq \norm{f}_p\norm{g}_q \end{gathered}$}\SP & This is an example. \\[6pt] \hline
-            \textbf{Interpolation Inequality} - For $1 \leq r \leq s \leq t \leq \infty$, if $u$ is in $L^r$ and $L^t$, then $u$ is in $L^s$ and the $s$-norm is less than of equal to the product of the $r$- and $t$-norms raised to the appropriate power. \newline {$\!\begin{gathered}\norm{u}_s \leq \norm{u}_r^a \norm{u}_t^{1-a}\qquad \text{where } \frac{1}{s} = \frac{a}{r} + \frac{1-a}{t} \\ L^r \cap L^t \subset L^s \end{gathered}$} \SP & This is an example. \\[6pt] \hline
-            \textbf{Minkowski's Inequality} - For functions in $L^p$, the norm of their sum is less than or equal to the sum of their norms. \newline {$\!\begin{gathered}\norm{f + g}_p \leq \norm{f}_p + \norm{g}_p \end{gathered}$} \SP & This is an example. \\[6pt] \hline
-            $L^p$ is a normed linear space. & This is an example. \\[6pt] \hline
-            $L^p$ is a Banach Space. & This is an example. \\[6pt] \hline
-            \textbf{Pointwise convergence implies a double implication} - If a sequence of functions converge pointwise, then their norms converge if and only if they converge in norm. \newline {$\!\begin{gathered}f_k \rightarrow f \text{ pointwise} \implies \\ \Bigg[\norm{f_k - f}_p \rightarrow 0\ \ \iff\ \ \norm{f_k}_p \rightarrow \norm{f}_p\Bigg] \end{gathered}$} \SP & This is an example. \\[6pt] \hline
-            \textbf{$L^p$ Comparisons} - For $1 \leq r \leq s \leq t \leq \infty$, if a function in $L^s$ can be written as the sum of functions in $L^r$ and $L^t$. \newline {$\!\begin{gathered}L^s \subset L^r + L^t \end{gathered}$} \SP & This is an example. \\[6pt] \hline
-            \textbf{$L^p$ Comparison for Finite Spaces} - For finite measure spaces, a function in $L^q$ is also in $L^p$ for all $q > p$. \newline {$\!\begin{gathered}L^q \subset L^p \end{gathered}$} \SP & This is an example. \\[6pt] \hline
-            \textbf{Approximation of $L^p$ ($p<\infty$) by Simple Functions} - The set of Simple Functions are dense in $L^p$. & This is an example. \\[6pt] \hline
-            \textbf{Approximation of $L^p$ ($p<\infty$) by Continuous Functions} - For bounded measure spaces, the set of continuous functions is dense in $L^p$. & This is an example. \\[6pt] \hline
+            \textbf{Convexity is a thing} - \newline
+            {$\!\begin{gathered}
+                x^\lambda \leq (1 - \lambda) + \lambda x \qquad \forall \lambda \in (0,1) \\
+                a^\lambda b^{1-\lambda} \leq \lambda a + (1 - \lambda)b \ \ \forall \lambda \in (0,1), \ \ \forall a,b \geq 0 \\
+                \abs{f + g}^p \leq 2^{p-1}\qty(\abs{f}^p + \abs{g}^p)
+            \end{gathered}$}
+            &
+            $\Rl$ is convex.  $L^p$ is convex for $1 \leq p \leq \infty$.
+            \\[6pt] \hline
+            
+            \textbf{H\"{o}lder's Inequality} - For conjugate exponents $p$ and $q$, the $1$-norm of a product of $L^p$ and $L^q$ functions is finite, and the $1$-norm of the product is less than or equal to the product of the norms of the original functions. \newline {$\!\begin{gathered}\norm{fg}_1 \leq \norm{f}_p\norm{g}_q \end{gathered}$}\SP
+            &
+            Turn limits of integrals with wonky limits to limits of integrals of functions applied to characteristic functions.
+            {$\!\begin{gathered}
+                \int_A f = \int f \mathcal{X}_A \leq \norm{f}_p \norm{\mathcal{X}_A}_q = \norm{f}_p \mu(A)^{\frac{1}{q}} < \infty
+            \end{gathered}$}
+            This trick is only useful when $A$ has finite measure.
+            \\[6pt] \hline
+            
+            \textbf{Interpolation Inequality} - For $1 \leq r \leq s \leq t \leq \infty$, if $u$ is in $L^r$ and $L^t$, then $u$ is in $L^s$ and the $s$-norm is less than of equal to the product of the $r$- and $t$-norms raised to the appropriate power. \newline {$\!\begin{gathered}\norm{u}_s \leq \norm{u}_r^a \norm{u}_t^{1-a}\qquad \text{where } \frac{1}{s} = \frac{a}{r} + \frac{1-a}{t} \\ L^r \cap L^t \subset L^s \end{gathered}$} \SP
+            &
+            This is helpful in determining ranges of integrability.
+            \\[6pt] \hline
+            
+            \textbf{Minkowski's Inequality} - For functions in $L^p$, the norm of their sum is less than or equal to the sum of their norms. \newline {$\!\begin{gathered}\norm{f + g}_p \leq \norm{f}_p + \norm{g}_p \end{gathered}$} \SP
+            &
+            This is just the triangle inequality.
+            \\[6pt] \hline
+            
+            $L^p$ is a normed linear space.
+            &
+            This is true fact that is true.
+            \\[6pt] \hline
+            
+            $L^p$ is a Banach Space.
+            &
+            Cauchy sequences in $L^p$ converge.
+            \\[6pt] \hline
+            
+            \textbf{Pointwise convergence implies a double implication} - If a sequence of functions converge pointwise, then their norms converge if and only if they converge in norm. \newline {$\!\begin{gathered}f_k \rightarrow f \text{ pointwise} \implies \\ \Bigg[\norm{f_k - f}_p \rightarrow 0\ \ \iff\ \ \norm{f_k}_p \rightarrow \norm{f}_p\Bigg] \end{gathered}$} \SP
+            &
+            We don't need pointwise convergence to ensure that convergence in norm implies norm convergence.  This follows from the triangle inequality.  However, we require pointwise convergence and employ convexity to ensure norm convergence implies convergence in norm.
+            \\[6pt] \hline
+            
+            \textbf{$L^p$ Comparisons} - For $1 \leq r \leq s \leq t \leq \infty$, if a function in $L^s$ can be written as the sum of functions in $L^r$ and $L^t$. \newline {$\!\begin{gathered}L^s \subset L^r + L^t \end{gathered}$} \SP
+            &
+            Prove this by writing $f = f\mathcal{X}_A + f\mathcal{X}_B$ where $A = \{x\ :\ f(x) \geq 1\}$ and $B = \{x\ :\ f(x) < 1\}$.
+            \\[6pt] \hline
+            
+            \textbf{$L^p$ Comparison for Finite Spaces} - For finite measure spaces, a function in $L^q$ is also in $L^p$ for all $q > p$. \newline {$\!\begin{gathered}L^q \subset L^p \end{gathered}$} \SP
+            &
+            \begin{itemize}
+                \item Let $\Omega = (0,1)$.  Then $\frac{1}{x^\alpha} \in L^p(\Omega)$ if $\alpha p < 1$.
+                \item Let $\Omega = (1, \infty)$.  Then $\frac{1}{x^\alpha} \in L^p(\Omega)$ if $\alpha p > 1$.
+            \end{itemize}
+            \\[6pt] \hline
+            
+            \textbf{Approximation of $L^p$ ($p<\infty$) by Simple Functions} - The set of Simple Functions are dense in $L^p$.
+            &
+            This is a truthful statement that can be proved using true facts.
+            \\[6pt] \hline
+            
+            \textbf{Approximation of $L^p$ ($p<\infty$) by Continuous Functions} - For bounded measure spaces, the set of continuous functions is dense in $L^p$.
+            &
+            Dear L-rd please help me understand density.  Amen.
+            \\[6pt] \hline
+            
             \textbf{Approximation of $L^p_{\text{loc}}$ by Smooth Functions} - For a function $f$ in $L^p_{\text{loc}}$, its mollified functions:
             \begin{enumerate}
                 \item
@@ -24,6 +80,14 @@
                     converge uniformly to $f$ on compact subsets of the space (given $f$ is continuous), and
                 \item
                     converge to $f$ in $L^p_{\text{loc}}$.
-            \end{enumerate} & This is an example. \\[6pt] \hline
+            \end{enumerate}
+            &
+            First note that $L^p \subset L^p_\text{loc}$.  If a function is integrable on the whole domain it is certainly integrable on subsets.  Functions can fail to be in $L^p$ if they don't taper off fast enough at infinity, or they blow up at a singularity.  Functions that don't taper off fast enough can still be in $L^p_\text{loc}$.  Functions that blow up at a singularity can also still by in $L^p_\text{loc}$ provided the singularity is at the boundary.
+            \begin{itemize}
+                \item $\frac{1}{x} \not\in L^1_\text{loc}((-1,1))$.
+                \item $\frac{1}{x} \not\in L^1((0,1))$, but $\frac{1}{x} \in L^1_\text{loc}((0,1))$.
+                \item $\mathcal{X}_\Rl \not\in L^1(\Rl)$, but $\mathcal{X}_\Rl \in L^1_\text{loc}(\Rl)$.
+            \end{itemize}
+            \\[6pt] \hline
     \bottomrule
 \end{longtable}

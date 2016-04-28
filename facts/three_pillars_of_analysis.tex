@@ -1,10 +1,26 @@
 \begin{longtable}{|*{3}{>{\centering\arraybackslash}p{0.475\textwidth}|}}
     \toprule
-        \textbf{Three Pillars of Analysis} & \textbf{Examples} \\[6pt]
+        \textbf{Three Pillars of Analysis} & \textbf{Notes} \\[6pt]
         \midrule
         \endhead
-            \textbf{Monotone Convergence Theorem} - If a sequence of non-negative functions is increasing, we can pull the limit through an integral. \newline {$\!\begin{gathered} \lim_k \int f_k = \int \lim_k f_k\end{gathered}$} & This is an example. \\[6pt] \hline
-            \textbf{Fatou's Lemma} - For a sequence of non-negative functions, the integral of the lim~inf is less than or equal to the lim~inf of the integral. \newline {$\!\begin{gathered}\int \liminf_k f_k \leq \liminf_k \int f_k\end{gathered}$}\SP & This is an example. \\[6pt] \hline
-            \textbf{Dominated Convergence Theorem} - If a sequence converges pointwise almost everywhere and is dominated, then it converges in norm to its pointwise limit. \newline {$\!\begin{gathered}\lim_k\int f_k = \int \lim_k f_k = \int f \\ \lim_k\norm{f_k - f}_1 = 0\end{gathered}$} \SP & This is an example. \\[6pt] \hline
+            \textbf{Monotone Convergence Theorem} - If a sequence of non-negative functions is increasing, we can pull the limit through an integral. \newline {$\!\begin{gathered} \lim_k \int f_k = \int \lim_k f_k\end{gathered}$}
+            &
+            $f_k = k\mathcal{X}_{\qty[0, \frac{1}{k}]}$ converges pointwise to $0$, but they are not increasing, and so the Monoton Convergence Theorem does not hold. {$\!\begin{gathered}1 = \lim_k \int f_k \neq \int \lim_k f_k = 0\end{gathered}$}
+            \\[6pt] \hline
+            
+            \textbf{Fatou's Lemma} - For a sequence of non-negative functions, the integral of the lim~inf is less than or equal to the lim~inf of the integral. \newline {$\!\begin{gathered}\int \liminf_k f_k \leq \liminf_k \int f_k\end{gathered}$}\SP
+            &
+            \begin{itemize}
+                \item To remember which direction the inequality goes, draw a bunch of functions and trace out the infimum at each point.  Visually, the integral over the pointwise lim~inf is clearly less than the lim~inf of the integrals of the functions.
+                \item $f_k = k \mathcal{X}_{\qty[0, \frac{1}{k}]}$ is a clear example of this.
+                {$\!\begin{gathered}0 = \int \liminf_k f_k \leq \liminf \int f_k = 1\end{gathered}$}
+                \item \emph{Prove this thing: $t = 3d$ etc.}  Well here is a proof.
+            \end{itemize}
+            \\[6pt] \hline
+            
+            \textbf{Dominated Convergence Theorem} - If a sequence converges pointwise almost everywhere and is dominated, then it converges in norm to its pointwise limit. \newline {$\!\begin{gathered}\lim_k\int f_k = \int \lim_k f_k = \int f \\ \lim_k\norm{f_k - f}_1 = 0\end{gathered}$} \SP
+            &
+            $f_k = k\mathcal{X}_{\qty[0,\frac{1}{k}]}$ is not dominated by an $L_1$ function.  At best, it is dominated by $\frac{1}{x}$, and so the Dominated Convergence Theorem does not hold.
+            \\[6pt] \hline
     \bottomrule
 \end{longtable}
