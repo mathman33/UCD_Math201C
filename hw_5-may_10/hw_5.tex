@@ -1,0 +1,217 @@
+\documentclass{article} % A4 paper and 11pt font size
+\setcounter{secnumdepth}{0}
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{extarrows}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{mathrsfs}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{color}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage[makeroom]{cancel}
+\usepackage{bbold}
+\usepackage{alltt}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{bigints}
+\allowdisplaybreaks
+\pgfplotsset{compat=1.12}
+
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{lemma}{Lemma}
+
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newcommand{\E}{\varepsilon}
+\def\Rl{\mathbb{R}}
+\def\Cx{\mathbb{C}}
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancy} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead[L]{\bf Sam Fleischer}
+\fancyhead[C]{\bf UC Davis \\ Analysis (MAT201C)} % No page header - if you want one, create it in the same way as the footers below
+\fancyhead[R]{\bf Spring 2016}
+
+\fancyfoot[L]{\bf } % Empty left footer
+\fancyfoot[C]{\bf \thepage} % Empty center footer
+\fancyfoot[R]{\bf } % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{25pt} % Customize the height of the header
+
+\newcommand{\VEC}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\ran}{\text{\rm ran }}
+\newcommand{\spt}{\text{\rm spt }}
+\newcommand{\sgn}{\text{\rm sgn }}
+\newcommand{\Hilb}{\mathcal{H}}
+
+\DeclareMathOperator*{\esssup}{\text{ess~sup}}
+
+\newcommand{\problem}[2]{
+\vspace{.375cm}
+\boxed{\begin{minipage}{\textwidth}
+    \section{\bf #1}
+    #2
+\end{minipage}}
+}
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.9}
+
+\title{ 
+\normalfont \normalsize 
+\textsc{UC Davis, Analysis (MAT201C), Spring 2016} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{2pt} \\[0.4cm] % Thin top horizontal rule
+\Huge Homework \#5 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{\huge Sam Fleischer} % Your name
+
+\date{May 10, 2016} % Today's date or a custom date
+
+\begin{document}\thispagestyle{empty}
+
+\maketitle % Print the title
+
+\makeatletter
+\@starttoc{toc}
+\makeatother
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 1}{\begin{enumerate}[(a)]
+    \item
+        For $f \in L^1(\Rl)$, set $S_Rf(x) = \qty(2\pi)^{-\frac{1}{2}}\displaystyle\int_{-R}^R\widehat{f}(\xi)e^{ix\xi}\dd\xi$.  Show that $$S_Rf(x) = K_R * f(x) = \int_{-\infty}^\infty K_R(x-y)f(y)\dd y$$ where $$K_R(x) = \qty(2\pi)^{-1}\int_{-R}^Re^{ix\xi}\dd\xi = \frac{\sin Rx}{\pi x}.$$
+    \item
+        Show that if $f \in L^2(\Rl)$, then $S_Rf \rightarrow f$ in $L^2(\Rl)$ as $R\rightarrow \infty$.
+\end{enumerate}}
+\begin{proof}
+    \begin{enumerate}[(a)]
+        \item
+            This proof is simply calculation:
+            \begin{align*}
+                (K_R * f)(x) &= \int_{-\infty}^\infty K_R(x - y)f(y) \dd y \\
+                &= \frac{1}{2\pi}\int_{-\infty}^\infty \int_{-R}^R e^{i(x - y)\xi}\dd\xi f(y) \dd y \\
+                &= \frac{1}{2\pi}\int_{-\infty}^\infty \int_{-R}^R e^{ix\xi}e^{-iy\xi} f(y) \dd\xi \dd y \\
+                &= \frac{1}{\sqrt{2\pi}}\int_{-R}^R \qty[\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty f(y) e^{-iy\xi}\dd y] e^{ix\xi}\dd \xi \\
+                &= \frac{1}{\sqrt{2\pi}}\int_{-R}^R\widehat{f}(\xi)e^{ix\xi}\dd\xi \\
+                &= S_Rf(x)
+            \end{align*}
+        \item
+            Next up, some analysis!
+    \end{enumerate}
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 2}{Show that for any $R \in (0, \infty)$, there exists $f \in L^1(\Rl)$ such that $S_Rf \not\in L^1(\Rl)$.  Note that $K_R \not\in L^1(\Rl)$.}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 3}{Assume $w \in \mathcal{S}'(\Rl^n)$ and $w(x) \geq 0$.  Show that if $\widehat{w} \in L^\infty(\Rl^n)$ then $w \in L^1(\Rl^n)$ and $$\norm{\widehat{x}}_{L^\infty(\Rl^n)} = \qty(2\pi)^{-\frac{n}{2}}\norm{x}_{L^1(\Rl^n)}.$$  Hint:  Consider $w_j(x) = \psi\qty(\frac{x}{j})w(x)$ with $\psi \in \mathcal{C}_C^\infty(\Rl^n)$ and $\psi(0) = 1$.  Use the fact that $w_j \rightarrow w$ in $\mathcal{S}'(\Rl^n)$.}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 4}{Consider the Poisson equation on $\Rl\ :\ u_{xx} = f$.
+\begin{enumerate}[(a)]
+    \item Show that $\varphi(x) = \frac{x + \abs{x}}{2}$ and $\phi(x) = \frac{\abs{x}}{2}$ are both distributional solutions to $u_{xx} = \delta_0$.
+    \item Let $f$ be continuous with compact support in $\Rl$.  Show that $$u(x) = \int_\Rl \varphi(x-y)f(y) \dd y$$ and $$v(x) = \int_\Rl \phi(x - y)f(y) \dd y$$ both solve the Poisson equation $w_{xx}(x) = f(x)$ without relying upon distribution theory.
+\end{enumerate}}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 5}{Let $T \in \mathcal{S}'(\Rl^n)$ and $f \in \mathcal{S}(\Rl^n)$.  Show that the Liebniz rule for distributional derivatives holds: $$\frac{\partial}{\partial x_i}(fT) = f\frac{\partial T}{\partial x_i} + \frac{\partial f}{\partial x_i}T$$ in the sense of distributions.}
+\begin{proof}
+    \begin{align*}
+        \begin{array}{lll}
+            \VEC{fT}{\phi'} &= \VEC{T}{f\phi'} & \text{by the definition of multiplication of $\mathcal{S}$ and $\mathcal{S}'$} \\[0.15cm]
+            &= \VEC{T}{f\phi'} + \VEC{T}{f'\phi} - \VEC{T}{f'\phi} & \text{by adding and subtracting $\VEC{T}{f'\phi}$} \\[0.15cm]
+            &= \VEC{T}{f\phi' + f'\phi} - \VEC{T}{f'\phi} & \text{by linearity of dual pairings} \\[0.15cm]
+            &= \VEC{T}{\qty(f\phi)'} - \VEC{T}{f'\phi} \ & \text{by the product rule of functions in $S$} \\[0.15cm]
+            &= -\VEC{T'}{f\phi} - \VEC{T}{f'\phi} & \text{by the definition of the distributional derivative of $T \in \mathcal{S}^*$} \\[0.15cm]
+            &= -\VEC{T'}{f\phi} - \VEC{f'T}{\phi} & \text{by the definition of multiplication of $\mathcal{S}$ and $\mathcal{S}'$} \\[0.15cm]
+            &= -\VEC{fT'}{\phi} - \VEC{f'T}{\phi} & \text{by the definition of multiplication of $\mathcal{S}$ and $\mathcal{S}'$} \\[0.15cm]
+            &= -\VEC{fT' + f'T}{\phi} & \text{by linearity of dual pairings}
+        \end{array}
+    \end{align*}
+    Thus, by the definition of distributional derivative, $\qty(fT)' = fT' + f'T$.
+\end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{Problem 6}{Show that a function $f \in L^2(\Rl^n)$ is real if and only if $$\widehat{f}(-\xi) = \overline{\widehat{f}(\xi)}.$$}
+\begin{proof}
+    First note the following equality:
+    \begin{align*}
+        \overline{\widehat{f}(\xi)} = \overline{\int_\Rl f(x)e^{-ix\xi}\dd x} = \int_\Rl \overline{f(x)}e^{ix\xi}\dd x = \int_\Rl \overline{f(x)}e^{-ix(-\xi)}\dd x = \widehat{\overline{f}}(-\xi)
+    \end{align*}
+    If $f$ is real, then $\overline{f} = f$, and thus $\widehat{f}(-\xi) = \overline{\widehat{f}(\xi)}$.  On the other hand, if $\widehat{f}(-\xi) = \overline{\widehat{f}(\xi)}$, then $\widehat{f}(-\xi) = \widehat{\overline{f}}(-\xi)$.  Since $f \in L^2$, then the Fourier transform is a bijection, and thus $f = \overline{f}$, which proves $f$ is a real-valued function.
+\end{proof}
+
+
+
+
+
+
+\end{document}
