@@ -129,8 +129,14 @@
     \item Prove that if $f, g \in \mathcal{S}(\Rl^n)$ (the Schwartz class of functions) then $f * g \in \mathcal{S}(\Rl^n)$.
     \item Find explicitly $\Psi = \widehat{\abs{x}^2} \in \mathcal{S}'(\Rl^n)$.
 \end{enumerate}}
-\begin{proof}
-\end{proof}
+\begin{enumerate}[(a)]
+    \item \begin{proof}
+        First note that the Fourier transform is an isomorphism from $\mathcal{S}(\Rl^n)$ onto itself.  Thus it suffices to show that for $f,g \in \mathcal{S}(\Rl^n)$, $\widehat{f*g}\in \mathcal{S}(\Rl^n)$.  However, $\widehat{f*g} = \widehat{f}\widehat{g} \in \mathcal{S}(\Rl^n)$ since $\widehat{f}$ and $\widehat{g}$ are Schwartz functions and the product of Schwartz functions is a Schwartz function.  Thus $\widehat{f*g} \in \mathcal{S}(\Rl^n)$, which shows $f*g \in \mathcal{S}(\Rl^n)$.
+    \end{proof}
+        \item \begin{proof}
+        something
+    \end{proof}
+\end{enumerate}
 
 
 
@@ -143,9 +149,15 @@
     \item Prove that $$\widehat{\abs{x}^{-n + \alpha}}(\xi) = c_{n,\alpha}\abs{\xi}^{-\alpha}.$$  Observe that $\abs{x}^{-n+\alpha}\mathcal{X}_{\{\abs{x} \leq 1\}} \in L^1(\Rl)$ and $\abs{x}^{-n + \alpha}\mathcal{X}_{\{\abs{x} > 1\}} \in L^2(\Rl)$.  Thus $\widehat{\abs{x}^{-n + \alpha}}(\xi)$ is a function.  Show that $\widehat{\abs{x}^{-n + \alpha}}(\xi)$ is radial and homogeneous of order $-\alpha$.
 \end{enumerate}
 Define the \emph{Hilbert transform} $\Hilb(\phi)$ of a function $\phi \in \mathcal{S}(\Rl)$ by $$ \Hilb(\phi) = \frac{1}{\pi}\pval{\frac{1}{x}} * \phi,$$ where $$\pval{\frac{1}{x}}(\phi) = \lim_{\E \rightarrow 0}\int_{\E < \abs{x} < \frac{1}{\E}}\frac{\phi(x)}{x}\dd x.$$}
-\begin{proof}
-\end{proof}
-
+\begin{enumerate}[(a)]
+    \item\begin{proof}
+        \begin{align*}
+            \int_\Rl \abs{x}^{-n + \alpha}
+        \end{align*}
+    \end{proof}
+    \item\begin{proof}
+    \end{proof}
+\end{enumerate}
 
 
 
@@ -199,13 +211,35 @@ Define the \emph{Hilbert transform} $\Hilb(\phi)$ of a function $\phi \in \mathc
         \end{align*}
         Since the Fourier transform is an isomorphism, the identity holds since we can take the inverse Fourier transform of both sides.
         \item \begin{align*}
-            \Hilb\qty(\mathcal{X}_{(-1,1)}) &= \frac{1}{\pi}\lim_{\E \rightarrow 0}\int_{\E < \abs{y} < \frac{1}{\E}}\frac{\mathcal{X}_{(-1,1)}(y)}{x - y} \dd y \\
-            &= \frac{1}{\pi}\lim_{\E \rightarrow 0}\int_{\E < \abs{y} < 1}\frac{1}{x - y} \dd y \\
-            &= \frac{1}{\pi}\qty[\lim_{\E \rightarrow 0}\qty[\int_\E^1 \frac{1}{x - y}\dd y + \int_{-1}^{-\E} \frac{1}{x - y}\dd y]] \\
-            &= \frac{1}{\pi}\qty[\lim_{\E \rightarrow 0} \qty[\log{\abs{x - y}}\Big|_{\E}^1 + \log{\abs{x - y}}\Big|_{-1}^{-\E}]] \\
-            &= \frac{1}{\pi}\qty[\lim_{\E\rightarrow 0}\qty[\log{\abs{x - 1}} - \log{\abs{x - \E}} + \log{\abs{x + \E}} - \log{\abs{x + 1}}]] \\
-            &= \frac{1}{\pi}\log{\abs{\frac{x - 1}{x + 1}}}
-        \end{align*}
+            \Hilb\qty(\mathcal{X}_{(-1,1)})(x) &= \frac{1}{\pi}\lim_{\E \rightarrow 0}\int_{\E < y < \frac{1}{\E}} \frac{\mathcal{X}_{-1, 1)}(x - y)}{y} \dd y \\
+            &= \frac{1}{\pi}\lim_{\E \rightarrow 0}\int_{\E < \abs{x - y} < \frac{1}{\E}}\frac{\mathcal{X}_{(-1,1)}(y)}{x - y} \dd y \\
+            &= \begin{cases}
+                \displaystyle\frac{1}{\pi}\lim_{\E\rightarrow 0}\qty[\int_{-1}^{x - \E}\frac{1}{x - y}\dd y + \int_{x + \E}^1 \frac{1}{x - y}\dd y] & \text{ if } x \in (-1, 1) \\[.3cm]
+                \displaystyle\frac{1}{\pi}\lim_{\E\rightarrow 0}\int_{-1 + \E}^1 \frac{1}{x - y} \dd y & \text{ if } x = -1 \\[.3cm]
+                \displaystyle\frac{1}{\pi}\lim_{\E\rightarrow 0}\int_{-1}^{1 - \E} \frac{1}{x - y} \dd y & \text{ if } x = 1 \\[.3cm]
+                \displaystyle\frac{1}{\pi}\lim_{\E\rightarrow 0}\int_{-1}^1 \frac{1}{x - y} \dd y & \text{ if } x \not\in [-1, 1]
+            \end{cases} \\
+            &= \begin{cases}
+                \displaystyle\frac{1}{\pi}\lim_{\E\rightarrow 0}\qty[\underline{-\log\abs{\E}} + \log\abs{x + 1} - \log\abs{x - 1} \underline{+ \log\abs{\E}}] & \text{ if } x \in (-1, 1) \\[.3cm]
+                \displaystyle\frac{1}{\pi}\lim_{\E\rightarrow 0} \qty[-\log\abs{x - 1} + \log\abs{x + 1 - \E}] & \text{ if } x = -1 \\[.3cm]
+                \displaystyle\frac{1}{\pi}\lim_{\E\rightarrow 0} \qty[-\log\abs{x - 1 + \E} + \log\abs{x + 1}] & \text{ if } x = 1 \\[.3cm]
+                \displaystyle\frac{1}{\pi}\lim_{\E\rightarrow 0} \qty[-\log\abs{x - 1} + \log\abs{x + 1}] & \text{ if } x \not\in [-1, 1]
+            \end{cases} \\
+            &= \begin{cases}
+                \displaystyle\frac{1}{\pi} \lim_{\E\rightarrow 0}\log\abs{\frac{x + 1}{x - 1}} & \text{ if } x \in (-1, 1) \\[0.3cm]
+                \displaystyle\frac{1}{\pi} \lim_{\E\rightarrow 0}\log\abs{\frac{x + 1 - \E}{x - 1}} & \text{ if } x = -1 \\[0.3cm]
+                \displaystyle\frac{1}{\pi} \lim_{\E\rightarrow 0}\log\abs{\frac{x + 1}{x - 1 + \E}} & \text{ if } x = 1 \\[0.3cm]
+                \displaystyle\frac{1}{\pi} \lim_{\E\rightarrow 0}\log\abs{\frac{x + 1}{x - 1}} & \text{ if } x \not\in [-1, 1]
+            \end{cases} \\
+            &= \frac{1}{\pi}\log\abs{\frac{x + 1}{x - 1}} \qquad \forall x \in \Rl
+            \end{align*}
+        %     \begin{align*}
+        %     &= \frac{1}{\pi}\lim_{\E \rightarrow 0}\int_{\E < \abs{y} < 1}\frac{1}{x - y} \dd y \\
+        %     &= \frac{1}{\pi}\qty[\lim_{\E \rightarrow 0}\qty[\int_\E^1 \frac{1}{x - y}\dd y + \int_{-1}^{-\E} \frac{1}{x - y}\dd y]] \\
+        %     &= \frac{1}{\pi}\qty[\lim_{\E \rightarrow 0} \qty[\log{\abs{x - y}}\Big|_{\E}^1 + \log{\abs{x - y}}\Big|_{-1}^{-\E}]] \\
+        %     &= \frac{1}{\pi}\qty[\lim_{\E\rightarrow 0}\qty[\log{\abs{x - 1}} - \log{\abs{x - \E}} + \log{\abs{x + \E}} - \log{\abs{x + 1}}]] \\
+        %     &= \frac{1}{\pi}\log{\abs{\frac{x - 1}{x + 1}}}
+        % \end{align*}
     \end{enumerate}
 \end{proof}
 
