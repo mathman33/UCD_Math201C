@@ -115,8 +115,35 @@
 \pagebreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\problem{Problem 1}{Given $f(x) = \frac{1}{\qty(1 + x^2)^2}$ find $\widehat{f}(\xi)$.  Prove that $\widehat{f} \in C^2$.  You can use the following fact that follows from complex integration $$\int_{-\infty}^\infty \frac{\cos(ax)}{x^2 + b^2}\dd x = \frac{\pi}{b}e^{-ab}, \qquad a,b > 0.$$}
+\problem{Problem 1}{Given $f(x) = \frac{1}{\qty(1 + x^2)^2}$ find $\widehat{f}(\xi)$.  Prove that $\widehat{f} \in C^2$.  You can use the following fact that follows from complex integration: $$\int_{-\infty}^\infty \frac{\cos(ax)}{x^2 + b^2}\dd x = \frac{\pi}{b}e^{-ab}, \qquad a,b > 0.$$}
 \begin{proof}
+    Let $g = \sqrt{f} = \frac{1}{1 + x^2}$.  Then
+    \begin{align*}
+        \widehat{g} = \int_\Rl \frac{e^{-2\pi i x \xi}}{1 + x^2}\dd x &= \int_\Rl \frac{\cos(2\pi x \xi) - i \sin(2\pi x \xi)}{1 + x^2} \dd x \\
+        &= \int_\Rl \frac{\cos(2\pi x \xi)}{1 + x^2}\dd x - \cancelto{0}{i\int_\Rl\frac{\sin(2\pi x \xi)}{1 + x^2}\dd x} \\
+        &= \pi e^{-\abs{2\pi\xi}} \\
+        \implies \widehat{f} = \widehat{g^2} = \widehat{g}*\widehat{g} = \int_\Rl \pi^2 e^{-\abs{2\pi y} - \abs{2\pi(\xi - y)}}\dd y &= \boxed{\frac{\pi}{2}e^{-\abs{2\pi \xi}}\qty(1 + \abs{2\pi\xi})}
+    \end{align*}
+    Note that
+    \begin{align*}
+        \widehat{f}(\xi) &= \frac{\pi}{2}\begin{cases}
+            e^{-x}(1 + x) & \text{ if } x \geq 0 \\
+            e^{x}(1 - x) & \text{ if } x < 0
+        \end{cases} \\
+        \implies \widehat{f}'(\xi) &= \frac{\pi}{2}\begin{cases}
+            -xe^{-x} & \text{ if } x \geq 0 \\
+            -xe^{x} & \text{ if } x > 0
+        \end{cases} \\
+        \implies \widehat{f}''(\xi) &= \frac{\pi}{2}\begin{cases}
+            e^{-x}(x - 1) & \text{ if } x \geq 0 \\
+            -e^{x}(x + 1) & \text{ if } x < 0
+        \end{cases} \\
+        \implies \widehat{f}'''(\xi) &= \frac{\pi}{2}\begin{cases}
+            -e^{-x}(x - 2) & \text{ if } x \geq 0 \\
+            e^{x}(x + 2) & \text{ if } x < 0
+        \end{cases}
+    \end{align*}
+    Then $\displaystyle \lim_{\xi \rightarrow 0^+}\widehat{f}(\xi) = 1 = \lim_{\xi \rightarrow 0^-}\widehat{f}(\xi)$, $\displaystyle \lim_{\xi \rightarrow 0^+}\widehat{f}'(\xi) = 0 = \lim_{\xi \rightarrow 0^-}\widehat{f}'(\xi)$, and $\displaystyle \lim_{\xi \rightarrow 0^+}\widehat{f}''(\xi) = -1 = \lim_{\xi \rightarrow 0^-}\widehat{f}''(\xi)$, but $\displaystyle \lim_{\xi \rightarrow 0^+}\widehat{f}'''(\xi) = -2 \neq 2 = \lim_{\xi \rightarrow 0^-}\widehat{f}'''(\xi)$.  So $\widehat{f} \in C^2$, but $\widehat{f} \not\in C^3$.
 \end{proof}
 
 
