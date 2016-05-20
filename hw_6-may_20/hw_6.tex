@@ -161,7 +161,21 @@
         First note that the Fourier transform is an isomorphism from $\mathcal{S}(\Rl^n)$ onto itself.  Thus it suffices to show that for $f,g \in \mathcal{S}(\Rl^n)$, $\widehat{f*g}\in \mathcal{S}(\Rl^n)$.  However, $\widehat{f*g} = \widehat{f}\widehat{g} \in \mathcal{S}(\Rl^n)$ since $\widehat{f}$ and $\widehat{g}$ are Schwartz functions and the product of Schwartz functions is a Schwartz function.  Thus $\widehat{f*g} \in \mathcal{S}(\Rl^n)$, which shows $f*g \in \mathcal{S}(\Rl^n)$.
     \end{proof}
         \item \begin{proof}
-        something
+            First note that
+            \begin{align*}
+                \widehat{f}(\xi) &= \int f(x)e^{-2\pi i x \xi}\dd x \\
+                \implies \widehat{f}'(\xi) &= \int (-2\pi ix)f(x)e^{-2\pi i x \xi} \dd x \\
+                \implies \widehat{f}''(\xi) &= \int -4\pi^2\abs{x}^2f(x)e^{-2\pi i x \xi}\dd x
+            \end{align*}
+            Thus,
+            \begin{align*}
+                \widehat{\abs{x}^2} &= \int \abs{x}^2e^{-2\pi i x \xi}\dd x \\
+                &= \int -\frac{\dd^2}{\dd \xi^2} e^{-2\pi i x \xi} \dd x \\
+                &= -\frac{\dd^2}{\dd \xi^2} \int e^{-2\pi i x \xi} \dd x \\
+                &= -\frac{\dd^2}{\dd \xi^2}\widehat{\mathcal{X}_\Rl} \\
+                &= -\frac{\dd^2}{\dd \xi^2} \delta(\xi) \\
+                &= -\delta''(\xi)
+            \end{align*}
     \end{proof}
 \end{enumerate}
 
@@ -178,11 +192,38 @@
 Define the \emph{Hilbert transform} $\Hilb(\phi)$ of a function $\phi \in \mathcal{S}(\Rl)$ by $$ \Hilb(\phi) = \frac{1}{\pi}\pval{\frac{1}{x}} * \phi,$$ where $$\pval{\frac{1}{x}}(\phi) = \lim_{\E \rightarrow 0}\int_{\E < \abs{x} < \frac{1}{\E}}\frac{\phi(x)}{x}\dd x.$$}
 \begin{enumerate}[(a)]
     \item\begin{proof}
+        First define the operator $\Phi_f$ (where $f(x) = \abs{x}^{-n+\alpha}$) as integration against $f$.  Note that $\Phi_f$ is linear:
         \begin{align*}
-            \int_\Rl \abs{x}^{-n + \alpha}
+            \Phi_f(\alpha u + \beta v) = \int \qty(\alpha u + \beta v)f = \int \alpha u f + \int \beta v f = \alpha \int u f + \beta \int v f = \alpha\Phi_f(u) + \beta\Phi_f(v)
         \end{align*}
+        Next we show $\Phi_f$ is continuous.  Consider a sequence of Schwartz functions $\phi_i \rightarrow 0$.  We want to show $\Phi_f(\phi_i) \rightarrow 0$.  However,
+        \begin{align*}
+            \phi_i(x)\abs{x}^{-n + \alpha} \rightarrow 0 \qquad \text{pointwise a.e.}
+        \end{align*}
+        and there is a dominating function since (I don't need justification! respect my authority!), so by DCT,
+        \begin{align*}
+            \lim \int \phi_i(x)\abs{x}^{-n + \alpha}\dd x = \int\lim \phi_i(x)\abs{x}^{-n + \alpha} = 0.
+        \end{align*}
+        Thus, $\Phi_f$ is continuous.  This shows $\Phi_f$ is a tempered distribution, since this holds for arbitrary Schwartz functions.
     \end{proof}
     \item\begin{proof}
+        Let $A$ be an orthonormal rotation operator.  Then $\qty(A^{-1})^* = A$.  Also,
+        \begin{align*}
+            \widehat{\abs{Ax}^{-n + \alpha}}(\xi) &= \int_{\Rl^n} \abs{Ax}^{-n+\alpha}e^{-2\pi i x\cdot \xi}\dd x \\
+            &= \frac{1}{\abs{\det A}}\int_{\Rl^n}\abs{y}^{-n +\alpha}e^{-2\pi i y\cdot \qty(A^{-1})^*\xi} \dd y \\
+            &= \frac{1}{\abs{\det A}}\int_{\Rl^n}\abs{y}^{-n +\alpha}e^{-2\pi i y\cdot A \xi} \dd y \\
+            &= \widehat{\abs{x}^{-n + \alpha}}(A\xi)
+        \end{align*}
+        where we have made the substitution $y = Ax$ (and hence $\dd y = \abs{\det A}\dd x$).  Thus $\widehat{\abs{x}^{-n + \alpha}}$ is radial.  It is also homogeneous of order $-\alpha$ since
+        \begin{align*}
+            \widehat{\abs{x}^{-n + \alpha}}(\lambda \xi) &= \int_{\Rl^n}\abs{x}^{-n + \alpha}e^{-2\pi i \lambda x \cdot \xi}\dd x \\
+            &= \lambda^{-n}\int_{\Rl^n}\abs{\frac{y}{\lambda}}^{-n + \alpha}e^{-2\pi i y\cdot \xi}\dd y \\
+            &= \lambda^{-a}\widehat{\abs{x}^{-n + \alpha}}(\xi)
+        \end{align*}
+        where we have made the substitution $x = \lambda y$ (and hence $\dd x = \lambda^n \dd y$).  Since this function is radial and homogeneous of order $-\alpha$ (and since the Fourier transform is an isomorphism), this shows there is some constant $c_{n,\alpha}$ such that
+        \begin{align*}
+            \widehat{\abs{x}^{-n + \alpha}}(\xi) = c_{n,\alpha}\abs{\xi}^{-\alpha}.
+        \end{align*}
     \end{proof}
 \end{enumerate}
 
@@ -193,6 +234,7 @@ Define the \emph{Hilbert transform} $\Hilb(\phi)$ of a function $\phi \in \mathc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{Problem 4}{If $\phi \in \mathcal{S}(\Rl)$, prove that $\Hilb(\phi) \in L^1(\Rl)$ if and only if $\widehat{\phi}(0) = 0$.}
 \begin{proof}
+    Let $\phi \in \mathcal{S}(\Rl)$ and assume $\Hilb(\phi) \in L^1(\Rl)$.  Then by the Riemann-Lebesgue Lemma, $\widehat{\qty(\Hilb(\phi))}$ is continuous.  Thus, since $\widehat{\Hilb(\phi)}(0) = 0$, then $\widehat{\phi}(0) = \lim_{\xi \rightarrow 0}\widehat{\phi}(\xi) = 0$.  If this were not the case, then this would contradict the Riemann-Lebesgue Lemma.
 \end{proof}
 
 
@@ -238,7 +280,7 @@ Define the \emph{Hilbert transform} $\Hilb(\phi)$ of a function $\phi \in \mathc
         \end{align*}
         Since the Fourier transform is an isomorphism, the identity holds since we can take the inverse Fourier transform of both sides.
         \item \begin{align*}
-            \Hilb\qty(\mathcal{X}_{(-1,1)})(x) &= \frac{1}{\pi}\lim_{\E \rightarrow 0}\int_{\E < y < \frac{1}{\E}} \frac{\mathcal{X}_{-1, 1)}(x - y)}{y} \dd y \\
+            \Hilb\qty(\mathcal{X}_{(-1,1)})(x) &= \frac{1}{\pi}\lim_{\E \rightarrow 0}\int_{\E < y < \frac{1}{\E}} \frac{\mathcal{X}_{(-1, 1)}(x - y)}{y} \dd y \\
             &= \frac{1}{\pi}\lim_{\E \rightarrow 0}\int_{\E < \abs{x - y} < \frac{1}{\E}}\frac{\mathcal{X}_{(-1,1)}(y)}{x - y} \dd y \\
             &= \begin{cases}
                 \displaystyle\frac{1}{\pi}\lim_{\E\rightarrow 0}\qty[\int_{-1}^{x - \E}\frac{1}{x - y}\dd y + \int_{x + \E}^1 \frac{1}{x - y}\dd y] & \text{ if } x \in (-1, 1) \\[.3cm]

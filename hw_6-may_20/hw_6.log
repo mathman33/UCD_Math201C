@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  18 MAY 2016 17:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 MAY 2016 17:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2245,44 +2245,44 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 158--159
 [][] 
  []
 
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 178--179
+[2]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 192--193
 [][] 
  []
 
-[2]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 194--196
+[3]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 235--237
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--196
+Underfull \hbox (badness 10000) in paragraph at lines 235--237
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 207--209
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 249--251
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--209
+Underfull \hbox (badness 10000) in paragraph at lines 249--251
 
  []
 
-[3] [4] [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 278.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 278.
+[4] [5] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 320.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 320.
 (/Users/samuelfleischer/School/UCD/UCD_Math201C/hw_6-may_20/hw_6.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 278.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 278.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 320.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 320.
 Package rerunfilecheck Info: File `hw_6.out' has not changed.
 (rerunfilecheck)             Checksum: AB1BBD3B1EFD461C9F7475483C3F79C7;225.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 278.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 320.
  ) 
 Here is how much of TeX's memory you used:
- 34489 strings out of 493089
- 780620 string characters out of 6134842
+ 34490 strings out of 493089
+ 780626 string characters out of 6134842
  958047 words of memory out of 5000000
  37352 multiletter control sequences out of 15000+600000
  101342 words of font info for 113 fonts, out of 8000000 for 9000
@@ -2300,10 +2300,10 @@ l/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texli
 ve/2015/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
 Output written on /Users/samuelfleischer/School/UCD/UCD_Math201C/hw_6-may_20/hw
-_6.pdf (5 pages, 82366 bytes).
+_6.pdf (6 pages, 89449 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
- 23 named destinations out of 1000 (max. 500000)
+ 119 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
